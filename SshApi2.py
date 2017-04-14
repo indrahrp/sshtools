@@ -4,6 +4,7 @@ Created on Mar 6, 2017
 @author: UC205955
 '''
 import threading, paramiko,time
+from scp import SCPClient
  
 class Ssh:
     shell = None
@@ -15,8 +16,8 @@ class Ssh:
         self.client = paramiko.client.SSHClient()
         self.client.set_missing_host_key_policy(paramiko.client.AutoAddPolicy())
         self.client.connect(address, username=username, password=password, look_for_keys=False)
-        self.transport = paramiko.Transport((address, 22))
-        self.transport.connect(username=username, password=password)
+        #self.transport = paramiko.Transport((address, 22))
+        #self.transport.connect(username=username, password=password)
         print "connection is done"
  
         #thread = threading.Thread(target=self.process)
@@ -63,19 +64,30 @@ class Ssh:
             print("Shell not opened.")
  
     def run_Cmd(self,cmd):
-        print "run cmd"
+        print "run cmd" + cmd
         stdin,stdout,stderr=self.client.exec_command(cmd)
         output = stdout.readline()
         #for out  in  output:
         #    print out   
+        #if stderr:
+        #    for line in stderr:
+        #        print line.strip('\n')
+        #    return stderr
         for line in stdout: 
             print line.strip('\n')  
         return output
-    
-sshUsername = "root"
-sshPassword = "changeme"
-sshServer = "192.168.56.10"
- 
+
+# SCPCLient takes a paramiko transport as its only argument
+    def scpget(self,remotepath,localpath='',recursive=True):
+        scpact = SCPClient(self.client.get_transport())
+        
+        scpact.get(remotepath,localpath)
+        #scpact.get('testf')
+        #else:
+        #    print "incorrect argument"
+        #exit(-1)
+        scpact.close()
+        print "scp done"
  
 #connection = Ssh(sshServer, sshUsername, sshPassword)
 #connection.run_Cmd('ls -lR /usr')
