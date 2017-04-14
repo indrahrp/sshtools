@@ -9,7 +9,7 @@ import time
 
 class Items(object):
     '''
-    classdocs to explain what it does ...
+    classdocs to explain what it does again ...
     '''
 
 
