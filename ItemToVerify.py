@@ -41,6 +41,8 @@ class Items(object):
         return "item "+ self.item_to_verify + " item staging " + str(self.item_staging_value())+ " item existing value " + str(self.item_existing_value)
 
 sshServer='sol1'
+sshUsername='root'
+sshPassword='changeme'
 localstgdir='/var/pkg/stgdir/'
 
 

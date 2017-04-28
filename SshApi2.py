@@ -4,7 +4,7 @@ Created on Mar 6, 2017
 @author: UC205955
 '''
 import threading, paramiko,time
-from scp import SCPClient
+#from scp import SCPClient
  
 class Ssh:
     shell = None
