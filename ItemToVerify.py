@@ -43,7 +43,7 @@ class Items(object):
 sshServer='sol1'
 sshUsername='root'
 sshPassword='changeme'
-localstgdir='/var/pkg/stgdir/'
+localstgdir='/var/tmp/stgdir/'
 
 
 itemlist={
