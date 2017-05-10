@@ -64,7 +64,7 @@ class Ssh:
             print("Shell not opened.")
  
     def run_Cmd(self,cmd):
-        print "run cmd" + cmd
+        print "run cmd " + cmd
         stdin,stdout,stderr=self.client.exec_command(cmd)
         output = stdout.readline()
         #for out  in  output:
@@ -73,10 +73,15 @@ class Ssh:
         #    for line in stderr:
         #        print line.strip('\n')
         #    return stderr
+        
+        for line in stderr: 
+            print line.strip('\n')  
+        
         for line in stdout: 
             print line.strip('\n')  
         return output
 
+       
 # SCPCLient takes a paramiko transport as its only argument
     def scpget(self,remotepath,localpath='',recursive=True):
         scpact = SCPClient(self.client.get_transport())
