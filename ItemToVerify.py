@@ -120,7 +120,7 @@ def get_exist_system():
 
 item=Items('system',get_stage_system,finit,get_exist_system,finit)
 print "item is " +  str(item)
-print "item is the same : " + str (item.getstagingvalue() == item.getexistvalue)
+#print "item is the same : " + str (item.getstagingvalue() == item.getexistvalue)
 #print "ixgbe value is " + item.getstagingvalue().strip()
 print "system staging value is " + item.getstagingvalue()
 print "system existing value is " + item.getexistvalue()
