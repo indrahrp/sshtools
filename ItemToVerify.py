@@ -92,3 +92,36 @@ print "item is the same : " + str (item.getstagingvalue() == item.getixistingval
 print "ixgbe staging value is " + item.getstagingvalue()
 print "ixgbe existing value is " + item.getexistvalue()
 
+
+def get_ht_setting():
+    
+    pass
+
+def get_stage_system():
+    print " check local directory"
+    command="cat " +  localstgdir + "system|grep -v ^#|sort|grep -^$|cksum"
+        
+    connection = Ssh(sshServer, sshUsername, sshPassword)
+    #connection.openShell()
+    time.sleep(3)
+        #return connection.sendShell(command)
+    return connection.run_Cmd(command)
+
+def get_exist_system():
+    print " check local directory"
+    command="cat /etc/system|grep -v ^#|sort|grep -^$|cksum"
+        
+    connection = Ssh(sshServer, sshUsername, sshPassword)
+    #connection.openShell()
+    time.sleep(3)
+        #return connection.sendShell(command)
+    return connection.run_Cmd(command)
+
+
+item=Items('system',get_stage_system,finit,get_exist_system,finit)
+print "item is " +  str(item)
+print "item is the same : " + str (item.getstagingvalue() == item.getixistingvalue)
+#print "ixgbe value is " + item.getstagingvalue().strip()
+print "system staging value is " + item.getstagingvalue()
+print "system existing value is " + item.getexistvalue()
+
