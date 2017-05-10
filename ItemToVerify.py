@@ -38,7 +38,7 @@ class Items(object):
         pass
  
     def getexistvalue(self):
-        return self.item_staging_value()
+        return self.item_existing_value()
  
     
     def __str__(self):
