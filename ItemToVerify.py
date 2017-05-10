@@ -99,7 +99,7 @@ def get_ht_setting():
 
 def get_stage_system():
     print " check local directory"
-    command="cat " +  localstgdir + "system|grep -v ^#|sort|grep -^$|cksum"
+    command="cat " +  localstgdir + "system|grep -v ^#|sort|grep -v ^$|cksum"
         
     connection = Ssh(sshServer, sshUsername, sshPassword)
     #connection.openShell()
