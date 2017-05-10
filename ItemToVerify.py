@@ -58,6 +58,7 @@ print "itemlist " + str(itemlist['ixgbe'][1])
 def getixgbefunc():
     
     if str(itemlist['ixgbe'][0]) == sshServer:
+        print " check local directory"
         command="cat " +  localstgdir + "/kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
     else:
         command="cat /kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
@@ -68,8 +69,19 @@ def getixgbefunc():
         #return connection.sendShell(command)
     return connection.run_Cmd(command)
 
+
+def getexistixgbefunc():
+    
+    
+    command="cat /kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
+        
+    connection = Ssh(sshServer, sshUsername, sshPassword)
+    #connection.openShell()
+    time.sleep(3)
+        #return connection.sendShell(command)
+    return connection.run_Cmd(command)
      
-item=Items('ixgbe',getixgbefunc,finit,finit,finit)
+item=Items('ixgbe',getixgbefunc,finit,getexistixgbefunc,finit)
 print "item is " +  str(item)
 print "item is the same : " + str (item.item_staging_value == item.item_existing_value)
 #print "ixgbe value is " + item.getstagingvalue().strip()
