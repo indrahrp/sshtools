@@ -59,7 +59,7 @@ def getixgbefunc():
     
     if str(itemlist['ixgbe'][0]) == sshServer:
         print " check local directory"
-        command="cat " +  localstgdir + "/kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
+        command="cat " +  localstgdir + "ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
     else:
         command="cat /kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
         
