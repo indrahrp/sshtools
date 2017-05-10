@@ -36,6 +36,10 @@ class Items(object):
     
     def getprodvalue(self):
         pass
+ 
+    def getexistvalue(self):
+        return self.item_staging_value()
+ 
     
     def __str__(self):
         return "item "+ self.item_to_verify + " item staging " + str(self.item_staging_value())+ " item existing value " + str(self.item_existing_value)
@@ -85,4 +89,6 @@ item=Items('ixgbe',getixgbefunc,finit,getexistixgbefunc,finit)
 print "item is " +  str(item)
 print "item is the same : " + str (item.item_staging_value == item.item_existing_value)
 #print "ixgbe value is " + item.getstagingvalue().strip()
-print "ixgbe value is " + item.getstagingvalue()
+print "ixgbe staging value is " + item.getstagingvalue()
+print "ixgbe existing value is " + item.getexistvalue()
+
