@@ -51,7 +51,7 @@ localstgdir='/var/tmp/stgdir/'
 
 
 itemlist={
-    'ixgbe':['sol1','na','local']
+    'ixgbe':['sol1','na','local','']
     }
 
 #def gethostinfo('hostname'):
@@ -59,7 +59,7 @@ itemlist={
         
 print "itemlist " + str(itemlist['ixgbe'][1])
         
-def getixgbefunc():
+def get_stage_ixgbefunc():
     
     if str(itemlist['ixgbe'][0]) == sshServer:
         print " check local directory"
@@ -74,7 +74,7 @@ def getixgbefunc():
     return connection.run_Cmd(command)
 
 
-def getexistixgbefunc():
+def get_exist_ixgbefunc():
     
     
     command="cat /kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
@@ -85,9 +85,9 @@ def getexistixgbefunc():
         #return connection.sendShell(command)
     return connection.run_Cmd(command)
      
-item=Items('ixgbe',getixgbefunc,finit,getexistixgbefunc,finit)
+item=Items('ixgbe',get_stage_ixgbefunc,finit,get_exist_ixgbefunc,finit)
 print "item is " +  str(item)
-print "item is the same : " + str (item.item_staging_value == item.item_existing_value)
+print "item is the same : " + str (item.getstagingvalue() == item.getixistingvalue)
 #print "ixgbe value is " + item.getstagingvalue().strip()
 print "ixgbe staging value is " + item.getstagingvalue()
 print "ixgbe existing value is " + item.getexistvalue()
