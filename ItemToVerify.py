@@ -202,7 +202,7 @@ def verify_ntp():
     output=connection.run_Cmd(command)
     print "ntp output" + output
     #return entry
-    return output
+    return output ==  None
 
 item=Items('ntp',finit,finit,finit,verify_ntp)
 print "item is " +  str(item)
