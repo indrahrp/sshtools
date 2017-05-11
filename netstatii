@@ -1,0 +1,12 @@
+Name  Mtu  Net/Dest      Address        Ipkts  Ierrs Opkts  Oerrs Collis Queue
+lo0   8232 loopback      localhost      24356747 0     24356747 0     0      0
+igb0  1500 bunkerx1.tsc1.tdn.pln.ilx.com bunkerx1.tsc1.tdn.pln.ilx.com 2035522 0     21998  0     0      0
+igb1  1500 bunkerx1-bu.bkp.tdn.pln.ilx.com bunkerx1-bu.bkp.tdn.pln.ilx.com 36171967 0     70945484 0     0      0
+igb2  1500 bunkerx1.tsc2.tdn.pln.ilx.com bunkerx1.tsc2.tdn.pln.ilx.com 1952212 0     16533  0     0      0
+igb3  1500 bunkerx1.gcol.tdn.pln.ilx.com bunkerx1.gcol.tdn.pln.ilx.com 6156369 0     16930  0     0      0
+ixgbe0 9000 bunkerx1.arbix1.tdn.pln.ilx.com bunkerx1.arbix1.tdn.pln.ilx.com 799190 0     33870  0     0      0   
+ixgbe1 9000 bunkerx1.gtdl.tdn.pln.ilx.com bunkerx1.gtdl.tdn.pln.ilx.com 30226870 0     33720017 0     0      0   
+ixgbe2 9000 bunkerx1.log.tdn.pln.ilx.com bunkerx1.log.tdn.pln.ilx.com 4514586 0     10052  0     0      0
+ixgbe4 9000 bunkerx1.etga.tdn.pln.ilx.com bunkerx1.etga.tdn.pln.ilx.com 2139535 1     33835  0     0      0
+ixgbe5 9000 bunkerx1.etgb.tdn.pln.ilx.com bunkerx1.etgb.tdn.pln.ilx.com 2144881 0     33842  0     0      0
+
