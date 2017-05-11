@@ -66,7 +66,7 @@ class Ssh:
     def run_Cmd(self,cmd):
         print "run cmd " + cmd
         stdin,stdout,stderr=self.client.exec_command(cmd)
-        output = stdout.readline()
+        output = stdout.read()
         #for out  in  output:
         #    print out   
         #if stderr:
@@ -78,8 +78,8 @@ class Ssh:
             print line.strip('\n')  
         
         
-        for line in stdout: 
-            print "stdout " +  line.strip('\n')  
+        #for line in stdout: 
+        print "stdout " +  output  
         return output
 
        
