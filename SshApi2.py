@@ -81,7 +81,7 @@ class Ssh:
         
         #for line in stdout: 
         print "stdout " +  output  
-        return output,errs
+        return output
 
        
 # SCPCLient takes a paramiko transport as its only argument
