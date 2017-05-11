@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- System: SUN FIRE X4270 M3 -->
+<!-- ILOM Version: 3.1.2.44 -->
+<BIOS>
+  <Config>
+    <Advanced>
+      <Processors>
+        <!-- Hyper-threading -->
+        <!-- Description: Enabled for Windows XP and Linux (OS optimized for Hyper-Threading Technology) and Disabled for other OS (OS not optimized for Hyper-Threading Technology). When Disabled only one thread per enabled core is enabled. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Hyper-threading>Enabled</Hyper-threading>
+
+        <!-- Execute Disable Bit -->
+        <!-- Description: XD can prevent certain classes of malicious buffer overflow attacks when combined with a supporting OS (Windows Server 2003 SP1, Windows XP SP2, SuSE Linux 9.2, RedHat Enterprise 3 Update 3.) -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Execute_Disable_Bit>Enabled</Execute_Disable_Bit>
+
+        <!-- Hardware Prefetcher -->
+        <!-- Description: Enable the Mid Level Cache (L2) streamer prefetcher. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Hardware_Prefetcher>Enabled</Hardware_Prefetcher>
+
+        <!-- Adjacent Cache Line Prefetch -->
+        <!-- Description: Enable the Mid Level Cache (L2) prefetching of adjacent cache lines. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Adjacent_Cache_Line_Prefetch>Enabled</Adjacent_Cache_Line_Prefetch>
+
+        <!-- DCU Streamer Prefetcher -->
+        <!-- Description: Enable prefetch of next L1 Data line based upon multiple loads in same cache line. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <DCU_Streamer_Prefetcher>Enabled</DCU_Streamer_Prefetcher>
+
+        <!-- DCU IP Prefetcher -->
+        <!-- Description: Enable prefetch of next L1 line based upon sequential load history. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <DCU_IP_Prefetcher>Enabled</DCU_IP_Prefetcher>
+
+        <!-- Intel Virtualization Technology -->
+        <!-- Description: When enabled, a VMM can utilize the additional hardware capabilities provided by Vanderpool Technology -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Intel_Virtualization_Technology>Enabled</Intel_Virtualization_Technology>
+
+        <CPU_Power_Management_Configuration>
+          <!-- Power Technology -->
+          <!-- Description: Enable the power management features. -->
+          <!-- Possible Values: "Disable", "Energy Efficient", "Custom" -->
+          <Power_Technology>Custom</Power_Technology>
+
+          <!-- Intel SpeedStep -->
+          <!-- Description: Enable/Disable Intel SpeedStep -->
+          <!-- Possible Values: "Disabled", "Enabled" -->
+          <Intel_SpeedStep>Enabled</Intel_SpeedStep>
+
+          <!-- Turbo Mode -->
+          <!-- Description: Turbo Mode. -->
+          <!-- Possible Values: "Disabled", "Enabled" -->
+          <Turbo_Mode>Enabled</Turbo_Mode>
+
+          <!-- CPU C3 Report -->
+          <!-- Description: Enable/Disable CPU Core C3 report to OS -->
+          <!-- Possible Values: "Disabled", "Enabled" -->
+          <CPU_C3_Report>Disabled</CPU_C3_Report>
+
+          <!-- CPU C6 report -->
+          <!-- Description: Enable/Disable CPU Core C6 report to OS -->
+          <!-- Possible Values: "Disabled", "Enabled" -->
+          <CPU_C6_report>Disabled</CPU_C6_report>
+
+          <!-- CPU C7 report -->
+          <!-- Description: Enable/Disable CPU Core C7 report to OS -->
+          <!-- Possible Values: "Disabled", "Enabled" -->
+          <CPU_C7_report>Disabled</CPU_C7_report>
+
+          <!-- Package C-States -->
+          <!-- Description: Package C State limit -->
+          <!-- Possible Values: "Disabled", "C2", "C6", "C7", "Enabled" -->
+          <Package_C-States>Disabled</Package_C-States>
+
+          <!-- Energy Performance -->
+          <!-- Description: Optimize between performance and power savings. Windows 2008 and later OSes overrides this value according to its power plan. -->
+          <!-- Possible Values: "Performance", "Balanced Performance", "Balanced Energy", "Energy Efficient" -->
+          <Energy_Performance>Performance</Energy_Performance>
+
+          <!-- Uncore Frequency Scaling -->
+          <!-- Description: Disable Uncore Frequency Scaling to minimize memory latency by forcing the uncore frequency floor to P1 when all cores within the package are in idle -->
+          <!-- Possible Values: "Enabled", "Disabled" -->
+          <Uncore_Frequency_Scaling>Enabled</Uncore_Frequency_Scaling>
+        </CPU_Power_Management_Configuration>
+      </Processors>
+      <USB_Ports>
+        <!-- EHCI Hand-off -->
+        <!-- Description: This is a workaround for OSes without EHCI hand-off support. The EHCI ownership change should be claimed by EHCI driver. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <EHCI_Hand-off>Disabled</EHCI_Hand-off>
+
+        <!-- Port 60/64 Emulation -->
+        <!-- Description: Enables I/O port 60h/64h emulation support. This should be enabled for the complete USB keyboard legacy support for non-USB aware OSes. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Port_60_64_Emulation>Enabled</Port_60_64_Emulation>
+
+        <!-- All USB Devices -->
+        <!-- Description: Enabled/Disabled All USB Devices -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <All_USB_Devices>Enabled</All_USB_Devices>
+
+        <!-- Rear Port 0 -->
+        <!-- Description: Enabled/Disabled USB Port 0 -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Rear_Port_0>Enabled</Rear_Port_0>
+
+        <!-- Rear Port 1 -->
+        <!-- Description: Enabled/Disabled USB Port 1 -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Rear_Port_1>Enabled</Rear_Port_1>
+
+        <!-- Front Port 0 -->
+        <!-- Description: Enabled/Disabled USB Port 2 -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Front_Port_0>Enabled</Front_Port_0>
+
+        <!-- Front Port 1 -->
+        <!-- Description: Enabled/Disabled USB Port 3 -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Front_Port_1>Enabled</Front_Port_1>
+
+        <!-- Internal Port 0 -->
+        <!-- Description: Enabled/Disabled USB Port 4 -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Internal_Port_0>Enabled</Internal_Port_0>
+
+        <!-- Internal Port 1 -->
+        <!-- Description: Enabled/Disabled USB Port 9 -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Internal_Port_1>Enabled</Internal_Port_1>
+      </USB_Ports>
+      <Serial_Port_Console_Redirection>
+        <!-- External Serial Port -->
+        <!-- Description: Control whether the external serial port connects to the BMC or directly to the System. -->
+        <!-- Possible Values: "System", "BMC" -->
+        <External_Serial_Port>BMC</External_Serial_Port>
+
+        <!-- EMS Console Redirection -->
+        <!-- Description: Console Redirection Enable or Disable. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <EMS_Console_Redirection>Disabled</EMS_Console_Redirection>
+
+        <!-- Console Redirection -->
+        <!-- Description: Console Redirection Enable or Disable. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Console_Redirection>Enabled</Console_Redirection>
+
+        <!-- Terminal Type -->
+        <!-- Description: Emulation: ANSI: Extended ASCII char set. VT100: ASCII char set. VT100+: Extends VT100 to support color, function keys, etc. VT-UTF8: Uses UTF8 encoding to map Unicode chars onto 1 or more bytes. -->
+        <!-- Possible Values: "VT100", "VT100+", "VT-UTF8", "ANSI" -->
+        <Terminal_Type>VT100+</Terminal_Type>
+
+        <!-- Bits per second -->
+        <!-- Description: Selects serial port transmission speed. The speed must be matched on the other side. Long or noisy lines may require lower speeds. -->
+        <!-- Possible Values: "9600", "19200", "38400", "57600", "115200" -->
+        <Bits_per_second>9600</Bits_per_second>
+
+        <!-- Data Bits -->
+        <!-- Description: Data Bits -->
+        <!-- Possible Values: "7", "8" -->
+        <Data_Bits>8</Data_Bits>
+
+        <!-- Parity -->
+        <!-- Description: A parity bit can be sent with the data bits to detect some transmission errors. Even: parity bit is 0 if the num of 1's in the data bits is even. Odd: parity bit is 0 if num of 1's in the data bits is odd.  Mark: parity bit is always 1. Space: Parity bit is always 0. Mark and Space Parity do not allow for error detection. They can be used as an additional data bit. -->
+        <!-- Possible Values: "None", "Even", "Odd", "Mark", "Space" -->
+        <Parity>None</Parity>
+
+        <!-- Stop Bits -->
+        <!-- Description: Stop bits indicate the end of a serial data packet. (A start bit indicates the beginning). The standard setting is 1 stop bit. Communication with slow devices may require more than 1 stop bit. -->
+        <!-- Possible Values: "1", "2" -->
+        <Stop_Bits>1</Stop_Bits>
+
+        <!-- Flow Control -->
+        <!-- Description: Flow control can prevent data loss from buffer overflow. When sending data, if the receiving buffers are full, a 'stop' signal can be sent to stop the data flow. Once the buffers are empty, a 'start' signal can be sent to re-start the flow. Hardware flow control uses two wires to send start/stop signals. -->
+        <!-- Possible Values: "None", "Hardware RTS/CTS" -->
+        <Flow_Control>None</Flow_Control>
+      </Serial_Port_Console_Redirection>
+      <Trusted_Computing>
+        <!--   TPM SUPPORT -->
+        <!-- Description: Enables or Disables BIOS support for security device. O.S. will not show Security Device. TCG EFI protocol and INT1A interface will not be available. -->
+        <!-- Possible Values: "Disable", "Enable" -->
+        <__TPM_SUPPORT>Disable</__TPM_SUPPORT>
+      </Trusted_Computing>
+      <Network_Stack>
+        <!-- Network stack -->
+        <!-- Description: Enable/Disable UEFI network stack -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Network_stack>Enabled</Network_stack>
+
+        <!-- Ipv4 PXE Support -->
+        <!-- Description: Enable Ipv4 PXE Boot Support. If disabled IPV4 PXE boot option will not be created -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Ipv4_PXE_Support>Enabled</Ipv4_PXE_Support>
+
+        <!-- Ipv6 PXE Support -->
+        <!-- Description: Enable Ipv6 PXE Boot Support. If disabled IPV6 PXE boot option will not be created -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Ipv6_PXE_Support>Disabled</Ipv6_PXE_Support>
+
+        <!-- PXE boot wait time -->
+        <!-- Description: Wait time to press ESC key to abort the PXE boot -->
+        <!-- Possible Values: Min: 0 Max: 5 -->
+        <PXE_boot_wait_time>0</PXE_boot_wait_time>
+      </Network_Stack>
+      <UEFI_Configuration_Synchronization>
+        <!-- Synchronization Late -->
+        <!-- Description: If enabled, Synchronization will occur at the end of post. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Synchronization_Late>Enabled</Synchronization_Late>
+      </UEFI_Configuration_Synchronization>
+      <BMC_Network>
+        <!-- Active Mgmt Port -->
+        <!-- Description: Change the currently active management port. -->
+        <!-- Possible Values: "NET MGT", "NET0", "NET1", "NET2", "NET3" -->
+        <Active_Mgmt_Port>NET MGT</Active_Mgmt_Port>
+
+        <!-- IPv4 IP Assignment -->
+        <!-- Description: IPv4 IP Assignment -->
+        <!-- Possible Values: "Static", "Dynamic" -->
+        <IPv4_IP_Assignment>Static</IPv4_IP_Assignment>
+
+        <!-- IPv6 State -->
+        <!-- Description: IPv6 State -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <IPv6_State>Enabled</IPv6_State>
+
+        <!-- Auto IPv6 Configuration -->
+        <!-- Description: Auto IPv6 Configuration -->
+        <!-- Possible Values: "Disabled", "Stateless", "Dhcpv6_stateless", "Dhcpv6_stateful" -->
+        <Auto_IPv6_Configuration>Stateless</Auto_IPv6_Configuration>
+      </BMC_Network>
+    </Advanced>
+    <IO>
+      <PCI_Subsystem_Settings>
+        <!-- PCI 64 bit Resources allocation -->
+        <!-- Description: Enables or Disables 64bit capable Devices to be Decoded in Above 4G Address Space (Only if System Supports 64 bit PCI Decoding). -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <PCI_64_bit_Resources_allocation>Disabled</PCI_64_bit_Resources_allocation>
+      </PCI_Subsystem_Settings>
+      <IO_Virtualization>
+        <!-- VT-d -->
+        <!-- Description: Enable/Disable Intel(R) Virtualization Technology for Directed I/O. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <VT-d>Enabled</VT-d>
+
+        <!-- SR-IOV -->
+        <!-- Description: If supported by hardware and set to 'Enabled', all devices within the system that are SR-IOV capable will be configured to support SR-IOV. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <SR-IOV>Disabled</SR-IOV>
+
+        <!-- ARI -->
+        <!-- Description: If supported by hardware and set to 'Enabled', devices are permitted to locate VFs in function numbers 8 to 255 of the captured Bus Number, instead of normal function numbers 0 to 7. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <ARI>Disabled</ARI>
+      </IO_Virtualization>
+      <IOAT>
+        <!-- Intel(R) I/OAT -->
+        <!-- Description: Enables/Disables Intel(R) I/O Acceleration Technology (I/OAT). -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <Intel_R__I_OAT>Enabled</Intel_R__I_OAT>
+
+        <!-- DCA Support -->
+        <!-- Description: Enables/Disables Direct Cache Access Support. -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <DCA_Support>Enabled</DCA_Support>
+      </IOAT>
+      <NET0_1>
+        <!-- OpROM Enable -->
+        <!-- Description: OpROM Enable -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <OpROM_Enable>Enabled</OpROM_Enable>
+      </NET0_1>
+      <NET2_3>
+        <!-- OpROM Enable -->
+        <!-- Description: OpROM Enable -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <OpROM_Enable>Enabled</OpROM_Enable>
+      </NET2_3>
+      <Slot_1>
+        <!-- IO Enable -->
+        <!-- Description: IO Enable -->
+        <!-- Possible Values: "Enabled", "Disabled" -->
+        <IO_Enable>Enabled</IO_Enable>
+
+        <!-- OpROM Enable -->
+        <!-- Description: OpROM Enable -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <OpROM_Enable>Enabled</OpROM_Enable>
+      </Slot_1>
+      <Slot_2>
+        <!-- IO Enable -->
+        <!-- Description: IO Enable -->
+        <!-- Possible Values: "Enabled", "Disabled" -->
+        <IO_Enable>Enabled</IO_Enable>
+
+        <!-- OpROM Enable -->
+        <!-- Description: OpROM Enable -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <OpROM_Enable>Enabled</OpROM_Enable>
+      </Slot_2>
+      <Slot_3>
+        <!-- IO Enable -->
+        <!-- Description: IO Enable -->
+        <!-- Possible Values: "Enabled", "Disabled" -->
+        <IO_Enable>Enabled</IO_Enable>
+
+        <!-- OpROM Enable -->
+        <!-- Description: OpROM Enable -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <OpROM_Enable>Enabled</OpROM_Enable>
+      </Slot_3>
+      <Slot_4>
+        <!-- IO Enable -->
+        <!-- Description: IO Enable -->
+        <!-- Possible Values: "Enabled", "Disabled" -->
+        <IO_Enable>Enabled</IO_Enable>
+
+        <!-- OpROM Enable -->
+        <!-- Description: OpROM Enable -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <OpROM_Enable>Enabled</OpROM_Enable>
+      </Slot_4>
+      <Slot_5>
+        <!-- IO Enable -->
+        <!-- Description: IO Enable -->
+        <!-- Possible Values: "Enabled", "Disabled" -->
+        <IO_Enable>Enabled</IO_Enable>
+
+        <!-- OpROM Enable -->
+        <!-- Description: OpROM Enable -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <OpROM_Enable>Enabled</OpROM_Enable>
+      </Slot_5>
+      <Slot_6>
+        <!-- IO Enable -->
+        <!-- Description: IO Enable -->
+        <!-- Possible Values: "Enabled", "Disabled" -->
+        <IO_Enable>Enabled</IO_Enable>
+
+        <!-- OpROM Enable -->
+        <!-- Description: OpROM Enable -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <OpROM_Enable>Enabled</OpROM_Enable>
+      </Slot_6>
+    </IO>
+    <Boot>
+      <!-- UEFI/BIOS Boot Mode -->
+      <!-- Description: UEFI: Only UEFI Boot options are initialized and present to user. Legacy: Only legacy boot options are initialized and present to user. -->
+      <!-- Possible Values: "Legacy", "UEFI" -->
+      <UEFI_BIOS_Boot_Mode>Legacy</UEFI_BIOS_Boot_Mode>
+
+      <!-- Retry Boot List -->
+      <!-- Description: Automatically retries Boot List when all devices have failed. -->
+      <!-- Possible Values: "Disabled", "Enabled" -->
+      <Retry_Boot_List>Enabled</Retry_Boot_List>
+
+      <!-- Network Boot Retry -->
+      <!-- Description: Automatically retries the PXE list if set to 'Enabled'. If set to 'Disabled', halt and display error message. If set to 'Boot List', fail over to the main boot priority menu -->
+      <!-- Possible Values: "Enabled", "Disabled", "Boot List" -->
+      <Network_Boot_Retry>Boot List</Network_Boot_Retry>
+
+      <OSA_Configuration>
+        <!-- OSA Internal Support -->
+        <!-- Description: Enable or Disable Internal USB Ports for OSA boot -->
+        <!-- Possible Values: "Disabled", "Enabled" -->
+        <OSA_Internal_Support>Enabled</OSA_Internal_Support>
+      </OSA_Configuration>
+    </Boot>
+  </Config>
+  <!-- Boot Order List -->
+  <!-- Add or Remove Boot Devices. -->
+
+  <!-- When loading this XML file with the intent of restoring the BIOS  -->
+  <!-- configuration, the description tag value contains a pattern that  -->
+  <!-- will be matched against the list of boot devices. The pattern     -->
+  <!-- may contain two characters that have special meaning. A question  -->
+  <!-- mark ( '?' ) is a pattern that shall match any character. The     -->
+  <!-- asterisk ( '*' ) is a pattern that shall match any string,        -->
+  <!-- including the null string. If you would like to remove the        -->
+  <!-- special meaning of either ( '?' ) or ( '*' ), add a ( '\' )       -->
+  <!-- before the character to preserve the literal value.               -->
+  <boot_order>
+    <boot_device>
+      <description>RAID:PCIE6:(Bus 50 Dev 00)PCI RAID Adapter</description>
+      <instance>1</instance>
+    </boot_device>
+  </boot_order>
+  <!-- Boot Devices -->
+  <!-- List Of Available Boot Devices -->
+  <boot_devices>
+    <boot_device>
+      <description>RAID:PCIE6:(Bus 50 Dev 00)PCI RAID Adapter</description>
+      <instance>1</instance>
+    </boot_device>
+    <boot_device>
+      <description>PXE:PCIE5:IBA GE Slot 2000 v1376</description>
+      <instance>1</instance>
+    </boot_device>
+    <boot_device>
+      <description>PXE:PCIE5:IBA GE Slot 2001 v1376</description>
+      <instance>1</instance>
+    </boot_device>
+    <boot_device>
+      <description>PXE:PCIE5:IBA GE Slot 2002 v1376</description>
+      <instance>1</instance>
+    </boot_device>
+    <boot_device>
+      <description>PXE:PCIE5:IBA GE Slot 2003 v1376</description>
+      <instance>1</instance>
+    </boot_device>
+    <boot_device>
+      <description>PXE:PCIE4:IBA GE Slot 3000 v1376</description>
+      <instance>1</instance>
+    </boot_device>
+    <boot_device>
+      <description>PXE:PCIE4:IBA GE Slot 3001 v1376</description>
+      <instance>1</instance>
+    </boot_device>
+    <boot_device>
+      <description>PXE:PCIE4:IBA GE Slot 3002 v1376</description>
+      <instance>1</instance>
+    </boot_device>
+    <boot_device>
+      <description>PXE:PCIE4:IBA GE Slot 3003 v1376</description>
+      <instance>1</instance>
+    </boot_device>
+    <boot_device>
+      <description>PXE:NET0:IBA XE Slot 4000 v2196</description>
+      <instance>1</instance>
+    </boot_device>
+    <boot_device>
+      <description>PXE:NET1:IBA XE Slot 4001 v2196</description>
+      <instance>1</instance>
+    </boot_device>
+    <boot_device>
+      <description>PXE:NET2:IBA XE Slot 8800 v2196</description>
+      <instance>1</instance>
+    </boot_device>
+    <boot_device>
+      <description>PXE:NET3:IBA XE Slot 8801 v2196</description>
+      <instance>1</instance>
+    </boot_device>
+  </boot_devices>
+</BIOS>

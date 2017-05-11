@@ -1,0 +1,2493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BIOSCONFIG>
+	<BIOSCONFIG_VERSION>2.5.2</BIOSCONFIG_VERSION>
+	<SPEC_VERSION>2.4</SPEC_VERSION>
+	<SETUP_CONFIG>
+		<BIOS_TAG>16040105</BIOS_TAG>
+		<Main>
+			<Serial_Number_Information>
+			</Serial_Number_Information>
+		</Main>
+		<Advanced>
+			<CPU_Configuration>
+				<C1E_Support>
+					<HELP_STRING>This should be enabled in order to enable or disable the "Enhanced Halt State".</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</C1E_Support>
+				<Hardware_Prefetcher>
+					<HELP_STRING>For UP platforms,  leave it enabled. For DP/MP servers, it may use to tune  performance to the specific application.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Hardware_Prefetcher>
+				<Adjacent_Cache_Line_Prefetch>
+					<HELP_STRING>For UP platforms,  leave it enabled. For DP/MP servers, it may use to tune  performance to the specific application.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Adjacent_Cache_Line_Prefetch>
+				<Intel_R__Virtualization_Tech>
+					<HELP_STRING>When enabled, a VMM can utilize the additional HW Caps. provided by Intel(R) Virtualization Tech. Note: A full reset is required to change the setting.</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</Intel_R__Virtualization_Tech>
+				<CPU_TM_function_>
+					<HELP_STRING>CPU Thermal Monitor.</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</CPU_TM_function_>
+				<Execute_Disable_Bit_Capability>
+					<HELP_STRING>When disabled, force the XD feature flag to always return 0.</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</Execute_Disable_Bit_Capability>
+				<Intel_R__HT_Technology>
+					<HELP_STRING>When 'Disabled' only one thread per enabled core is enabled.</HELP_STRING>
+					<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</Intel_R__HT_Technology>
+				<L1_Data_Prefetcher>
+					<HELP_STRING>For UP platforms,  leave it enabled. For DP/MP servers, it may use to tune  performance to the specific application.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</L1_Data_Prefetcher>
+				<__Core_0>
+					<HELP_STRING>Enable/Disable the Core.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</__Core_0>
+				<__Core_1>
+					<HELP_STRING>Enable/Disable the Core.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</__Core_1>
+				<__Core_2>
+					<HELP_STRING>Enable/Disable the Core.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</__Core_2>
+				<__Core_3>
+					<HELP_STRING>Enable/Disable the Core.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</__Core_3>
+				<__Core_4>
+					<HELP_STRING>Enable/Disable the Core.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</__Core_4>
+				<__Core_5>
+					<HELP_STRING>Enable/Disable the Core.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</__Core_5>
+				<__Core_6>
+					<HELP_STRING>Enable/Disable the Core.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</__Core_6>
+				<__Core_7>
+					<HELP_STRING>Enable/Disable the Core.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</__Core_7>
+				<__Core_8>
+					<HELP_STRING>Enable/Disable the Core.</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</__Core_8>
+				<__Core_9>
+					<HELP_STRING>Enable/Disable the Core.</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</__Core_9>
+				<Intel_R__SpeedStep_tm__tech>
+					<HELP_STRING>Disable: Disable GV3 Enable:  Enable GV3</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</Intel_R__SpeedStep_tm__tech>
+				<Intel_R__TurboMode_tech>
+					<HELP_STRING>Turbo mode allows  processor cores to run faster than  marked frequency in speific condition </HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</Intel_R__TurboMode_tech>
+				<Performance_Watt_select>
+					<HELP_STRING>Power Optimized: Turbo Boost engages  after P0 state is  sustained for more  than 2 sec. Traditional: Turbo Boost engages  even for P0 state  requests less  than 2 sec.</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</Performance_Watt_select>
+				<Intel_R__C_State_tech>
+					<HELP_STRING>CState: CPU idle is set to C2/C3/C4</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</Intel_R__C_State_tech>
+				<C3_State>
+					<HELP_STRING>Nehalem C state action select</HELP_STRING>
+					<DEFAULT_OPTION> 0002 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0002 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0003 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</C3_State>
+				<C6_State>
+					<HELP_STRING>Nehalem C state action select</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</C6_State>
+				<C7_State>
+					<HELP_STRING>Nehalem C state action select</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</C7_State>
+				<C_State_package_limit_setting>
+					<HELP_STRING>Selected option will  progrmae into C State  package limit register</HELP_STRING>
+					<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</C_State_package_limit_setting>
+				<C1_Auto_Demotion>
+					<HELP_STRING>When enable, CPU  will conditionally demote C3/C6/C7  requests to C1  based on uncore auto-demote  information.</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</C1_Auto_Demotion>
+				<C3_Auto_Demotion>
+					<HELP_STRING>When enable, CPU  will conditionally demote C6/C7 requests  to C3 based on uncore auto-demote  information.</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</C3_Auto_Demotion>
+				<ACPI_T_State>
+					<HELP_STRING>Report processor throttling in ACPI</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</ACPI_T_State>
+				<Package_Self_Refresh>
+					<HELP_STRING>Enable/Disable Package Self refresh</HELP_STRING>
+					<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Package_Self_Refresh>
+				<Poison_Forwarding_Mode>
+					<HELP_STRING>Enable/Disable Poison  Forward Error Mode </HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Enabled</OPTION-0>
+					<OPTION-1>Disabled</OPTION-1>
+				</Poison_Forwarding_Mode>
+			</CPU_Configuration>
+			<IDE_Configuration>
+				<__Configure_SATA_as>
+					<HELP_STRING></HELP_STRING>
+					<DEFAULT_OPTION>AHCI</DEFAULT_OPTION>
+					<SELECTED_OPTION>AHCI</SELECTED_OPTION>
+					<OPTION-0>Legacy</OPTION-0>
+					<OPTION-1>RESERVED</OPTION-1>
+					<OPTION-2>AHCI</OPTION-2>
+					<OPTION-3>RESERVED</OPTION-3>
+				</__Configure_SATA_as>
+				<Primary_IDE_Master_______________>
+					<Type>
+						<HELP_STRING>Select the type of device connected to the system.</HELP_STRING>
+						<DEFAULT_OPTION> 0030 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 00FF </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</Type>
+					<LBA_Large_Mode>
+						<HELP_STRING>Disabled: Disables LBA Mode. Auto: Enables LBA Mode if the device supports it and the device is not already formatted with LBA Mode disabled.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</LBA_Large_Mode>
+					<Block__Multi_Sector_Transfer__Mode>
+						<HELP_STRING>Disabled: The Data transfer from and to the device occurs one sector at a time. Auto: The Data transfer from and to the device occurs multiple sectors at a time if the device supports it.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</Block__Multi_Sector_Transfer__Mode>
+					<PIO_Mode>
+						<HELP_STRING>Select PIO Mode.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>0</OPTION-1>
+						<OPTION-2>1</OPTION-2>
+						<OPTION-3>2</OPTION-3>
+						<OPTION-4>3</OPTION-4>
+						<OPTION-5>4</OPTION-5>
+						<OPTION-6>5</OPTION-6>
+						<OPTION-7>6</OPTION-7>
+					</PIO_Mode>
+					<DMA_Mode>
+						<HELP_STRING>Select DMA Mode. Auto  : Auto detected SWDMAn: SingleWordDMAn MWDMAn: MultiWordDMAn UDMAn : UltraDMAn</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+					</DMA_Mode>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Disable</OPTION-1>
+						<OPTION-2>Enable</OPTION-2>
+					</S_M_A_R_T_>
+					<_32Bit_Data_Transfer>
+						<HELP_STRING>Enable/Disable 32-bit Data Transfer.</HELP_STRING>
+						<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enable</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Enable</OPTION-1>
+					</_32Bit_Data_Transfer>
+					<ARMD_Emulation_Type>
+						<HELP_STRING>Select ARMD device emulation type by BIOS.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Floppy</OPTION-1>
+						<OPTION-2>Hard Disk</OPTION-2>
+					</ARMD_Emulation_Type>
+				</Primary_IDE_Master_______________>
+				<Primary_IDE_Slave________________>
+					<Type>
+						<HELP_STRING>Select the type of device connected to the system.</HELP_STRING>
+						<DEFAULT_OPTION> 0030 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 00FF </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</Type>
+					<LBA_Large_Mode>
+						<HELP_STRING>Disabled: Disables LBA Mode. Auto: Enables LBA Mode if the device supports it and the device is not already formatted with LBA Mode disabled.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</LBA_Large_Mode>
+					<Block__Multi_Sector_Transfer__Mode>
+						<HELP_STRING>Disabled: The Data transfer from and to the device occurs one sector at a time. Auto: The Data transfer from and to the device occurs multiple sectors at a time if the device supports it.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</Block__Multi_Sector_Transfer__Mode>
+					<PIO_Mode>
+						<HELP_STRING>Select PIO Mode.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>0</OPTION-1>
+						<OPTION-2>1</OPTION-2>
+						<OPTION-3>2</OPTION-3>
+						<OPTION-4>3</OPTION-4>
+						<OPTION-5>4</OPTION-5>
+						<OPTION-6>5</OPTION-6>
+						<OPTION-7>6</OPTION-7>
+					</PIO_Mode>
+					<DMA_Mode>
+						<HELP_STRING>Select DMA Mode. Auto  : Auto detected SWDMAn: SingleWordDMAn MWDMAn: MultiWordDMAn UDMAn : UltraDMAn</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+					</DMA_Mode>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Disable</OPTION-1>
+						<OPTION-2>Enable</OPTION-2>
+					</S_M_A_R_T_>
+					<_32Bit_Data_Transfer>
+						<HELP_STRING>Enable/Disable 32-bit Data Transfer.</HELP_STRING>
+						<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enable</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Enable</OPTION-1>
+					</_32Bit_Data_Transfer>
+					<ARMD_Emulation_Type>
+						<HELP_STRING>Select ARMD device emulation type by BIOS.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Floppy</OPTION-1>
+						<OPTION-2>Hard Disk</OPTION-2>
+					</ARMD_Emulation_Type>
+				</Primary_IDE_Slave________________>
+				<Secondary_IDE_Master_____________>
+					<Type>
+						<HELP_STRING>Select the type of device connected to the system.</HELP_STRING>
+						<DEFAULT_OPTION> 0030 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 00FF </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</Type>
+					<LBA_Large_Mode>
+						<HELP_STRING>Disabled: Disables LBA Mode. Auto: Enables LBA Mode if the device supports it and the device is not already formatted with LBA Mode disabled.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</LBA_Large_Mode>
+					<Block__Multi_Sector_Transfer__Mode>
+						<HELP_STRING>Disabled: The Data transfer from and to the device occurs one sector at a time. Auto: The Data transfer from and to the device occurs multiple sectors at a time if the device supports it.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</Block__Multi_Sector_Transfer__Mode>
+					<PIO_Mode>
+						<HELP_STRING>Select PIO Mode.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>0</OPTION-1>
+						<OPTION-2>1</OPTION-2>
+						<OPTION-3>2</OPTION-3>
+						<OPTION-4>3</OPTION-4>
+						<OPTION-5>4</OPTION-5>
+						<OPTION-6>5</OPTION-6>
+						<OPTION-7>6</OPTION-7>
+					</PIO_Mode>
+					<DMA_Mode>
+						<HELP_STRING>Select DMA Mode. Auto  : Auto detected SWDMAn: SingleWordDMAn MWDMAn: MultiWordDMAn UDMAn : UltraDMAn</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+					</DMA_Mode>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Disable</OPTION-1>
+						<OPTION-2>Enable</OPTION-2>
+					</S_M_A_R_T_>
+					<_32Bit_Data_Transfer>
+						<HELP_STRING>Enable/Disable 32-bit Data Transfer.</HELP_STRING>
+						<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enable</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Enable</OPTION-1>
+					</_32Bit_Data_Transfer>
+					<ARMD_Emulation_Type>
+						<HELP_STRING>Select ARMD device emulation type by BIOS.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Floppy</OPTION-1>
+						<OPTION-2>Hard Disk</OPTION-2>
+					</ARMD_Emulation_Type>
+				</Secondary_IDE_Master_____________>
+				<Secondary_IDE_Slave______________>
+					<Type>
+						<HELP_STRING>Select the type of device connected to the system.</HELP_STRING>
+						<DEFAULT_OPTION> 0030 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 00FF </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</Type>
+					<LBA_Large_Mode>
+						<HELP_STRING>Disabled: Disables LBA Mode. Auto: Enables LBA Mode if the device supports it and the device is not already formatted with LBA Mode disabled.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</LBA_Large_Mode>
+					<Block__Multi_Sector_Transfer__Mode>
+						<HELP_STRING>Disabled: The Data transfer from and to the device occurs one sector at a time. Auto: The Data transfer from and to the device occurs multiple sectors at a time if the device supports it.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</Block__Multi_Sector_Transfer__Mode>
+					<PIO_Mode>
+						<HELP_STRING>Select PIO Mode.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>0</OPTION-1>
+						<OPTION-2>1</OPTION-2>
+						<OPTION-3>2</OPTION-3>
+						<OPTION-4>3</OPTION-4>
+						<OPTION-5>4</OPTION-5>
+						<OPTION-6>5</OPTION-6>
+						<OPTION-7>6</OPTION-7>
+					</PIO_Mode>
+					<DMA_Mode>
+						<HELP_STRING>Select DMA Mode. Auto  : Auto detected SWDMAn: SingleWordDMAn MWDMAn: MultiWordDMAn UDMAn : UltraDMAn</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+					</DMA_Mode>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Disable</OPTION-1>
+						<OPTION-2>Enable</OPTION-2>
+					</S_M_A_R_T_>
+					<_32Bit_Data_Transfer>
+						<HELP_STRING>Enable/Disable 32-bit Data Transfer.</HELP_STRING>
+						<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enable</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Enable</OPTION-1>
+					</_32Bit_Data_Transfer>
+					<ARMD_Emulation_Type>
+						<HELP_STRING>Select ARMD device emulation type by BIOS.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Floppy</OPTION-1>
+						<OPTION-2>Hard Disk</OPTION-2>
+					</ARMD_Emulation_Type>
+				</Secondary_IDE_Slave______________>
+				<Third_IDE_Master_________________>
+					<LBA_Large_Mode>
+						<HELP_STRING>Disabled: Disables LBA Mode. Auto: Enables LBA Mode if the device supports it and the device is not already formatted with LBA Mode disabled.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</LBA_Large_Mode>
+					<Block__Multi_Sector_Transfer__Mode>
+						<HELP_STRING>Disabled: The Data transfer from and to the device occurs one sector at a time. Auto: The Data transfer from and to the device occurs multiple sectors at a time if the device supports it.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</Block__Multi_Sector_Transfer__Mode>
+					<PIO_Mode>
+						<HELP_STRING>Select PIO Mode.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>0</OPTION-1>
+						<OPTION-2>1</OPTION-2>
+						<OPTION-3>2</OPTION-3>
+						<OPTION-4>3</OPTION-4>
+						<OPTION-5>4</OPTION-5>
+						<OPTION-6>5</OPTION-6>
+						<OPTION-7>6</OPTION-7>
+					</PIO_Mode>
+					<DMA_Mode>
+						<HELP_STRING>Select DMA Mode. Auto  : Auto detected SWDMAn: SingleWordDMAn MWDMAn: MultiWordDMAn UDMAn : UltraDMAn</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+					</DMA_Mode>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Disable</OPTION-1>
+						<OPTION-2>Enable</OPTION-2>
+					</S_M_A_R_T_>
+					<_32Bit_Data_Transfer>
+						<HELP_STRING>Enable/Disable 32-bit Data Transfer.</HELP_STRING>
+						<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enable</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Enable</OPTION-1>
+					</_32Bit_Data_Transfer>
+					<ARMD_Emulation_Type>
+						<HELP_STRING>Select ARMD device emulation type by BIOS.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Floppy</OPTION-1>
+						<OPTION-2>Hard Disk</OPTION-2>
+					</ARMD_Emulation_Type>
+				</Third_IDE_Master_________________>
+				<Third_IDE_Slave__________________>
+					<LBA_Large_Mode>
+						<HELP_STRING>Disabled: Disables LBA Mode. Auto: Enables LBA Mode if the device supports it and the device is not already formatted with LBA Mode disabled.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</LBA_Large_Mode>
+					<Block__Multi_Sector_Transfer__Mode>
+						<HELP_STRING>Disabled: The Data transfer from and to the device occurs one sector at a time. Auto: The Data transfer from and to the device occurs multiple sectors at a time if the device supports it.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</Block__Multi_Sector_Transfer__Mode>
+					<PIO_Mode>
+						<HELP_STRING>Select PIO Mode.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>0</OPTION-1>
+						<OPTION-2>1</OPTION-2>
+						<OPTION-3>2</OPTION-3>
+						<OPTION-4>3</OPTION-4>
+						<OPTION-5>4</OPTION-5>
+						<OPTION-6>5</OPTION-6>
+						<OPTION-7>6</OPTION-7>
+					</PIO_Mode>
+					<DMA_Mode>
+						<HELP_STRING>Select DMA Mode. Auto  : Auto detected SWDMAn: SingleWordDMAn MWDMAn: MultiWordDMAn UDMAn : UltraDMAn</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+					</DMA_Mode>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Disable</OPTION-1>
+						<OPTION-2>Enable</OPTION-2>
+					</S_M_A_R_T_>
+					<_32Bit_Data_Transfer>
+						<HELP_STRING>Enable/Disable 32-bit Data Transfer.</HELP_STRING>
+						<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enable</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Enable</OPTION-1>
+					</_32Bit_Data_Transfer>
+					<ARMD_Emulation_Type>
+						<HELP_STRING>Select ARMD device emulation type by BIOS.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Floppy</OPTION-1>
+						<OPTION-2>Hard Disk</OPTION-2>
+					</ARMD_Emulation_Type>
+				</Third_IDE_Slave__________________>
+				<Fourth_IDE_Master________________>
+					<LBA_Large_Mode>
+						<HELP_STRING>Disabled: Disables LBA Mode. Auto: Enables LBA Mode if the device supports it and the device is not already formatted with LBA Mode disabled.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</LBA_Large_Mode>
+					<Block__Multi_Sector_Transfer__Mode>
+						<HELP_STRING>Disabled: The Data transfer from and to the device occurs one sector at a time. Auto: The Data transfer from and to the device occurs multiple sectors at a time if the device supports it.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</Block__Multi_Sector_Transfer__Mode>
+					<PIO_Mode>
+						<HELP_STRING>Select PIO Mode.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>0</OPTION-1>
+						<OPTION-2>1</OPTION-2>
+						<OPTION-3>2</OPTION-3>
+						<OPTION-4>3</OPTION-4>
+						<OPTION-5>4</OPTION-5>
+						<OPTION-6>5</OPTION-6>
+						<OPTION-7>6</OPTION-7>
+					</PIO_Mode>
+					<DMA_Mode>
+						<HELP_STRING>Select DMA Mode. Auto  : Auto detected SWDMAn: SingleWordDMAn MWDMAn: MultiWordDMAn UDMAn : UltraDMAn</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+					</DMA_Mode>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Disable</OPTION-1>
+						<OPTION-2>Enable</OPTION-2>
+					</S_M_A_R_T_>
+					<_32Bit_Data_Transfer>
+						<HELP_STRING>Enable/Disable 32-bit Data Transfer.</HELP_STRING>
+						<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enable</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Enable</OPTION-1>
+					</_32Bit_Data_Transfer>
+					<ARMD_Emulation_Type>
+						<HELP_STRING>Select ARMD device emulation type by BIOS.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Floppy</OPTION-1>
+						<OPTION-2>Hard Disk</OPTION-2>
+					</ARMD_Emulation_Type>
+				</Fourth_IDE_Master________________>
+				<Fourth_IDE_Slave_________________>
+					<LBA_Large_Mode>
+						<HELP_STRING>Disabled: Disables LBA Mode. Auto: Enables LBA Mode if the device supports it and the device is not already formatted with LBA Mode disabled.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</LBA_Large_Mode>
+					<Block__Multi_Sector_Transfer__Mode>
+						<HELP_STRING>Disabled: The Data transfer from and to the device occurs one sector at a time. Auto: The Data transfer from and to the device occurs multiple sectors at a time if the device supports it.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</Block__Multi_Sector_Transfer__Mode>
+					<PIO_Mode>
+						<HELP_STRING>Select PIO Mode.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>0</OPTION-1>
+						<OPTION-2>1</OPTION-2>
+						<OPTION-3>2</OPTION-3>
+						<OPTION-4>3</OPTION-4>
+						<OPTION-5>4</OPTION-5>
+						<OPTION-6>5</OPTION-6>
+						<OPTION-7>6</OPTION-7>
+					</PIO_Mode>
+					<DMA_Mode>
+						<HELP_STRING>Select DMA Mode. Auto  : Auto detected SWDMAn: SingleWordDMAn MWDMAn: MultiWordDMAn UDMAn : UltraDMAn</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+					</DMA_Mode>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Disable</OPTION-1>
+						<OPTION-2>Enable</OPTION-2>
+					</S_M_A_R_T_>
+					<_32Bit_Data_Transfer>
+						<HELP_STRING>Enable/Disable 32-bit Data Transfer.</HELP_STRING>
+						<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enable</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Enable</OPTION-1>
+					</_32Bit_Data_Transfer>
+					<ARMD_Emulation_Type>
+						<HELP_STRING>Select ARMD device emulation type by BIOS.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Floppy</OPTION-1>
+						<OPTION-2>Hard Disk</OPTION-2>
+					</ARMD_Emulation_Type>
+				</Fourth_IDE_Slave_________________>
+				<Fifth_IDE_Master_________________>
+					<LBA_Large_Mode>
+						<HELP_STRING>Disabled: Disables LBA Mode. Auto: Enables LBA Mode if the device supports it and the device is not already formatted with LBA Mode disabled.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</LBA_Large_Mode>
+					<Block__Multi_Sector_Transfer__Mode>
+						<HELP_STRING>Disabled: The Data transfer from and to the device occurs one sector at a time. Auto: The Data transfer from and to the device occurs multiple sectors at a time if the device supports it.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</Block__Multi_Sector_Transfer__Mode>
+					<PIO_Mode>
+						<HELP_STRING>Select PIO Mode.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>0</OPTION-1>
+						<OPTION-2>1</OPTION-2>
+						<OPTION-3>2</OPTION-3>
+						<OPTION-4>3</OPTION-4>
+						<OPTION-5>4</OPTION-5>
+						<OPTION-6>5</OPTION-6>
+						<OPTION-7>6</OPTION-7>
+					</PIO_Mode>
+					<DMA_Mode>
+						<HELP_STRING>Select DMA Mode. Auto  : Auto detected SWDMAn: SingleWordDMAn MWDMAn: MultiWordDMAn UDMAn : UltraDMAn</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+					</DMA_Mode>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Disable</OPTION-1>
+						<OPTION-2>Enable</OPTION-2>
+					</S_M_A_R_T_>
+					<_32Bit_Data_Transfer>
+						<HELP_STRING>Enable/Disable 32-bit Data Transfer.</HELP_STRING>
+						<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enable</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Enable</OPTION-1>
+					</_32Bit_Data_Transfer>
+					<ARMD_Emulation_Type>
+						<HELP_STRING>Select ARMD device emulation type by BIOS.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Floppy</OPTION-1>
+						<OPTION-2>Hard Disk</OPTION-2>
+					</ARMD_Emulation_Type>
+				</Fifth_IDE_Master_________________>
+				<Fifth_IDE_Slave__________________>
+					<LBA_Large_Mode>
+						<HELP_STRING>Disabled: Disables LBA Mode. Auto: Enables LBA Mode if the device supports it and the device is not already formatted with LBA Mode disabled.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</LBA_Large_Mode>
+					<Block__Multi_Sector_Transfer__Mode>
+						<HELP_STRING>Disabled: The Data transfer from and to the device occurs one sector at a time. Auto: The Data transfer from and to the device occurs multiple sectors at a time if the device supports it.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</Block__Multi_Sector_Transfer__Mode>
+					<PIO_Mode>
+						<HELP_STRING>Select PIO Mode.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>0</OPTION-1>
+						<OPTION-2>1</OPTION-2>
+						<OPTION-3>2</OPTION-3>
+						<OPTION-4>3</OPTION-4>
+						<OPTION-5>4</OPTION-5>
+						<OPTION-6>5</OPTION-6>
+						<OPTION-7>6</OPTION-7>
+					</PIO_Mode>
+					<DMA_Mode>
+						<HELP_STRING>Select DMA Mode. Auto  : Auto detected SWDMAn: SingleWordDMAn MWDMAn: MultiWordDMAn UDMAn : UltraDMAn</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+					</DMA_Mode>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Disable</OPTION-1>
+						<OPTION-2>Enable</OPTION-2>
+					</S_M_A_R_T_>
+					<_32Bit_Data_Transfer>
+						<HELP_STRING>Enable/Disable 32-bit Data Transfer.</HELP_STRING>
+						<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enable</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Enable</OPTION-1>
+					</_32Bit_Data_Transfer>
+					<ARMD_Emulation_Type>
+						<HELP_STRING>Select ARMD device emulation type by BIOS.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Floppy</OPTION-1>
+						<OPTION-2>Hard Disk</OPTION-2>
+					</ARMD_Emulation_Type>
+				</Fifth_IDE_Slave__________________>
+				<Sixth_IDE_Master_________________>
+					<LBA_Large_Mode>
+						<HELP_STRING>Disabled: Disables LBA Mode. Auto: Enables LBA Mode if the device supports it and the device is not already formatted with LBA Mode disabled.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</LBA_Large_Mode>
+					<Block__Multi_Sector_Transfer__Mode>
+						<HELP_STRING>Disabled: The Data transfer from and to the device occurs one sector at a time. Auto: The Data transfer from and to the device occurs multiple sectors at a time if the device supports it.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</Block__Multi_Sector_Transfer__Mode>
+					<PIO_Mode>
+						<HELP_STRING>Select PIO Mode.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>0</OPTION-1>
+						<OPTION-2>1</OPTION-2>
+						<OPTION-3>2</OPTION-3>
+						<OPTION-4>3</OPTION-4>
+						<OPTION-5>4</OPTION-5>
+						<OPTION-6>5</OPTION-6>
+						<OPTION-7>6</OPTION-7>
+					</PIO_Mode>
+					<DMA_Mode>
+						<HELP_STRING>Select DMA Mode. Auto  : Auto detected SWDMAn: SingleWordDMAn MWDMAn: MultiWordDMAn UDMAn : UltraDMAn</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+					</DMA_Mode>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Disable</OPTION-1>
+						<OPTION-2>Enable</OPTION-2>
+					</S_M_A_R_T_>
+					<_32Bit_Data_Transfer>
+						<HELP_STRING>Enable/Disable 32-bit Data Transfer.</HELP_STRING>
+						<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enable</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Enable</OPTION-1>
+					</_32Bit_Data_Transfer>
+					<ARMD_Emulation_Type>
+						<HELP_STRING>Select ARMD device emulation type by BIOS.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Floppy</OPTION-1>
+						<OPTION-2>Hard Disk</OPTION-2>
+					</ARMD_Emulation_Type>
+				</Sixth_IDE_Master_________________>
+				<Sixth_IDE_Slave__________________>
+					<LBA_Large_Mode>
+						<HELP_STRING>Disabled: Disables LBA Mode. Auto: Enables LBA Mode if the device supports it and the device is not already formatted with LBA Mode disabled.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</LBA_Large_Mode>
+					<Block__Multi_Sector_Transfer__Mode>
+						<HELP_STRING>Disabled: The Data transfer from and to the device occurs one sector at a time. Auto: The Data transfer from and to the device occurs multiple sectors at a time if the device supports it.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Auto</OPTION-1>
+					</Block__Multi_Sector_Transfer__Mode>
+					<PIO_Mode>
+						<HELP_STRING>Select PIO Mode.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>0</OPTION-1>
+						<OPTION-2>1</OPTION-2>
+						<OPTION-3>2</OPTION-3>
+						<OPTION-4>3</OPTION-4>
+						<OPTION-5>4</OPTION-5>
+						<OPTION-6>5</OPTION-6>
+						<OPTION-7>6</OPTION-7>
+					</PIO_Mode>
+					<DMA_Mode>
+						<HELP_STRING>Select DMA Mode. Auto  : Auto detected SWDMAn: SingleWordDMAn MWDMAn: MultiWordDMAn UDMAn : UltraDMAn</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+					</DMA_Mode>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Disable</OPTION-1>
+						<OPTION-2>Enable</OPTION-2>
+					</S_M_A_R_T_>
+					<_32Bit_Data_Transfer>
+						<HELP_STRING>Enable/Disable 32-bit Data Transfer.</HELP_STRING>
+						<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enable</SELECTED_OPTION>
+						<OPTION-0>Disable</OPTION-0>
+						<OPTION-1>Enable</OPTION-1>
+					</_32Bit_Data_Transfer>
+					<ARMD_Emulation_Type>
+						<HELP_STRING>Select ARMD device emulation type by BIOS.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Floppy</OPTION-1>
+						<OPTION-2>Hard Disk</OPTION-2>
+					</ARMD_Emulation_Type>
+				</Sixth_IDE_Slave__________________>
+			</IDE_Configuration>
+			<USB_Configuration>
+				<Legacy_USB_Support>
+					<HELP_STRING>Enables support for legacy USB. AUTO option disables  legacy support if no USB devices are connected.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+					<OPTION-2>Auto</OPTION-2>
+				</Legacy_USB_Support>
+				<USB_2_0_Controller_Mode>
+					<HELP_STRING>Configures the USB 2.0 controller in HiSpeed (480Mbps) or FullSpeed (12Mbps).</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</USB_2_0_Controller_Mode>
+				<BIOS_EHCI_Hand_Off>
+					<HELP_STRING>This is a workaround  for OSes without EHCI hand-off support. The EHCI ownership  change should claim by EHCI driver.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</BIOS_EHCI_Hand_Off>
+				<Legacy_USB1_1_HC_Support>
+					<HELP_STRING>Support USB1.1 HC.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Legacy_USB1_1_HC_Support>
+				<Hotplug_USB_FDD_Support>
+					<HELP_STRING>A dummy FDD device is created that will be associated with the hotplugged FDD later. Auto option creates this dummy device only if there is no USB FDD present.</HELP_STRING>
+					<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+					<SELECTED_OPTION>Auto</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+					<OPTION-2>Auto</OPTION-2>
+				</Hotplug_USB_FDD_Support>
+				<USB_Mass_Storage_Device_Configuration>
+					<USB_Mass_Storage_Reset_Delay>
+						<HELP_STRING>Number of seconds POST waits for the USB mass storage device after start unit command.</HELP_STRING>
+						<DEFAULT_OPTION>20 Sec</DEFAULT_OPTION>
+						<SELECTED_OPTION>20 Sec</SELECTED_OPTION>
+						<OPTION-0>10 Sec</OPTION-0>
+						<OPTION-1>20 Sec</OPTION-1>
+						<OPTION-2>30 Sec</OPTION-2>
+						<OPTION-3>40 Sec</OPTION-3>
+					</USB_Mass_Storage_Reset_Delay>
+					<___Emulation_Type>
+						<HELP_STRING>If Auto, USB devices  less than 530MB will be emulated as Floppy and remaining as hard drive. Forced FDD option can be used to force a HDD formatted drive to boot as FDD (Ex. ZIP drive).</HELP_STRING>
+						<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</___Emulation_Type>
+					<___Emulation_Type>
+						<HELP_STRING>If Auto, USB devices  less than 530MB will be emulated as Floppy and remaining as hard drive. Forced FDD option can be used to force a HDD formatted drive to boot as FDD (Ex. ZIP drive).</HELP_STRING>
+						<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</___Emulation_Type>
+					<___Emulation_Type>
+						<HELP_STRING>If Auto, USB devices  less than 530MB will be emulated as Floppy and remaining as hard drive. Forced FDD option can be used to force a HDD formatted drive to boot as FDD (Ex. ZIP drive).</HELP_STRING>
+						<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</___Emulation_Type>
+					<___Emulation_Type>
+						<HELP_STRING>If Auto, USB devices  less than 530MB will be emulated as Floppy and remaining as hard drive. Forced FDD option can be used to force a HDD formatted drive to boot as FDD (Ex. ZIP drive).</HELP_STRING>
+						<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</___Emulation_Type>
+					<___Emulation_Type>
+						<HELP_STRING>If Auto, USB devices  less than 530MB will be emulated as Floppy and remaining as hard drive. Forced FDD option can be used to force a HDD formatted drive to boot as FDD (Ex. ZIP drive).</HELP_STRING>
+						<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</___Emulation_Type>
+					<___Emulation_Type>
+						<HELP_STRING>If Auto, USB devices  less than 530MB will be emulated as Floppy and remaining as hard drive. Forced FDD option can be used to force a HDD formatted drive to boot as FDD (Ex. ZIP drive).</HELP_STRING>
+						<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</___Emulation_Type>
+					<___Emulation_Type>
+						<HELP_STRING>If Auto, USB devices  less than 530MB will be emulated as Floppy and remaining as hard drive. Forced FDD option can be used to force a HDD formatted drive to boot as FDD (Ex. ZIP drive).</HELP_STRING>
+						<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</___Emulation_Type>
+					<___Emulation_Type>
+						<HELP_STRING>If Auto, USB devices  less than 530MB will be emulated as Floppy and remaining as hard drive. Forced FDD option can be used to force a HDD formatted drive to boot as FDD (Ex. ZIP drive).</HELP_STRING>
+						<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</___Emulation_Type>
+					<___Emulation_Type>
+						<HELP_STRING>If Auto, USB devices  less than 530MB will be emulated as Floppy and remaining as hard drive. Forced FDD option can be used to force a HDD formatted drive to boot as FDD (Ex. ZIP drive).</HELP_STRING>
+						<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</___Emulation_Type>
+					<___Emulation_Type>
+						<HELP_STRING>If Auto, USB devices  less than 530MB will be emulated as Floppy and remaining as hard drive. Forced FDD option can be used to force a HDD formatted drive to boot as FDD (Ex. ZIP drive).</HELP_STRING>
+						<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</___Emulation_Type>
+				</USB_Mass_Storage_Device_Configuration>
+			</USB_Configuration>
+			<ACPI_Configuration>
+				<Advanced_ACPI_Configuration>
+					<Headless_mode>
+						<HELP_STRING>Enable / Disable Headless operation mode through ACPI.</HELP_STRING>
+						<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+						<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+						<OPTION-0>Disabled</OPTION-0>
+						<OPTION-1>Enabled</OPTION-1>
+					</Headless_mode>
+				</Advanced_ACPI_Configuration>
+				<Chipset_ACPI_Configuration>
+					<High_Performance_Event_Timer>
+						<HELP_STRING>Enable / Disable</HELP_STRING>
+						<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+						<OPTION-0>Disabled</OPTION-0>
+						<OPTION-1>Enabled</OPTION-1>
+					</High_Performance_Event_Timer>
+				</Chipset_ACPI_Configuration>
+				<General_WHEA_Configuration>
+					<WHEA_Support>
+						<HELP_STRING>Enable or disable Windows Hardware  Error Architecture.</HELP_STRING>
+						<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+						<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+						<OPTION-0>Disabled</OPTION-0>
+						<OPTION-1>Enabled</OPTION-1>
+					</WHEA_Support>
+				</General_WHEA_Configuration>
+			</ACPI_Configuration>
+			<AHCI_Configuration>
+				<AHCI_BIOS_Support>
+					<HELP_STRING>Enables for supporting  AHCI controller  operates in AHCI mode  during BIOS control  otherwise operates in  IDE mode.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Enabled</OPTION-0>
+					<OPTION-1>Disabled</OPTION-1>
+				</AHCI_BIOS_Support>
+				<AHCI_Port0>
+					<SATA_Port0_>
+						<HELP_STRING>Select the type of device connected to the system.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Not Installed</OPTION-1>
+					</SATA_Port0_>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</S_M_A_R_T_>
+				</AHCI_Port0>
+				<AHCI_Port1>
+					<SATA_Port1_>
+						<HELP_STRING>Select the type of device connected to the system.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Not Installed</OPTION-1>
+					</SATA_Port1_>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</S_M_A_R_T_>
+				</AHCI_Port1>
+				<AHCI_Port2>
+					<SATA_Port2_>
+						<HELP_STRING>Select the type of device connected to the system.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Not Installed</OPTION-1>
+					</SATA_Port2_>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</S_M_A_R_T_>
+				</AHCI_Port2>
+				<AHCI_Port3>
+					<SATA_Port3_>
+						<HELP_STRING>Select the type of device connected to the system.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Not Installed</OPTION-1>
+					</SATA_Port3_>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</S_M_A_R_T_>
+				</AHCI_Port3>
+				<AHCI_Port4>
+					<SATA_Port4_>
+						<HELP_STRING>Select the type of device connected to the system.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Not Installed</OPTION-1>
+					</SATA_Port4_>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</S_M_A_R_T_>
+				</AHCI_Port4>
+				<AHCI_Port5>
+					<SATA_Port5_>
+						<HELP_STRING>Select the type of device connected to the system.</HELP_STRING>
+						<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+						<SELECTED_OPTION>Auto</SELECTED_OPTION>
+						<OPTION-0>Auto</OPTION-0>
+						<OPTION-1>Not Installed</OPTION-1>
+					</SATA_Port5_>
+					<S_M_A_R_T_>
+						<HELP_STRING>S.M.A.R.T. stands for Self-Monitoring, Analysis and Reporting Technology.</HELP_STRING>
+						<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</S_M_A_R_T_>
+				</AHCI_Port5>
+			</AHCI_Configuration>
+			<I_O_Virtualization>
+				<SR_IOV_Supported>
+					<HELP_STRING></HELP_STRING>
+					<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</SR_IOV_Supported>
+			</I_O_Virtualization>
+			<IPMI_2_0_Configuration>
+				<External_Serial_Port__>
+					<HELP_STRING></HELP_STRING>
+					<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</External_Serial_Port__>
+				<View_BMC_System_Event_Log>
+					<SEL_Entry_Number_>
+						<HELP_STRING>Use +/- to traverse the event log.</HELP_STRING>
+						<DEFAULT_OPTION> 0004 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 7FFF </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</SEL_Entry_Number_>
+				</View_BMC_System_Event_Log>
+				<Clear_BMC_System_Event_Log>
+				</Clear_BMC_System_Event_Log>
+				<Set_LAN_Configuration>
+					<IP_Assignment>
+						<HELP_STRING>On first time into Setup Menu,if BMC  Capable of DHCP, then DHCP will be shown as first  option.Otherwise Static option will be shown.</HELP_STRING>
+						<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</IP_Assignment>
+					<Active_Management_Port_____>
+						<HELP_STRING>Active Management Port     </HELP_STRING>
+						<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+						<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+						<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+						<OPTION-0>Not Available</OPTION-0>
+					</Active_Management_Port_____>
+					<Refresh_________>
+					</Refresh_________>
+					<Commit_________>
+					</Commit_________>
+				</Set_LAN_Configuration>
+			</IPMI_2_0_Configuration>
+			<Intel_VT_d_Configuration>
+				<Intel_VT_d>
+					<HELP_STRING></HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Intel_VT_d>
+				<Coherency_Support>
+					<HELP_STRING>Non-Isoch VTd Engine Coherency support.</HELP_STRING>
+					<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Coherency_Support>
+			</Intel_VT_d_Configuration>
+			<PCI_Express_Configuration>
+				<Relaxed_Ordering>
+					<HELP_STRING>Enables/Disables Pci Express Device Relaxed Ordering.</HELP_STRING>
+					<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+					<SELECTED_OPTION>Auto</SELECTED_OPTION>
+					<OPTION-0>Auto</OPTION-0>
+					<OPTION-1>Disabled</OPTION-1>
+					<OPTION-2>Enabled</OPTION-2>
+				</Relaxed_Ordering>
+				<Maximum_Payload_Size>
+					<HELP_STRING>Set Maximum Payload of Pci Express Device or allow System BIOS  select the value.</HELP_STRING>
+					<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+					<SELECTED_OPTION>Auto</SELECTED_OPTION>
+					<OPTION-0>Auto</OPTION-0>
+					<OPTION-1>128 Bytes</OPTION-1>
+					<OPTION-2>256 Bytes</OPTION-2>
+					<OPTION-3>512 Bytes</OPTION-3>
+					<OPTION-4>1024 Bytes</OPTION-4>
+					<OPTION-5>2048 Bytes</OPTION-5>
+					<OPTION-6>4096 Bytes</OPTION-6>
+				</Maximum_Payload_Size>
+				<Extended_Tag_Field>
+					<HELP_STRING>If ENABLED, allows  Device to use 8-bit TAG field as a requester.</HELP_STRING>
+					<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+					<SELECTED_OPTION>Auto</SELECTED_OPTION>
+					<OPTION-0>Auto</OPTION-0>
+					<OPTION-1>Disabled</OPTION-1>
+					<OPTION-2>Enabled</OPTION-2>
+				</Extended_Tag_Field>
+				<No_Snoop>
+					<HELP_STRING>Enables/Disables Pci Express Device No Snoop option.</HELP_STRING>
+					<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+					<SELECTED_OPTION>Auto</SELECTED_OPTION>
+					<OPTION-0>Auto</OPTION-0>
+					<OPTION-1>Disabled</OPTION-1>
+					<OPTION-2>Enabled</OPTION-2>
+				</No_Snoop>
+				<Maximum_Read_Request_Size>
+					<HELP_STRING>Set Maximum Read  Request Size of Pci Express Device or allow System BIOS select the value.</HELP_STRING>
+					<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+					<SELECTED_OPTION>Auto</SELECTED_OPTION>
+					<OPTION-0>Auto</OPTION-0>
+					<OPTION-1>128 Bytes</OPTION-1>
+					<OPTION-2>256 Bytes</OPTION-2>
+					<OPTION-3>512 Bytes</OPTION-3>
+					<OPTION-4>1024 Bytes</OPTION-4>
+					<OPTION-5>2048 Bytes</OPTION-5>
+					<OPTION-6>4096 Bytes</OPTION-6>
+				</Maximum_Read_Request_Size>
+				<Active_State_Power_Management>
+					<HELP_STRING>Enable/Disable  PCI Express L0s and L1 link power states.</HELP_STRING>
+					<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Active_State_Power_Management>
+				<Extended_Synch>
+					<HELP_STRING>If ENABLED, allows generation of Extended Synchronization patterns.</HELP_STRING>
+					<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+					<SELECTED_OPTION>Auto</SELECTED_OPTION>
+					<OPTION-0>Auto</OPTION-0>
+					<OPTION-1>Disabled</OPTION-1>
+					<OPTION-2>Enabled</OPTION-2>
+				</Extended_Synch>
+				<BIOS_ARI_Support>
+					<HELP_STRING>Alternative Routing-id Interpretation (ARI) extends the maximum number of functions on a PCI device from 8 to 256.</HELP_STRING>
+					<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</BIOS_ARI_Support>
+				<PCI_Express_Slot__3_Width_>
+					<HELP_STRING>Select the number of lanes for PCI Express Slot #3. Selecting x16 will cause Slot #4 to be disabled.</HELP_STRING>
+					<DEFAULT_OPTION>x8</DEFAULT_OPTION>
+					<SELECTED_OPTION>x8</SELECTED_OPTION>
+					<OPTION-0>x8</OPTION-0>
+					<OPTION-1>x16</OPTION-1>
+				</PCI_Express_Slot__3_Width_>
+				<PCI_Express_Slot__5_Width_>
+					<HELP_STRING>Select the number of lanes for PCI Express Slot #5. Selecting x16 will cause Slot #6 to be disabled.</HELP_STRING>
+					<DEFAULT_OPTION>x8</DEFAULT_OPTION>
+					<SELECTED_OPTION>x8</SELECTED_OPTION>
+					<OPTION-0>x8</OPTION-0>
+					<OPTION-1>x16</OPTION-1>
+				</PCI_Express_Slot__5_Width_>
+			</PCI_Express_Configuration>
+			<Remote_Access_Configuration>
+				<Remote_Access>
+					<HELP_STRING>Select Remote Access type.</HELP_STRING>
+					<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enable</SELECTED_OPTION>
+					<OPTION-0>Disable</OPTION-0>
+					<OPTION-1>Enable</OPTION-1>
+				</Remote_Access>
+				<Serial_port_number>
+					<HELP_STRING>Select Serial Port for console redirection.  Make sure the selected port is enabled.</HELP_STRING>
+					<DEFAULT_OPTION>COM 1</DEFAULT_OPTION>
+					<SELECTED_OPTION>COM 1</SELECTED_OPTION>
+					<OPTION-0>COM 1</OPTION-0>
+				</Serial_port_number>
+				<Serial_Port_Mode>
+					<HELP_STRING>Select Serial Port settings.</HELP_STRING>
+					<DEFAULT_OPTION>9600,8,n,1</DEFAULT_OPTION>
+					<SELECTED_OPTION>9600,8,n,1</SELECTED_OPTION>
+					<OPTION-0>115200,8,n,1</OPTION-0>
+					<OPTION-1>57600,8,n,1</OPTION-1>
+					<OPTION-2>38400,8,n,1</OPTION-2>
+					<OPTION-3>19200,8,n,1</OPTION-3>
+					<OPTION-4>9600,8,n,1</OPTION-4>
+				</Serial_Port_Mode>
+				<Flow_Control>
+					<HELP_STRING>Select Flow Control for console redirection.</HELP_STRING>
+					<DEFAULT_OPTION>NONE</DEFAULT_OPTION>
+					<SELECTED_OPTION>NONE</SELECTED_OPTION>
+					<OPTION-0>NONE</OPTION-0>
+					<OPTION-1>Hardware</OPTION-1>
+					<OPTION-2>Software</OPTION-2>
+				</Flow_Control>
+				<Redirection_After_BIOS_POST>
+					<HELP_STRING>Disable: Turns off the redirection after POST Boot Loader: Redirection is active during POST and during Boot Loader. Always: Redirection is always active. (Some OSs may not work if set to Always)   [Enabled] - keep it [Disabled]- deactivate</HELP_STRING>
+					<DEFAULT_OPTION>Always</DEFAULT_OPTION>
+					<SELECTED_OPTION>Always</SELECTED_OPTION>
+					<OPTION-0>Disable</OPTION-0>
+					<OPTION-1>Boot Loader</OPTION-1>
+					<OPTION-2>Always</OPTION-2>
+				</Redirection_After_BIOS_POST>
+				<Terminal_Type>
+					<HELP_STRING>Select the target terminal type.</HELP_STRING>
+					<DEFAULT_OPTION>ANSI</DEFAULT_OPTION>
+					<SELECTED_OPTION>ANSI</SELECTED_OPTION>
+					<OPTION-0>ANSI</OPTION-0>
+					<OPTION-1>VT100</OPTION-1>
+					<OPTION-2>VTUTF8</OPTION-2>
+				</Terminal_Type>
+				<VT_UTF8_Combo_Key_Support>
+					<HELP_STRING>Enable VT-UTF8 Combination Key Support for ANSI/VT100 terminals.</HELP_STRING>
+					<DEFAULT_OPTION>Enable</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enable</SELECTED_OPTION>
+					<OPTION-0>Disable</OPTION-0>
+					<OPTION-1>Enable</OPTION-1>
+				</VT_UTF8_Combo_Key_Support>
+				<Sredir_Memory_Display_Delay>
+					<HELP_STRING>Gives the delay in seconds to  display memory information</HELP_STRING>
+					<DEFAULT_OPTION>No Delay</DEFAULT_OPTION>
+					<SELECTED_OPTION>No Delay</SELECTED_OPTION>
+					<OPTION-0>No Delay</OPTION-0>
+					<OPTION-1>Delay 1 sec</OPTION-1>
+					<OPTION-2>Delay 2 sec</OPTION-2>
+					<OPTION-3>Delay 4 sec</OPTION-3>
+				</Sredir_Memory_Display_Delay>
+			</Remote_Access_Configuration>
+			<Trusted_Computing>
+				<TCG_TPM_SUPPORT>
+					<HELP_STRING>Enable/Disable TPM  TCG (TPM 1.1/1.2) support in BIOS</HELP_STRING>
+					<DEFAULT_OPTION>No</DEFAULT_OPTION>
+					<SELECTED_OPTION>No</SELECTED_OPTION>
+					<OPTION-0>No</OPTION-0>
+					<OPTION-1>Yes</OPTION-1>
+				</TCG_TPM_SUPPORT>
+				<Execute_TPM_Command>
+					<HELP_STRING>Enable(Activate)/ Disable(Deactivate)  Command to TPM</HELP_STRING>
+					<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0003 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</Execute_TPM_Command>
+				<__TPM_Enable_Disable_Status>
+					<HELP_STRING></HELP_STRING>
+					<DEFAULT_OPTION> 0002 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0003 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</__TPM_Enable_Disable_Status>
+				<__TPM_Owner_Status>
+					<HELP_STRING></HELP_STRING>
+					<DEFAULT_OPTION> 0002 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0003 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</__TPM_Owner_Status>
+				<Clearing_the_TPM________________Press_Enter_>
+				</Clearing_the_TPM________________Press_Enter_>
+			</Trusted_Computing>
+		</Advanced>
+		<PCIPnP>
+			<Clear_NVRAM>
+				<HELP_STRING>Clear NVRAM during System Boot.</HELP_STRING>
+				<DEFAULT_OPTION>No</DEFAULT_OPTION>
+				<SELECTED_OPTION>No</SELECTED_OPTION>
+				<OPTION-0>No</OPTION-0>
+				<OPTION-1>Yes</OPTION-1>
+			</Clear_NVRAM>
+			<PCI_Latency_Timer>
+				<HELP_STRING>Value in units of PCI clocks for PCI device latency timer register.</HELP_STRING>
+				<DEFAULT_OPTION>64</DEFAULT_OPTION>
+				<SELECTED_OPTION>64</SELECTED_OPTION>
+				<OPTION-0>32</OPTION-0>
+				<OPTION-1>64</OPTION-1>
+				<OPTION-2>96</OPTION-2>
+				<OPTION-3>128</OPTION-3>
+				<OPTION-4>160</OPTION-4>
+				<OPTION-5>192</OPTION-5>
+				<OPTION-6>224</OPTION-6>
+				<OPTION-7>248</OPTION-7>
+			</PCI_Latency_Timer>
+			<OffBoard_PCI_IDE_Primary_IRQ>
+				<HELP_STRING>DISABLED: Use if this channel on card does not need an IRQ. INTx: Use these settings to assign an IRQ to the IntPin used by this channel. Hardwired: The card  hardwires a fixed INTx  into IntPin.</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>INTA</OPTION-1>
+				<OPTION-2>INTB</OPTION-2>
+				<OPTION-3>INTC</OPTION-3>
+				<OPTION-4>INTD</OPTION-4>
+				<OPTION-5>RESERVED</OPTION-5>
+				<OPTION-6>RESERVED</OPTION-6>
+				<OPTION-7>Hardwired</OPTION-7>
+			</OffBoard_PCI_IDE_Primary_IRQ>
+			<OffBoard_PCI_IDE_Secondary>
+				<HELP_STRING>DISABLED: Use if this channel on card does not need an IRQ. INTx: Use these settings to assign an IRQ to the IntPin used by this channel. Hardwired: The card  hardwires a fixed INTx  into IntPin.</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>INTA</OPTION-1>
+				<OPTION-2>INTB</OPTION-2>
+				<OPTION-3>INTC</OPTION-3>
+				<OPTION-4>INTD</OPTION-4>
+				<OPTION-5>RESERVED</OPTION-5>
+				<OPTION-6>RESERVED</OPTION-6>
+				<OPTION-7>Hardwired</OPTION-7>
+			</OffBoard_PCI_IDE_Secondary>
+			<NET0_Option_ROM_>
+				<HELP_STRING>This Option enables execution of the  onboard network  controllers' Optional ROMs for legacy  support. The onboard network devices are  not bootable with this disabled.</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</NET0_Option_ROM_>
+			<NET1_Option_ROM_>
+				<HELP_STRING>This Option enables execution of the  onboard network  controllers' Optional ROMs for legacy  support. The onboard network devices are  not bootable with this disabled.</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</NET1_Option_ROM_>
+			<NET2_Option_ROM_>
+				<HELP_STRING>This Option enables execution of the  onboard network  controllers' Optional ROMs for legacy  support. The onboard network devices are  not bootable with this disabled.</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</NET2_Option_ROM_>
+			<NET3_Option_ROM_>
+				<HELP_STRING>This Option enables execution of the  onboard network  controllers' Optional ROMs for legacy  support. The onboard network devices are  not bootable with this disabled.</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</NET3_Option_ROM_>
+			<PCI_E_Slot_0_Option_ROM_>
+				<HELP_STRING>Enable/Disable loading of the Option ROM for PCI-E Slot 0</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</PCI_E_Slot_0_Option_ROM_>
+			<PCI_E_Slot_1_Option_ROM_>
+				<HELP_STRING>Enable/Disable loading of the Option ROM for PCI-E Slot 1</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</PCI_E_Slot_1_Option_ROM_>
+			<PCI_E_Slot_2_Option_ROM_>
+				<HELP_STRING>Enable/Disable loading of the Option ROM for PCI-E Slot 2</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</PCI_E_Slot_2_Option_ROM_>
+			<PCI_E_Slot_3_Option_ROM_>
+				<HELP_STRING>Enable/Disable loading of the Option ROM for PCI-E Slot 3</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</PCI_E_Slot_3_Option_ROM_>
+			<PCI_E_Slot_4_Option_ROM_>
+				<HELP_STRING>Enable/Disable loading of the Option ROM for PCI-E Slot 4</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</PCI_E_Slot_4_Option_ROM_>
+			<PCI_E_Slot_5_Option_ROM_>
+				<HELP_STRING>Enable/Disable loading of the Option ROM for PCI-E Slot 5</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</PCI_E_Slot_5_Option_ROM_>
+			<PCI_E_Slot_6_Option_ROM_>
+				<HELP_STRING>Enable/Disable loading of the Option ROM for PCI-E Slot 6</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</PCI_E_Slot_6_Option_ROM_>
+			<PCI_E_Slot_7_Option_ROM_>
+				<HELP_STRING>Enable/Disable loading of the Option ROM for PCI-E Slot 7</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</PCI_E_Slot_7_Option_ROM_>
+			<PCI_E_Slot_8_Option_ROM_>
+				<HELP_STRING>Enable/Disable loading of the Option ROM for PCI-E Slot 8</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</PCI_E_Slot_8_Option_ROM_>
+			<PCI_E_Slot_9_Option_ROM_>
+				<HELP_STRING>Enable/Disable loading of the Option ROM for PCI-E Slot 9</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</PCI_E_Slot_9_Option_ROM_>
+			<Cluster_Card_Slot_Option_ROM_>
+				<HELP_STRING>Enable/Disable loading of the Option ROM for Cluster Card Slot</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</Cluster_Card_Slot_Option_ROM_>
+			<PCI_MMIO_64_Bits_Support>
+				<HELP_STRING>Enable/Disable memory mapped I/O of 64-bit PCI devices to 4GB or greater address space.</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</PCI_MMIO_64_Bits_Support>
+			<I_O_Allocation_for_Slot_0>
+				<HELP_STRING>Enable/Disable allocation of legacy I/O resources to this slot</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</I_O_Allocation_for_Slot_0>
+			<I_O_Allocation_for_Slot_1>
+				<HELP_STRING>Enable/Disable allocation of legacy I/O resources to this slot</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</I_O_Allocation_for_Slot_1>
+			<I_O_Allocation_for_Slot_2>
+				<HELP_STRING>Enable/Disable allocation of legacy I/O resources to this slot</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</I_O_Allocation_for_Slot_2>
+			<I_O_Allocation_for_Slot_3>
+				<HELP_STRING>Enable/Disable allocation of legacy I/O resources to this slot</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</I_O_Allocation_for_Slot_3>
+			<I_O_Allocation_for_Slot_4>
+				<HELP_STRING>Enable/Disable allocation of legacy I/O resources to this slot</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</I_O_Allocation_for_Slot_4>
+			<I_O_Allocation_for_Slot_5>
+				<HELP_STRING>Enable/Disable allocation of legacy I/O resources to this slot</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</I_O_Allocation_for_Slot_5>
+			<I_O_Allocation_for_Slot_6>
+				<HELP_STRING>Enable/Disable allocation of legacy I/O resources to this slot</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</I_O_Allocation_for_Slot_6>
+			<I_O_Allocation_for_Slot_7>
+				<HELP_STRING>Enable/Disable allocation of legacy I/O resources to this slot</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</I_O_Allocation_for_Slot_7>
+			<I_O_Allocation_for_Slot_8>
+				<HELP_STRING>Enable/Disable allocation of legacy I/O resources to this slot</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</I_O_Allocation_for_Slot_8>
+			<I_O_Allocation_for_Slot_9>
+				<HELP_STRING>Enable/Disable allocation of legacy I/O resources to this slot</HELP_STRING>
+				<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</I_O_Allocation_for_Slot_9>
+			<I_O_Allocation_for_Cluster__Card_Slot>
+				<HELP_STRING>Enable/Disable allocation of legacy I/O resources to this slot</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</I_O_Allocation_for_Cluster__Card_Slot>
+		</PCIPnP>
+		<Boot>
+			<Prompt_on_Config_Change>
+				<HELP_STRING>Enables prompt to enter setup when Boot Device configuration changes</HELP_STRING>
+				<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+				<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+				<OPTION-0>Disabled</OPTION-0>
+				<OPTION-1>Enabled</OPTION-1>
+			</Prompt_on_Config_Change>
+			<Boot_Settings_Configuration>
+				<Quick_Boot>
+					<HELP_STRING>Allows BIOS to skip certain tests while booting. This will decrease the time needed to boot the system.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Quick_Boot>
+				<Quiet_Boot>
+					<HELP_STRING>Disabled: Displays normal POST messages. Enabled: Displays OEM Logo instead of POST messages.</HELP_STRING>
+					<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Quiet_Boot>
+				<AddOn_ROM_Display_Mode>
+					<HELP_STRING>Set display mode for Option ROM.</HELP_STRING>
+					<DEFAULT_OPTION>Force BIOS</DEFAULT_OPTION>
+					<SELECTED_OPTION>Force BIOS</SELECTED_OPTION>
+					<OPTION-0>Force BIOS</OPTION-0>
+					<OPTION-1>Keep Current</OPTION-1>
+				</AddOn_ROM_Display_Mode>
+				<Bootup_Num_Lock>
+					<HELP_STRING>Select Power-on state for Numlock.</HELP_STRING>
+					<DEFAULT_OPTION>On</DEFAULT_OPTION>
+					<SELECTED_OPTION>On</SELECTED_OPTION>
+					<OPTION-0>Off</OPTION-0>
+					<OPTION-1>On</OPTION-1>
+				</Bootup_Num_Lock>
+				<Wait_For__F1__If_Error>
+					<HELP_STRING>Wait for F1 key to be pressed if error occurs.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Wait_For__F1__If_Error>
+				<Interrupt_19_Capture>
+					<HELP_STRING>Enabled: Allows option ROMs to trap interrupt 19</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Interrupt_19_Capture>
+				<Boots_Graphic_Adapter_Priority>
+					<HELP_STRING>Select which graphics controller to use as the primary boot device.</HELP_STRING>
+					<DEFAULT_OPTION>Onboard VGA</DEFAULT_OPTION>
+					<SELECTED_OPTION>Onboard VGA</SELECTED_OPTION>
+					<OPTION-0>Auto</OPTION-0>
+					<OPTION-1>Onboard VGA</OPTION-1>
+					<OPTION-2>RESERVED</OPTION-2>
+					<OPTION-3>RESERVED</OPTION-3>
+				</Boots_Graphic_Adapter_Priority>
+				<Onboard_VGA_device>
+					<HELP_STRING>Enable/Disable  onboard VGA chip. Note: Do not disable  if you have not   installed a VGA card</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Enabled</OPTION-0>
+					<OPTION-1>Disabled</OPTION-1>
+				</Onboard_VGA_device>
+				<Persistent_Boot_Mode>
+					<HELP_STRING>When enabled, the boot list is comprised only of persistent storage devices. Disabling will revert back to default boot handing from next boot.</HELP_STRING>
+					<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Persistent_Boot_Mode>
+			</Boot_Settings_Configuration>
+			<Boot_Device_Priority>
+				<_1_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_1_>
+				<_2_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0003 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_2_>
+				<_3_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0002 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0004 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_3_>
+				<_4_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0003 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_4_>
+				<_5_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0004 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0002 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_5_>
+				<_6_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0005 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0005 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_6_>
+				<_7_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0006 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0006 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_7_>
+				<_8_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0007 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000F </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_8_>
+				<_9_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0008 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000F </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_9_>
+				<_10_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0009 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000F </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_10_>
+				<_11_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 000A </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000F </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_11_>
+				<_12_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000F </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_12_>
+				<_13_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 000C </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000F </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_13_>
+				<_14_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 000D </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000F </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_14_>
+				<_15_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 000E </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000F </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_15_>
+				<_16_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 000F </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0010 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_16_>
+				<_17_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0010 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0010 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_17_>
+				<_18_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0011 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0011 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_18_>
+				<_19_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0012 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0012 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_19_>
+				<_20_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0013 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0013 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_20_>
+				<_21_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0014 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0014 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_21_>
+				<_22_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0015 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0015 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_22_>
+				<_23_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0016 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0016 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_23_>
+				<_24_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0017 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0017 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_24_>
+				<_25_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0018 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0018 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_25_>
+				<_26_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0019 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0019 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_26_>
+				<_27_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 001A </DEFAULT_OPTION>
+					<SELECTED_OPTION> 001A </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_27_>
+				<_28_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 001B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 001B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_28_>
+				<_29_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 001C </DEFAULT_OPTION>
+					<SELECTED_OPTION> 001C </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_29_>
+				<_30_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 001D </DEFAULT_OPTION>
+					<SELECTED_OPTION> 001D </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_30_>
+				<_31_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 001E </DEFAULT_OPTION>
+					<SELECTED_OPTION> 001E </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_31_>
+				<_32_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 001F </DEFAULT_OPTION>
+					<SELECTED_OPTION> 001F </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_32_>
+				<_33_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0020 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0020 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_33_>
+				<_34_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0021 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0021 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_34_>
+				<_35_>
+					<HELP_STRING>Specifies the boot sequence from the available devices.  A device enclosed in parenthesis has been disabled in the corresponding type menu.</HELP_STRING>
+					<DEFAULT_OPTION> 0022 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0022 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 003F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_35_>
+			</Boot_Device_Priority>
+			<Hard_Disk_Drives_____________>
+				<_1st_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_1st_Drive>
+				<_2nd_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_2nd_Drive>
+				<_3rd_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0002 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0002 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_3rd_Drive>
+				<_4th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0003 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0003 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_4th_Drive>
+				<_5th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0004 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0004 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_5th_Drive>
+				<_6th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0005 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0005 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_6th_Drive>
+				<_7th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0006 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0006 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_7th_Drive>
+				<_8th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0007 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0007 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_8th_Drive>
+				<_9th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0008 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0008 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_9th_Drive>
+				<_10th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0009 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0009 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_10th_Drive>
+				<_11th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000A </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000A </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_11th_Drive>
+				<_12th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_12th_Drive>
+				<_13th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_13th_Drive>
+				<_14th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_14th_Drive>
+				<_15th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_15th_Drive>
+				<_16th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_16th_Drive>
+				<_17th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_17th_Drive>
+				<_18th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_18th_Drive>
+				<_19th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_19th_Drive>
+				<_20th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_20th_Drive>
+				<_21st_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_21st_Drive>
+				<_22nd_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_22nd_Drive>
+				<_23rd_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_23rd_Drive>
+				<_24th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_24th_Drive>
+				<_25th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_25th_Drive>
+				<_26th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 000B </DEFAULT_OPTION>
+					<SELECTED_OPTION> 000B </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_26th_Drive>
+			</Hard_Disk_Drives_____________>
+			<Removable_Drives_____________>
+				<_1st_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_1st_Drive>
+				<_2nd_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_2nd_Drive>
+				<_3rd_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0002 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0002 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_3rd_Drive>
+				<_4th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0003 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0003 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_4th_Drive>
+			</Removable_Drives_____________>
+			<CD_DVD_Drives________________>
+				<_1st_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_1st_Drive>
+				<_2nd_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_2nd_Drive>
+				<_3rd_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0002 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0002 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_3rd_Drive>
+				<_4th_Drive>
+					<HELP_STRING>Specifies the boot sequence from the available devices.</HELP_STRING>
+					<DEFAULT_OPTION> 0003 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0003 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0007 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_4th_Drive>
+			</CD_DVD_Drives________________>
+			<BIOS_Boot_Configuration_Options>
+			</BIOS_Boot_Configuration_Options>
+		</Boot>
+		<Security>
+			<User_Access_Level>
+				<HELP_STRING>LIMITED: allows only limited fields to be changed such as Date and Time. NO ACCESS: prevents User access to the Setup Utility. VIEW ONLY: allows access to the Setup Utility but the fields can not be changed. FULL: allows any field to be changed except the Supervisor password.</HELP_STRING>
+				<DEFAULT_OPTION> 0003 </DEFAULT_OPTION>
+				<SELECTED_OPTION> 0003 </SELECTED_OPTION>
+				<OPTION_RANGE> 0000 - 0003 </OPTION_RANGE>
+				<OPTION-0>Not Available</OPTION-0>
+			</User_Access_Level>
+			<Password_Check>
+				<HELP_STRING>Setup: Check password while invoking setup. Always: Check password while invoking setup as well as on each boot.</HELP_STRING>
+				<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+				<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+				<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+				<OPTION-0>Not Available</OPTION-0>
+			</Password_Check>
+			<Clear_User_Password>
+			</Clear_User_Password>
+		</Security>
+		<IO_MMIO>
+			<IO_MMIO_Ratio_Configuration>
+				<MMConfigBase>
+					<HELP_STRING>Select the Memory  Mapped Config Space base address.</HELP_STRING>
+					<DEFAULT_OPTION>0x8000 0000</DEFAULT_OPTION>
+					<SELECTED_OPTION>0x8000 0000</SELECTED_OPTION>
+					<OPTION-0>0x8000 0000</OPTION-0>
+					<OPTION-1>0x4000 0000</OPTION-1>
+					<OPTION-2>0xC000 0000</OPTION-2>
+				</MMConfigBase>
+				<QPI_Debug_Message_Output_Level>
+					<HELP_STRING>Controls what levels of debug message output is needed.</HELP_STRING>
+					<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+					<OPTION-0>Err/Warn/Info0|1</OPTION-0>
+					<OPTION-1>Err/Warn/Info0</OPTION-1>
+					<OPTION-2>Err/Warn</OPTION-2>
+					<OPTION-3>Disabled</OPTION-3>
+				</QPI_Debug_Message_Output_Level>
+				<CRC_Mode>
+					<HELP_STRING>Enable/Disable QPI CRC Mode.</HELP_STRING>
+					<DEFAULT_OPTION>8bit CRC</DEFAULT_OPTION>
+					<SELECTED_OPTION>8bit CRC</SELECTED_OPTION>
+					<OPTION-0>8bit CRC</OPTION-0>
+					<OPTION-1>16bit Rolling CRC</OPTION-1>
+				</CRC_Mode>
+				<QPI_Link_Speed>
+					<HELP_STRING>Select the QPI link speed as either the POR speed (Fast) or default speed (Slow).</HELP_STRING>
+					<DEFAULT_OPTION>Fast</DEFAULT_OPTION>
+					<SELECTED_OPTION>Fast</SELECTED_OPTION>
+					<OPTION-0>Slow</OPTION-0>
+					<OPTION-1>Fast</OPTION-1>
+				</QPI_Link_Speed>
+				<QPI_Link_Frequency_Select>
+					<HELP_STRING>Allows for selecting the QPI Link Frequency.</HELP_STRING>
+					<DEFAULT_OPTION>6.4 GT/s</DEFAULT_OPTION>
+					<SELECTED_OPTION>6.4 GT/s</SELECTED_OPTION>
+					<OPTION-0>4.8 GT/s</OPTION-0>
+					<OPTION-1>5.866 GT/s</OPTION-1>
+					<OPTION-2>6.4 GT/s</OPTION-2>
+				</QPI_Link_Frequency_Select>
+				<MMIOL_Reclaim>
+					<HELP_STRING>Enable or Disable reclaim of MMIOL from High Memory Helps workaround certain OSes, which don't support greater than 40bit addressing with 1TB of system memory</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</MMIOL_Reclaim>
+			</IO_MMIO_Ratio_Configuration>
+			<Integrated_Memory_Controller_Configuration>
+				<MRC_Debug_Messages>
+					<HELP_STRING>This is to enable MRC debug message through the serial port.</HELP_STRING>
+					<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</MRC_Debug_Messages>
+				<InterleaveType>
+					<HELP_STRING>This would select how many memory nodes are included in Interleaving.</HELP_STRING>
+					<DEFAULT_OPTION>Intra-Socket Block Interleaving</DEFAULT_OPTION>
+					<SELECTED_OPTION>Intra-Socket Block Interleaving</SELECTED_OPTION>
+					<OPTION-0>No Interleaving</OPTION-0>
+					<OPTION-1>Intra-Socket Block Interleaving</OPTION-1>
+					<OPTION-2>Four Way Block Interleave</OPTION-2>
+					<OPTION-3>Inter-Socket Block Interleaving</OPTION-3>
+				</InterleaveType>
+				<Interleave_order>
+					<HELP_STRING>This would select Interleave order.</HELP_STRING>
+					<DEFAULT_OPTION>Low High 0</DEFAULT_OPTION>
+					<SELECTED_OPTION>Low High 0</SELECTED_OPTION>
+					<OPTION-0>High Only</OPTION-0>
+					<OPTION-1>High Low</OPTION-1>
+					<OPTION-2>Low High 0</OPTION-2>
+					<OPTION-3>Low High 1</OPTION-3>
+				</Interleave_order>
+				<Frequency_Limit>
+					<HELP_STRING>Forces a DDR3  frequency slower than the common tCK detected via SPD. A DDR3 frequency faster than the common frequency is a config error.  Options are AUTO,  800MHz, 978MHz and 1067MHz.  AUTO will set the fastest common speed as determined from the SPD information.</HELP_STRING>
+					<DEFAULT_OPTION>Auto</DEFAULT_OPTION>
+					<SELECTED_OPTION>Auto</SELECTED_OPTION>
+					<OPTION-0>800MHz</OPTION-0>
+					<OPTION-1>978MHz</OPTION-1>
+					<OPTION-2>1067MHz</OPTION-2>
+					<OPTION-3>Auto</OPTION-3>
+				</Frequency_Limit>
+				<Initialization_mode>
+					<HELP_STRING>This would select memory Initialization mode, either Serial or Parallel.</HELP_STRING>
+					<DEFAULT_OPTION>Parallel</DEFAULT_OPTION>
+					<SELECTED_OPTION>Parallel</SELECTED_OPTION>
+					<OPTION-0>Serial</OPTION-0>
+					<OPTION-1>Parallel</OPTION-1>
+				</Initialization_mode>
+				<Page_Policy>
+					<HELP_STRING>This would select Page policy.</HELP_STRING>
+					<DEFAULT_OPTION>Close</DEFAULT_OPTION>
+					<SELECTED_OPTION>Close</SELECTED_OPTION>
+					<OPTION-0>Close</OPTION-0>
+					<OPTION-1>Open</OPTION-1>
+					<OPTION-2>Adaptive</OPTION-2>
+				</Page_Policy>
+				<Scheduler_Policy>
+					<HELP_STRING>This would select Scheduler policy.</HELP_STRING>
+					<DEFAULT_OPTION>Adaptive</DEFAULT_OPTION>
+					<SELECTED_OPTION>Adaptive</SELECTED_OPTION>
+					<OPTION-0>Static Trade Off</OPTION-0>
+					<OPTION-1>Static Read Priority</OPTION-1>
+					<OPTION-2>Static Write Priority</OPTION-2>
+					<OPTION-3>Adaptive</OPTION-3>
+				</Scheduler_Policy>
+				<Ecc_Patrol_Scrub>
+					<HELP_STRING>This would enable Ecc Patrol Scrub.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Ecc_Patrol_Scrub>
+				<_Duration>
+					<HELP_STRING>This would select duration between  two patrol scrubs.</HELP_STRING>
+					<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 001F </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</_Duration>
+				<DRAM_Device_Map_out>
+					<HELP_STRING>Disable/Enable Single Device Data Correction.</HELP_STRING>
+					<DEFAULT_OPTION>Disabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Disabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</DRAM_Device_Map_out>
+			</Integrated_Memory_Controller_Configuration>
+		</IO_MMIO>
+		<Chipset>
+			<CPU_Bridge_Configuration>
+				<Spread_Spectrum_Mode>
+					<HELP_STRING>Spread spectrum  modulation.</HELP_STRING>
+					<DEFAULT_OPTION>Enabled</DEFAULT_OPTION>
+					<SELECTED_OPTION>Enabled</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>Enabled</OPTION-1>
+				</Spread_Spectrum_Mode>
+				<ECC_check_time_interval>
+					<HELP_STRING>Time interval between two memory ECC checks. IPMI message will be posted when an ECC error happens.</HELP_STRING>
+					<DEFAULT_OPTION>1 Min</DEFAULT_OPTION>
+					<SELECTED_OPTION>1 Min</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>100 msec</OPTION-1>
+					<OPTION-2>1 Sec</OPTION-2>
+					<OPTION-3>10 Sec</OPTION-3>
+					<OPTION-4>1 Min</OPTION-4>
+					<OPTION-5>5 Min</OPTION-5>
+					<OPTION-6>10 Min</OPTION-6>
+				</ECC_check_time_interval>
+			</CPU_Bridge_Configuration>
+			<South_Bridge_Configuration>
+				<USB_Functions>
+					<HELP_STRING></HELP_STRING>
+					<DEFAULT_OPTION>12 USB Ports</DEFAULT_OPTION>
+					<SELECTED_OPTION>12 USB Ports</SELECTED_OPTION>
+					<OPTION-0>Disabled</OPTION-0>
+					<OPTION-1>2 USB Ports</OPTION-1>
+					<OPTION-2>4 USB Ports</OPTION-2>
+					<OPTION-3>6 USB Ports</OPTION-3>
+					<OPTION-4>8 USB Ports</OPTION-4>
+					<OPTION-5>10 USB Ports</OPTION-5>
+					<OPTION-6>12 USB Ports</OPTION-6>
+				</USB_Functions>
+				<GbE_Controller>
+					<HELP_STRING></HELP_STRING>
+					<DEFAULT_OPTION> 0000 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0000 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</GbE_Controller>
+				<__GbE_LAN_Boot>
+					<HELP_STRING></HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</__GbE_LAN_Boot>
+				<__GbE_Wake_Up_From_S5>
+					<HELP_STRING></HELP_STRING>
+					<DEFAULT_OPTION> 0001 </DEFAULT_OPTION>
+					<SELECTED_OPTION> 0001 </SELECTED_OPTION>
+					<OPTION_RANGE> 0000 - 0001 </OPTION_RANGE>
+					<OPTION-0>Not Available</OPTION-0>
+				</__GbE_Wake_Up_From_S5>
+			</South_Bridge_Configuration>
+		</Chipset>
+		<Exit>
+			<Save_Changes_and_Exit>
+			</Save_Changes_and_Exit>
+			<Discard_Changes_and_Exit>
+			</Discard_Changes_and_Exit>
+			<Discard_Changes>
+			</Discard_Changes>
+			<Load_Optimal_Defaults>
+			</Load_Optimal_Defaults>
+		</Exit>
+	</SETUP_CONFIG>
+</BIOSCONFIG>
