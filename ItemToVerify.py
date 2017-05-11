@@ -199,10 +199,10 @@ def verify_ntp():
     command="xntpdc -c peers"
     connection = Ssh(sshServer, sshUsername, sshPassword)
     time.sleep(3)
-    output,errs=connection.run_Cmd(command)
-    print "errs " + errs
+    output=connection.run_Cmd(command)
+    print "ntp output" + output
     #return entry
-    return errs
+    return output
 
 item=Items('ntp',finit,finit,finit,verify_ntp)
 print "item is " +  str(item)
