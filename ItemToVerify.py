@@ -206,4 +206,4 @@ def verify_ntp():
     return "TEST"
 item=Items('ntp',finit,finit,finit,verify_ntp)
 print "item is " +  str(item)
-print "ntp  is not working " + str(item.item_verify_func())
+print "ntp  is not working " + str(item.get_verify())
