@@ -44,7 +44,7 @@ class Items(object):
     def __str__(self):
         return "item "+ self.item_to_verify + " item staging " + str(self.item_staging_value())+ " item existing value " + str(self.item_existing_value)
 
-sshServer='sol1'
+sshServer='sol2'
 sshUsername='root'
 sshPassword='changeme'
 localstgdir='/var/tmp/stgdir/'
@@ -109,7 +109,7 @@ def get_stage_system():
 
 def get_exist_system():
     print " check local directory"
-    command="cat /etc/system|grep -v ^#|sort|grep -^$|cksum"
+    command="cat /etc/system|grep -v ^#|sort|grep -v ^$|cksum"
         
     connection = Ssh(sshServer, sshUsername, sshPassword)
     #connection.openShell()
