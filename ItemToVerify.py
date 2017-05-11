@@ -202,8 +202,8 @@ def verify_ntp():
     output=connection.run_Cmd(command)
     print "ntp output" + output
     #return entry
-    return output ==  None
-
+    #return output ==  None
+    return "TEST"
 item=Items('ntp',finit,finit,finit,verify_ntp)
 print "item is " +  str(item)
 print "ntp  is not working " + str(item.item_verify_func())
