@@ -43,7 +43,7 @@ class Ssh:
         
     
         alldata= ''
-        while not alldata.endswith(':~# '):
+        while not alldata.endswith(':~# ') and not alldata.endswith('$ '):
         #while not alldata.endswith('$'):
             time.sleep(2)
             if self.shell.recv_ready():
@@ -65,7 +65,10 @@ class Ssh:
      
         else:
             print("Shell not opened.")
- 
+    
+    
+    
+    
     def run_Cmd(self,cmd):
         print "run cmd " + cmd
         stdin,stdout,stderr=self.client.exec_command(cmd)

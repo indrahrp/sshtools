@@ -106,7 +106,7 @@ def verify_sudo():
     print "verifying sudo \n login using ravind account ... "
 
     command="s" +  localstgdir + "system|grep -v ^#|sort|grep -v ^$|cksum"
-    sshUsername='root'
+    sshUsername='test1'
     sshPassword='changeme'    
     connection = Ssh(sshServer, sshUsername, sshPassword)
     #connection.openShell()
