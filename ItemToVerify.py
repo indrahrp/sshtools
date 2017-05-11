@@ -141,7 +141,12 @@ def get_exist_mtu():
     time.sleep(3)
     entry=connection.run_Cmd(command)
     #print "entry " + entry
-    return entry
+    #return entry
+    mtulist=find_mtu(entry,'bunkerx1','tdn.pln.ilx.com')
+    print "mtulist " + str(mtulist)
+    return mtulist
+
+
 
 def find_mtu(str1,svrname,domain):
     intlist=[]    
