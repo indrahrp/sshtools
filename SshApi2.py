@@ -77,8 +77,9 @@ class Ssh:
         for line in stderr: 
             print line.strip('\n')  
         
+        
         for line in stdout: 
-            print line.strip('\n')  
+            print "stdout " +  line.strip('\n')  
         return output
 
        
