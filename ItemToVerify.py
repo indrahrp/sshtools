@@ -172,5 +172,5 @@ print "item is " +  str(item)
 #print "item is the same : " + str (item.getstagingvalue() == item.getexistvalue)
 #print "ixgbe value is " + item.getstagingvalue().strip()
 #print "system prod value is " + str(item.getprodvalue())
-print "system existing value is " + str(item.getexistvalue())
+#print "system existing value is " + str(item.getexistvalue())
 
