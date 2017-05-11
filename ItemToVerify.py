@@ -146,6 +146,13 @@ def get_exist_mtu():
     print "mtulist " + str(mtulist)
     return mtulist
 
+def verify_mtu():
+    mtuprod=item.getprodvalue()
+    mtuexisting=item.getexistvalue()
+    
+    for idx,value in mtuexisting.item():
+        if mtuexisting[idx][1] != mtuprod[idx][1]:
+            print " network mtu is not matched" + idx 
 
 
 def find_mtu(str1,svrname,domain):
