@@ -43,7 +43,7 @@ class Ssh:
         
     
         alldata= ''
-        while not alldata.endswith(':~# ') and not alldata.endswith('$ '):
+        while not alldata.endswith(':~# ') and not alldata.endswith('\$ '):
         #while not alldata.endswith('$'):
             time.sleep(2)
             if self.shell.recv_ready():
