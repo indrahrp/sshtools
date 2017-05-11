@@ -44,7 +44,7 @@ class Items(object):
     def __str__(self):
         return "item "+ self.item_to_verify + " item staging " + str(self.item_staging_value())+ " item existing value " + str(self.item_existing_value)
 
-sshServer='sol2'
+sshServer='bunkerx1'
 sshUsername='root'
 sshPassword='changeme'
 localstgdir='/var/tmp/stgdir/'
@@ -133,9 +133,10 @@ def get_prod_mtu():
     mtulist=find_mtu(fentry,'bunkerx1','tdn.pln.ilx.com')
     print "mtulist " + str(mtulist)
     return mtulist
+
 def get_exist_mtu():
     print " getting current server mtu"
-    command="netstat -i | grep -i " + sshServer 
+    command="netstat -i | grep -i " + sshServer
     connection = Ssh(sshServer, sshUsername, sshPassword)
     time.sleep(3)
     entry=connection.run_Cmd(command)
