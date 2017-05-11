@@ -152,11 +152,12 @@ def get_exist_mtu():
 def verify_mtu():
     mtuprod=item.getprodvalue()
     mtuexisting=item.getexistvalue()
-    
+    intnotmatch=[]
     for idx,value in mtuexisting.items():
         if mtuexisting[idx][1] != mtuprod[idx][1]:
+            intnotmatch.append(idx)
             print " network mtu is not matched" + idx 
-
+    return intnotmatch
 
 def find_mtu(str1,svrname,domain):
     intdict={}    
