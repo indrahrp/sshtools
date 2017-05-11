@@ -80,6 +80,7 @@ class Ssh:
         
         
         #for line in stdout: 
+        print "stderr " + errs
         print "stdout " +  output  
         return output
 
