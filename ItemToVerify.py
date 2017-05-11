@@ -166,5 +166,10 @@ def ReadFromFile(Filename):
 
     
     
-    
+item=Items('mtu',finit,get_prod_mtu,get_exist_mtu,finit)
+print "item is " +  str(item)
+#print "item is the same : " + str (item.getstagingvalue() == item.getexistvalue)
+#print "ixgbe value is " + item.getstagingvalue().strip()
+print "system staging value is " + item.getprodvalue()
+print "system existing value is " + item.getexistvalue()
 
