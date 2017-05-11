@@ -218,27 +218,32 @@ def verify_ht():
     fname='biossetting.xml'
     fentry=ReadFromFile(fname)
     print "fentry  "+ fentry
-    htset=find_ht(fentry,'bunkerx1','tdn.pln.ilx.com')
-    print "htset  " + str(htset)
-    return htset
+    #htset=find_ht(fentry,'bunkerx1','tdn.pln.ilx.com')
+    #print "htset  " + str(htset)
+    #return htset
 
 item=Items('htsetting',finit,finit,finit,verify_ht)
 print "item is " +  str(item)
-print "hyperthread   is  disabled : " + str(item.get_verify())
+#print "hyperthread   is  disabled : " + str(item.get_verify())
 
 
 def verify_sudo():
-    print " "
-    fname='biossetting.xml'
-    fentry=ReadFromFile(fname)
-    print "fentry  "+ fentry
-    htset=find_ht(fentry,'bunkerx1','tdn.pln.ilx.com')
-    print "htset  " + str(htset)
-    return htset
+    print "verifying sudo \n login using ravind account ... "
 
-item=Items('htsetting',finit,finit,finit,verify_ht)
+    command="s" +  localstgdir + "system|grep -v ^#|sort|grep -v ^$|cksum"
+    sshUsername='testuser1'
+    sshPassword='changeme'    
+    connection = Ssh(sshServer, sshUsername, sshPassword)
+    #connection.openShell()
+    time.sleep(3)
+        #return connection.sendShell(command)
+    sshcon=connection.openShell()
+    output=sshcon.sendShell('sudo -l')
+    print "output send shell " + output
+    
+item=Items('htsetting',finit,finit,finit,verify_sudo)
 print "item is " +  str(item)
-print "hyperthread   is  disabled : " + str(item.get_verify())
+print "sudo is enabled : " + str(item.get_verify())
 
 
 
