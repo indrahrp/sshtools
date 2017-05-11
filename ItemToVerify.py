@@ -132,7 +132,7 @@ def get_prod_mtu():
     print "fentry  "+ fentry
     mtulist=find_mtu(fentry,'bunkerx1','tdn.pln.ilx.com')
     print "mtulist " + str(mtulist)
-
+    return mtulist
 def get_exist_mtu():
     print " getting current server mtu"
     command="netstat -i | grep -i " + sshServer 
@@ -140,7 +140,7 @@ def get_exist_mtu():
     time.sleep(3)
     entry=connection.run_Cmd(command)
     print "entry " + entry
-    
+    return entry
 
 def find_mtu(str1,svrname,domain):
     intlist=[]    
