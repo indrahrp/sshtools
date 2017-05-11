@@ -112,8 +112,8 @@ def verify_sudo():
     #connection.openShell()
     time.sleep(3)
         #return connection.sendShell(command)
-    sshcon=connection.openShell()
-    output=sshcon.sendShell('sudo -l')
+    connection.openShell()
+    output=connection.sendShell('sudo -l')
     print "output send shell " + output
     
 item=Items('sudo',finit,finit,finit,verify_sudo)
