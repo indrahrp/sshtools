@@ -153,7 +153,7 @@ def verify_mtu():
     mtuprod=item.getprodvalue()
     mtuexisting=item.getexistvalue()
     
-    for idx,value in mtuexisting.item():
+    for idx,value in mtuexisting.items():
         if mtuexisting[idx][1] != mtuprod[idx][1]:
             print " network mtu is not matched" + idx 
 
