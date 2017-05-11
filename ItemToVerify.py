@@ -189,4 +189,21 @@ print "item is " +  str(item)
 #print "ixgbe value is " + item.getstagingvalue().strip()
 print "mtu prod value is " + str(item.getprodvalue())
 print "mtu existing value is " + str(item.getexistvalue())
-print "mtu is matched or not " + str(item.item_verify_func())
+print "mtu is not matched  " + str(item.item_verify_func())
+
+
+
+def verify_ntp():
+    
+    print " verifying ntp"
+    command="xntpdc -c peers"
+    connection = Ssh(sshServer, sshUsername, sshPassword)
+    time.sleep(3)
+    output,errs=connection.run_Cmd(command)
+    print "errs " + errs
+    #return entry
+    return errs
+
+item=Items('ntp',finit,finit,finit,verify_ntp)
+print "item is " +  str(item)
+print "ntp  is not working " + str(item.item_verify_func())

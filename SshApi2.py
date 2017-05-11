@@ -67,6 +67,7 @@ class Ssh:
         print "run cmd " + cmd
         stdin,stdout,stderr=self.client.exec_command(cmd)
         output = stdout.read()
+        errs= stderr.read()
         #for out  in  output:
         #    print out   
         #if stderr:
@@ -80,7 +81,7 @@ class Ssh:
         
         #for line in stdout: 
         print "stdout " +  output  
-        return output
+        return output,errs
 
        
 # SCPCLient takes a paramiko transport as its only argument
