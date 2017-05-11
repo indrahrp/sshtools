@@ -33,6 +33,7 @@ class Ssh:
        
         self.shell = self.client.invoke_shell()
         print "shell invoked"
+        time.sleep(10)
         self.__retrieveResp()
             #strdata = str(alldata)
             #strdata.replace('\r', '')
@@ -43,6 +44,7 @@ class Ssh:
     
         alldata= ''
         while not alldata.endswith(':~# '):
+            time.sleep(2)
             if self.shell.recv_ready():
                 resp=self.shell.recv(1024)
                 alldata += resp
