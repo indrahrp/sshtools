@@ -24,6 +24,7 @@ class Items(object):
         self.item_staging_value=getstagefunc
         self.item_prod_value=getprodfunc
         self.item_existing_value=getexistfunc
+        self.item_verify_func=verifyfunc
         #self.getstagefunc=getstagefunc
         #self.getprodfunc=getprodfunc
         
@@ -40,6 +41,8 @@ class Items(object):
     def getexistvalue(self):
         return self.item_existing_value()
  
+    def get_verify(self):
+        return self.item_verify_func()
     
     def __str__(self):
         return "item "+ self.item_to_verify + " item staging " + str(self.item_staging_value())+ " item existing value " + str(self.item_existing_value)
@@ -179,10 +182,10 @@ def ReadFromFile(Filename):
 
     
     
-item=Items('mtu',finit,get_prod_mtu,get_exist_mtu,finit)
+item=Items('mtu',finit,get_prod_mtu,get_exist_mtu,verify_mtu)
 print "item is " +  str(item)
 #print "item is the same : " + str (item.getstagingvalue() == item.getexistvalue)
 #print "ixgbe value is " + item.getstagingvalue().strip()
-print "system prod value is " + str(item.getprodvalue())
-print "system existing value is " + str(item.getexistvalue())
-
+print "mtu prod value is " + str(item.getprodvalue())
+print "mtu existing value is " + str(item.getexistvalue())
+print "mtu is matched or not " + str(item.item_verify_func())
