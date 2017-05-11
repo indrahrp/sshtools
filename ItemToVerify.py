@@ -203,7 +203,11 @@ def verify_ntp():
     print "ntp output" + output
     #return entry
     #return output ==  None
-    return "TEST"
+    if "peers" in output:
+        return True
+    else:   
+        return False
+
 item=Items('ntp',finit,finit,finit,verify_ntp)
 print "item is " +  str(item)
-print "ntp  is not working " + str(item.get_verify())
+print "ntp  is  working " + str(item.get_verify())
