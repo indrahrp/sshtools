@@ -149,7 +149,7 @@ def get_exist_mtu():
 
 
 def find_mtu(str1,svrname,domain):
-    intlist=[]    
+    intdict={}    
     Regex = re.compile(r'''
     (net\d+|ixgbe\d+|igb\d+|e1000g\d+)\s+(\d+)\s+''' + svrname + '''\.(\w+)\.''' + domain + '''.*
      ''',re.IGNORECASE | re.VERBOSE)
@@ -160,9 +160,9 @@ def find_mtu(str1,svrname,domain):
         for res in result:
             print "ip found " + res[0] + " " + res[1]  + " " + res[2]
             listtmp=[]
-            listtmp=[res[0],res[1],res[2]]
-            intlist.append(listtmp)        
-    return intlist
+            listtmp=[res[0],res[1]]
+            intdict[res[2]]=listtmp       
+    return intdict
 
         
 def ReadFromFile(Filename):
