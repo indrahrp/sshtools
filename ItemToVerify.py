@@ -22,7 +22,7 @@ class Items(object):
         '''
         self.item_to_verify=item_to_verify
         self.item_staging_value=getstagefunc
-        self.item_prod=getprodfunc
+        self.item_prod_value=getprodfunc
         self.item_existing_value=getexistfunc
         #self.getstagefunc=getstagefunc
         #self.getprodfunc=getprodfunc
@@ -35,7 +35,7 @@ class Items(object):
         #pass
     
     def getprodvalue(self):
-        pass
+        return self.item_prod_value()
  
     def getexistvalue(self):
         return self.item_existing_value()
