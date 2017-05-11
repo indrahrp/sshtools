@@ -4,7 +4,7 @@ Created on Mar 7, 2017
 @author: uc205955
 '''
 from SshApi2 import *
-import time
+import time,re
 
 def finit():
     print "in finit"
@@ -124,4 +124,47 @@ print "item is " +  str(item)
 #print "ixgbe value is " + item.getstagingvalue().strip()
 print "system staging value is " + item.getstagingvalue()
 print "system existing value is " + item.getexistvalue()
+
+def get_prod_mtu():
+    print " getting previous prod mtu"
+    fname='netstatii'
+    fentry=ReadFromFile(fname)
+    print "fentry  "+ fentry
+    mtulist=find_mtu(fentry,'bunkerx1','tdn.pln.ilx.com')
+    print "mtulist " + str(mtulist)
+
+def get_exist_mtu():
+    print " getting current server mtu"
+    command="netstat -i | grep -i " + sshServer 
+    connection = Ssh(sshServer, sshUsername, sshPassword)
+    time.sleep(3)
+    entry=connection.run_Cmd(command)
+    print "entry " + entry
+    
+
+def find_mtu(str1,svrname,domain):
+    intlist=[]    
+    Regex = re.compile(r'''
+    (net\d+|ixgbe\d+|igb\d+|e1000g\d+)\s+(\d+)\s+''' + svrname + '''\.(\w+)\.''' + domain + '''.*
+     ''',re.IGNORECASE | re.VERBOSE)
+    
+    result=Regex.findall(str1)
+    print "result " + str(result)
+    if result:
+        for res in result:
+            print "ip found " + res[0] + " " + res[1]  + " " + res[2]
+            listtmp=[]
+            listtmp=[res[0],res[1],res[2]]
+            intlist.append(listtmp)        
+    return intlist
+
+        
+def ReadFromFile(Filename):
+    readfile=open(Filename,'r')
+    result=readfile.read()
+    return result
+
+    
+    
+    
 
