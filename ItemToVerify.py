@@ -140,7 +140,7 @@ def get_exist_mtu():
     connection = Ssh(sshServer, sshUsername, sshPassword)
     time.sleep(3)
     entry=connection.run_Cmd(command)
-    print "entry " + entry
+    #print "entry " + entry
     return entry
 
 def find_mtu(str1,svrname,domain):
@@ -171,6 +171,6 @@ item=Items('mtu',finit,get_prod_mtu,get_exist_mtu,finit)
 print "item is " +  str(item)
 #print "item is the same : " + str (item.getstagingvalue() == item.getexistvalue)
 #print "ixgbe value is " + item.getstagingvalue().strip()
-#print "system prod value is " + str(item.getprodvalue())
+print "system prod value is " + str(item.getprodvalue())
 #print "system existing value is " + str(item.getexistvalue())
 
