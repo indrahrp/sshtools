@@ -50,7 +50,7 @@ class Items(object):
 sshServer='bunkerx1'
 sshUsername='root'
 sshPassword='changeme'
-localstgdir='/var/tmp/stgdir/'
+stgdir='/var/tmp/stgdir/'
 bckdir='/var/tmp/pkgbck'
 connection = Ssh(sshServer, sshUsername, sshPassword)
     
@@ -65,13 +65,14 @@ print "itemlist " + str(itemlist['ixgbe'][1])
         
 def get_stage_ixgbefunc():
     
-    print " check stage directory"
-    command="cat " +  localstgdir + "ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
+    print " check stage ixgbe.conf"
+    command="cat " +  stgdir + "ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
     return connection.run_Cmd(command)
 
 
 def get_exist_ixgbefunc():
     
+    print "check existing ixgbe.conf "
     command="cat /kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
     return connection.run_Cmd(command)
      
@@ -85,23 +86,13 @@ print "ixgbe existing value is " + item.getexistvalue()
 
 
 def get_stage_system():
-    print " check local directory"
-    command="cat " +  localstgdir + "system|grep -v ^#|sort|grep -v ^$|cksum"
-        
-    connection = Ssh(sshServer, sshUsername, sshPassword)
-    #connection.openShell()
-    time.sleep(3)
-        #return connection.sendShell(command)
+    print " check stage system"
+    command="cat " +  stgdir + "system|grep -v ^#|sort|grep -v ^$|cksum"
     return connection.run_Cmd(command)
 
 def get_exist_system():
-    print " check local directory"
+    print " check existing system"
     command="cat /etc/system|grep -v ^#|sort|grep -v ^$|cksum"
-        
-    connection = Ssh(sshServer, sshUsername, sshPassword)
-    #connection.openShell()
-    time.sleep(3)
-        #return connection.sendShell(command)
     return connection.run_Cmd(command)
 
 
