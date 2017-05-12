@@ -178,7 +178,7 @@ def verify_tz_localtime():
     command="svccfg -s svc:/system/timezone:default listprop timezone/localtime|awk '{print $3}'"
     entry=connection.run_Cmd(command)
     print "entry " + entry
-    return (entry in itemlist['tz_localtime'][0])
+    return (entry.strip() == itemlist['tz_localtime'][0])
 
 item=Items('Timezone/localtime',finit,finit,finit,verify_tz_localtime)
 print "Timezone/localtime  is matched with staging :  " + str(item.item_verify_func())
