@@ -102,7 +102,7 @@ def find_ht(biosfile):
     print "result " + str(result)
     if result:
         for res in result:
-            print "HT found " + res[0] + " " + res[1]  
+            print "HT found: " + res[0] + " " + res[1]  
             if '0001' in res[1]:
                 return True
                
@@ -112,7 +112,20 @@ def find_ht(biosfile):
 
 def verify_ht():
     print " getting HT setting"
-    fname='biossettings.xml'
+    command="biosconfig -get_bios_settings > /var/tmp/biosconfig.txt"
+    connection = Ssh(sshServer, sshUsername, sshPassword)
+    time.sleep(1)
+    output,errs=connection.run_Cmd_stderr(command)
+    print "bisoconfig  output" + output
+    if 'is not supported' in errs:
+        command="ubiosconfig export all > /var/tmp/biosconfig.txt"
+        output,errs=connection.run_Cmd_stderr(command)
+        print "ubisoconfig  output" + output
+        if 'is not supported' in errs:
+            print "biosconfig and ubiosconfig is not supported"
+            return "Unable to Determine"
+        
+    fname='/var/tmp/biosconfig.txt'
     fentry=ReadFromFile(fname)
     print "fentry  "+ fentry
     return find_ht(fentry)
