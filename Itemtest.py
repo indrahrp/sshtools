@@ -118,6 +118,8 @@ def verify_sudo():
     if "assword" in output:
         output=connection.sendShellsudo(sshPassword)
     print "output after sending password " + output
+    if 'may run the following commands' in output:
+        return True
 
 item=Items('sudo',finit,finit,finit,verify_sudo)
 print "item is " +  str(item)
