@@ -90,26 +90,22 @@ print "ntp  is  working : " + str(item.get_verify())
 def find_ht(biosfile):
     
     intdict={}    
+
     Regex = re.compile(r'''
-    (<Intel_R__HT_Technology>.*only one thread per enabled core is enabled.*)
-    # <DEFAULT_OPTION> 0000 </DEFAULT_OPTION>.*
-    #<SELECTED_OPTION> 0001 </SELECTED_OPTION>
-    ''',re.IGNORECASE | re.VERBOSE| re.DOTALL)
-    
-    #(net\d+|ixgbe\d+|igb\d+|e1000g\d+)\s+(\d+)\s+''' + svrname + '''\.(\w+)\.''' + domain + '''.*
-    # ''',re.IGNORECASE | re.VERBOSE)
+    .*(Intel_R__HT_Technology).*\n
+    .*HELP_STRING.*\n
+    .*DEFAULT_OPTION.*\n
+    .*SELECTED_OPTION>\s+(\d+).*/SELECTED_OPTION>
+    ''',re.IGNORECASE | re.VERBOSE )
     
     result=Regex.findall(biosfile)
     print "result " + str(result)
     if result:
         for res in result:
-            #print "ip found " + res[0] + " " + res[1]  + " " + res[2]
-            print "ip found " + res[0] 
-            listtmp=[]
-            #listtmp=[res[0],res[1]]
-            #intdict[res[2]]=listtmp       
-    return intdict
-
+            print "HT found " + res[0] + " " + res[1]  
+            if '0001' in res[1]:
+                return True
+               
     
     
     
@@ -119,7 +115,7 @@ def verify_ht():
     fname='biossettings.xml'
     fentry=ReadFromFile(fname)
     print "fentry  "+ fentry
-    find_ht(fentry)
+    return find_ht(fentry)
     #htset=find_ht(fentry,'bunkerx1','tdn.pln.ilx.com')
     #print "htset  " + str(htset)
     #return htset
