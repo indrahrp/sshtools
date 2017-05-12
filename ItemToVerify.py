@@ -65,19 +65,19 @@ print "itemlist " + str(itemlist['ixgbe'][1])
         
 def get_stage_ixgbefunc():
     
-    print " check stage ixgbe.conf"
+    print " checking stage ixgbe.conf"
     command="cat " +  stgdir + "ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
     return connection.run_Cmd(command)
 
 
 def get_exist_ixgbefunc():
     
-    print "check existing ixgbe.conf "
+    print "checking existing ixgbe.conf "
     command="cat /kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
     return connection.run_Cmd(command)
      
 item=Items('ixgbe',get_stage_ixgbefunc,finit,get_exist_ixgbefunc,finit)
-print "item is " +  str(item)
+#print "item is " +  str(item)
 #print "item is the same : " + str (item.getstagingvalue() == item.getexistvalue)
 ###print "ixgbe value is " + item.getstagingvalue().strip()
 print "ixgbe staging value is " + item.getstagingvalue()
