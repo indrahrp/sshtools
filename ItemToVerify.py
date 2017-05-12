@@ -159,7 +159,7 @@ def find_mtu(str1,svrname,domain):
     #print "result " + str(result)
     if result:
         for res in result:
-            print "ip found " + res[0] + " " + res[1]  + " " + res[2]
+            #print "ip found " + res[0] + " " + res[1]  + " " + res[2]
             listtmp=[]
             listtmp=[res[0],res[1]]
             intdict[res[2]]=listtmp       
@@ -174,8 +174,8 @@ def ReadFromFile(Filename):
     
     
 item=Items('mtu',finit,get_prod_mtu,get_exist_mtu,verify_mtu)
-print "mtu prod value is " + str(item.getprodvalue())
-print "mtu existing value is " + str(item.getexistvalue())
+#print "mtu prod value is " + str(item.getprodvalue())
+#print "mtu existing value is " + str(item.getexistvalue())
 print "List of interface which mtu are not matched with previous : " + str(item.item_verify_func())
 
 
