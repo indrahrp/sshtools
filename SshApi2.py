@@ -113,8 +113,8 @@ class Ssh:
         print "run cmd " + cmd
         stdin,stdout,stderr=self.client.exec_command(cmd)
         time.sleep(1)
-        output = stdout.read(1000)
-        errs= stderr.read(1000)
+        output = stdout.read()
+        errs= stderr.read()
         #for out  in  output:
         #    print out   
         #if stderr:
