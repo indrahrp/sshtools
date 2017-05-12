@@ -91,9 +91,9 @@ def find_ht(biosfile):
     
     intdict={}    
     Regex = re.compile(r'''
-    (<Intel_R__HT_Technology>.*only one thread per enabled core is enabled.*
+    (<Intel_R__HT_Technology>.*only one thread per enabled core is enabled.*)
     # <DEFAULT_OPTION> 0000 </DEFAULT_OPTION>.*
-    #<SELECTED_OPTION> 0001 </SELECTED_OPTION>)
+    #<SELECTED_OPTION> 0001 </SELECTED_OPTION>
     ''',re.IGNORECASE | re.VERBOSE| re.DOTALL)
     
     #(net\d+|ixgbe\d+|igb\d+|e1000g\d+)\s+(\d+)\s+''' + svrname + '''\.(\w+)\.''' + domain + '''.*
