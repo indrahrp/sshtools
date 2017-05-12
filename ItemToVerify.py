@@ -98,14 +98,13 @@ def get_exist_system():
 
 
 item=Items('system',get_stage_system,finit,get_exist_system,finit)
-print "system staging value is " + item.getstagingvalue()
-print "system existing value is " + item.getexistvalue()
-print "existing /etc/system is the same as staging " +  str (item.getstagingvalue() == item.getexistvalue())
+print "existing /etc/system is the same as staging : " +  str (item.getstagingvalue() == item.getexistvalue())
 
 
 def get_prod_mtu():
     print " getting previous prod mtu"
-    fname='netstatii'
+    command='cat /var/tmp/pkgbck/netstatii'
+    fname=connection.run_Cmd(command)
     fentry=ReadFromFile(fname)
     print "fentry  "+ fentry
     mtulist=find_mtu(fentry,'bunkerx1','tdn.pln.ilx.com')
@@ -115,7 +114,6 @@ def get_prod_mtu():
 def get_exist_mtu():
     print " getting current server mtu"
     command="netstat -i | grep -i " + sshServer
-    connection = Ssh(sshServer, sshUsername, sshPassword)
     time.sleep(3)
     entry=connection.run_Cmd(command)
     #print "entry " + entry
@@ -150,7 +148,7 @@ def find_mtu(str1,svrname,domain):
             intdict[res[2]]=listtmp       
     return intdict
 
-        
+
 def ReadFromFile(Filename):
     readfile=open(Filename,'r')
     result=readfile.read()
@@ -164,7 +162,7 @@ print "item is " +  str(item)
 #print "ixgbe value is " + item.getstagingvalue().strip()
 print "mtu prod value is " + str(item.getprodvalue())
 print "mtu existing value is " + str(item.getexistvalue())
-print "mtu is not matched  " + str(item.item_verify_func())
+print "List of interface which mtu are not matched with previous : " + str(item.item_verify_func())
 
 
 
