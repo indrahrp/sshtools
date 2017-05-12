@@ -80,10 +80,10 @@ def get_exist_ixgbefunc():
      
 item=Items('ixgbe',get_stage_ixgbefunc,finit,get_exist_ixgbefunc,finit)
 #print "item is " +  str(item)
-#print "item is the same : " + str (item.getstagingvalue() == item.getexistvalue)
+print "ixgbe is the same as previous : " + str (item.getstagingvalue() == item.getexistvalue)
 ###print "ixgbe value is " + item.getstagingvalue().strip()
-print "ixgbe staging value is " + item.getstagingvalue()
-print "ixgbe existing value is " + item.getexistvalue()
+#print "ixgbe staging value is " + item.getstagingvalue()
+#print "ixgbe existing value is " + item.getexistvalue()
 
 
 
