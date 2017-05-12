@@ -168,7 +168,7 @@ print "List of interface which mtu are not matched with previous : " + str(item.
 def verify_lang():
     command="svccfg -s svc:/system/environment:init listprop environment/LANG|awk '{print $3}'"
     entry=connection.run_Cmd(command)
-    return (entry in itemlist['lang'][0])
+    return (entry.strip() == itemlist['lang'][0])
     
 
 item=Items('lang',finit,finit,finit,verify_lang)
@@ -190,7 +190,7 @@ def verify_env_tz():
     command1="svccfg -s system/environment:init listprop environment/TZ| awk '{print $3}'"
     entry=connection.run_Cmd(command1)
     print "entry " + entry
-    return (entry in itemlist['env_tz'][0])
+    return (entry.strip() == itemlist['env_tz'][0])
 
 item=Items('environment/timezone',finit,finit,finit,verify_env_tz)
 
