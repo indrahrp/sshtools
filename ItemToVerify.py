@@ -88,12 +88,12 @@ print "ixgbe.conf is the same as staging : " + str (item.getstagingvalue() == it
 
 def get_stage_system():
     print " check stage system"
-    command="cat " +  stgdir + "system|grep -v ^#|sort|grep -v ^$|cksum"
+    command="cat " +  stgdir + "system|grep -v ^*|sort|grep -v ^$|cksum"
     return connection.run_Cmd(command)
 
 def get_exist_system():
     print " check existing system"
-    command="cat /etc/system|grep -v ^#|sort|grep -v ^$|cksum"
+    command="cat /etc/system|grep -v ^*|sort|grep -v ^$|cksum"
     return connection.run_Cmd(command)
 
 
