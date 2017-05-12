@@ -68,7 +68,7 @@ print "itemlist " + str(itemlist['ixgbe'][1])
 def get_stage_ixgbefunc():
     
     print " checking stage ixgbe.conf"
-    command="cat " +  stgdir + "ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'|sed 's/default_mtu//| sed 's/ *//'"
+    command="cat " +  stgdir + "ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'|sed 's/default_mtu//'| sed 's/ *//'"
     return connection.run_Cmd(command)
 
 
