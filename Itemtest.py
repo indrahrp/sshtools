@@ -112,11 +112,11 @@ def verify_sudo():
     #connection.openShell()
     time.sleep(3)
         #return connection.sendShell(command)
-    connection.openShell()
-    output=connection.sendShell('sudo -l')
+    connection.openShellsudo()
+    output=connection.sendShellsudo('sudo -l')
     print "output send shell " + output
     if "assword" in output:
-        output=connection.sendShell(sshPassword)
+        output=connection.sendShellsudo(sshPassword)
     print "output after sending password " + output
 
 item=Items('sudo',finit,finit,finit,verify_sudo)

@@ -68,6 +68,46 @@ class Ssh:
     
     
     
+    def openShellsudo(self):
+       
+        self.shell = self.client.invoke_shell()
+        print "shell invoked"
+        time.sleep(10)
+        self.__retrieveRespsudo()
+            #strdata = str(alldata)
+            #strdata.replace('\r', '')
+            #print unicode(strdata)
+                
+    def __retrieveRespsudo(self):   
+        
+    
+        alldata= ''
+        while not alldata.endswith(':~# ') and not alldata.endswith('$ ') and not 'assword' in alldata:
+        #while not alldata.endswith('$'):
+            time.sleep(2)
+            if self.shell.recv_ready():
+                resp=self.shell.recv(1024)
+                alldata += resp
+                print "in" + resp
+            else:
+                print "cnt"
+        
+        return alldata
+ 
+    def sendShellsudo(self, command):
+        if(self.shell):
+            self.shell.send(command + "\n")
+            print "command is submitted "
+            time.sleep(5)
+            return self.__retrieveRespsudo()
+            
+     
+        else:
+            print("Shell not opened.")
+    
+    
+    
+    
     
     def run_Cmd(self,cmd):
         print "run cmd " + cmd
