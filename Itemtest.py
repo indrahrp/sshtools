@@ -90,16 +90,16 @@ print "ntp  is  working : " + str(item.get_verify())
 
 def verify_ht():
     print " getting HT setting"
-    fname='biossetting.xml'
+    fname='biossettings.xml'
     fentry=ReadFromFile(fname)
     print "fentry  "+ fentry
     #htset=find_ht(fentry,'bunkerx1','tdn.pln.ilx.com')
     #print "htset  " + str(htset)
     #return htset
 
-#item=Items('htsetting',finit,finit,finit,verify_ht)
+item=Items('htsetting',finit,finit,finit,verify_ht)
 print "item is " +  str(item)
-#print "hyperthread   is  disabled : " + str(item.get_verify())
+print "hyperthread   is  disabled : " + str(item.get_verify())
 
 
 def verify_sudo():
