@@ -82,12 +82,7 @@ def get_exist_ixgbefunc():
     return connection.run_Cmd(command)
      
 item=Items('ixgbe',get_stage_ixgbefunc,finit,get_exist_ixgbefunc,finit)
-#print "item is " +  str(item)
-###print "ixgbe value is " + item.getstagingvalue().strip()
-#print "ixgbe staging value is " + item.getstagingvalue()
-#print "ixgbe existing value is " + item.getexistvalue()
-print "ixgbe is the same as previous : " + str (item.getstagingvalue() == item.getexistvalue())
-
+print "ixgbe.conf is the same as staging : " + str (item.getstagingvalue() == item.getexistvalue())
 
 
 
@@ -103,11 +98,10 @@ def get_exist_system():
 
 
 item=Items('system',get_stage_system,finit,get_exist_system,finit)
-print "item is " +  str(item)
-#print "item is the same : " + str (item.getstagingvalue() == item.getexistvalue)
-#print "ixgbe value is " + item.getstagingvalue().strip()
 print "system staging value is " + item.getstagingvalue()
 print "system existing value is " + item.getexistvalue()
+print "existing /etc/system is the same as staging " +  str (item.getstagingvalue() == item.getexistvalue())
+
 
 def get_prod_mtu():
     print " getting previous prod mtu"
