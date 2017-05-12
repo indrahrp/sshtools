@@ -68,7 +68,7 @@ print "itemlist " + str(itemlist['ixgbe'][1])
 def get_stage_ixgbefunc():
     
     print " checking stage ixgbe.conf"
-    command= 'cat /var/tmp/stgdir/ixgbe.conf|sort|grep -v ^# | cksum'
+    command= 'cat /var/tmp/stgdir/ixgbe.conf|sort|grep -v ^#'
     #command="cat " +  stgdir + "ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'|sed 's/default_mtu *=//'| sed 's/ *//'"
     return connection.run_Cmd(command)
 
@@ -76,7 +76,7 @@ def get_stage_ixgbefunc():
 def get_exist_ixgbefunc():
     
     print "checking existing ixgbe.conf "
-    command= 'cat /kernel/drv/ixgbe.conf|sort|grep -v ^# | cksum'
+    command= 'cat /kernel/drv/ixgbe.conf|sort|grep -v ^#'
     
     #command="cat /kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'|sed 's/default_mtu *=//'| sed 's/ *//'"
     return connection.run_Cmd(command)
