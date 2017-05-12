@@ -157,16 +157,24 @@ def ReadFromFile(Filename):
     
     
 item=Items('mtu',finit,get_prod_mtu,get_exist_mtu,verify_mtu)
-print "item is " +  str(item)
-#print "item is the same : " + str (item.getstagingvalue() == item.getexistvalue)
-#print "ixgbe value is " + item.getstagingvalue().strip()
 print "mtu prod value is " + str(item.getprodvalue())
 print "mtu existing value is " + str(item.getexistvalue())
 print "List of interface which mtu are not matched with previous : " + str(item.item_verify_func())
 
 
+def verify_lang():
+    command="svccfg -s svc:/system/environment:init listprop environment/LANG|awk '{print $3}'"
+    entry=connection.run_Cmd(command)
 
-
-
+def verify_tz():
+    command="svccfg -s svc:/system/timezone:default listprop timezone/localtime|awk '{print $3}'"
+    entry=connection.run_Cmd(command)
+    print "entry " + entry
+    command1="svccfg -s system/environment:init listprop environment/TZ| awk '{print $3}'"
+    entry1=connection.run_Cmd(command1)
+    print "entry1 " + entry1
+    
+    
+    
 
     
