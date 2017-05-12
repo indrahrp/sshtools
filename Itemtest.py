@@ -74,7 +74,7 @@ def verify_ntp():
     command="xntpdc -c peers"
     connection = Ssh(sshServer, sshUsername, sshPassword)
     time.sleep(3)
-    output,errs=connection.run_Cmd(command)
+    output,errs=connection.run_Cmd_stderr(command)
     print "ntp output" + output
     #return entry
     #return output ==  None
