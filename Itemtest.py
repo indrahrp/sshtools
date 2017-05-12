@@ -115,7 +115,10 @@ def verify_sudo():
     connection.openShell()
     output=connection.sendShell('sudo -l')
     print "output send shell " + output
-    
+    if "assword" in output:
+        output=connection.sendShell(sshPassword)
+    print "output after sending password " + output
+
 item=Items('sudo',finit,finit,finit,verify_sudo)
 print "item is " +  str(item)
 print "sudo is enabled : " + str(item.get_verify())
