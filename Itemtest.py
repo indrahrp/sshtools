@@ -119,6 +119,7 @@ def verify_ht():
     fname='biossettings.xml'
     fentry=ReadFromFile(fname)
     print "fentry  "+ fentry
+    find_ht(fentry)
     #htset=find_ht(fentry,'bunkerx1','tdn.pln.ilx.com')
     #print "htset  " + str(htset)
     #return htset
