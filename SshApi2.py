@@ -33,7 +33,7 @@ class Ssh:
        
         self.shell = self.client.invoke_shell()
         print "shell invoked"
-        time.sleep(10)
+        time.sleep(1)
         self.__retrieveResp()
             #strdata = str(alldata)
             #strdata.replace('\r', '')
@@ -45,7 +45,7 @@ class Ssh:
         alldata= ''
         while not alldata.endswith(':~# ') and not alldata.endswith('$ ') and not 'assword' in alldata:
         #while not alldata.endswith('$'):
-            time.sleep(2)
+            time.sleep(1)
             if self.shell.recv_ready():
                 resp=self.shell.recv(1024)
                 alldata += resp
@@ -59,7 +59,7 @@ class Ssh:
         if(self.shell):
             self.shell.send(command + "\n")
             print "command is submitted "
-            time.sleep(5)
+            time.sleep(1)
             return self.__retrieveResp()
             
      
@@ -72,7 +72,7 @@ class Ssh:
        
         self.shell = self.client.invoke_shell()
         print "shell invoked"
-        time.sleep(10)
+        time.sleep(1)
         self.__retrieveRespsudo()
             #strdata = str(alldata)
             #strdata.replace('\r', '')
@@ -84,7 +84,7 @@ class Ssh:
         alldata= ''
         while not alldata.endswith(':~# ') and not alldata.endswith('$ ') and not 'assword' in alldata:
         #while not alldata.endswith('$'):
-            time.sleep(2)
+            time.sleep(1)
             if self.shell.recv_ready():
                 resp=self.shell.recv(1024)
                 alldata += resp
@@ -98,7 +98,7 @@ class Ssh:
         if(self.shell):
             self.shell.send(command + "\n")
             print "command is submitted "
-            time.sleep(5)
+            time.sleep(1)
             return self.__retrieveRespsudo()
             
      

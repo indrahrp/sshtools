@@ -78,14 +78,14 @@ def verify_ntp():
     print "ntp output" + output
     #return entry
     #return output ==  None
-    if "peers" in output:
-        return True
-    else:   
+    if 'Connection refused' in output:
         return False
+    else:   
+        return True
 
 item=Items('ntp',finit,finit,finit,verify_ntp)
 print "item is " +  str(item)
-#print "ntp  is  working : " + str(item.get_verify())
+print "ntp  is  working : " + str(item.get_verify())
 
 
 def verify_ht():
@@ -123,7 +123,7 @@ def verify_sudo():
 
 item=Items('sudo',finit,finit,finit,verify_sudo)
 print "item is " +  str(item)
-print "sudo is enabled : " + str(item.get_verify())
+print "sudo is working : " + str(item.get_verify())
 
 
 
