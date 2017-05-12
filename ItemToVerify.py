@@ -53,10 +53,13 @@ sshPassword='changeme'
 stgdir='/var/tmp/stgdir/'
 bckdir='/var/tmp/pkgbck'
 connection = Ssh(sshServer, sshUsername, sshPassword)
+
+
     
 itemlist={
     'ixgbe':['na','na','na'],
-    'timezone':['GMT','na','na'],
+    'env_tz':['GMT','na','na'],
+    'tz_localtime':['GMT','na','na'],
     'lang':['C','na','na',]
     }
 
@@ -165,24 +168,33 @@ print "List of interface which mtu are not matched with previous : " + str(item.
 def verify_lang():
     command="svccfg -s svc:/system/environment:init listprop environment/LANG|awk '{print $3}'"
     entry=connection.run_Cmd(command)
+    return (entry == itemlist['lang'][0])
     
 
 item=Items('lang',finit,finit,finit,verify_lang)
-
 print "Lang is matched with Staging : " + str(item.item_verify_func())
 
-def verify_tz():
+def verify_tz_localtime():
     command="svccfg -s svc:/system/timezone:default listprop timezone/localtime|awk '{print $3}'"
     entry=connection.run_Cmd(command)
     print "entry " + entry
+    return (entry == itemlist['tz_localtime'][0])
+
+item=Items('Timezone/localtime',finit,finit,finit,verify_tz_localtime)
+print "Timezone/localtime  is matched with staging :  " + str(item.item_verify_func())
+
+
+
+def verify_env_tz():
+
     command1="svccfg -s system/environment:init listprop environment/TZ| awk '{print $3}'"
-    entry1=connection.run_Cmd(command1)
-    print "entry1 " + entry1
-    
+    entry=connection.run_Cmd(command1)
+    print "entry " + entry
+    return (entry == itemlist['env_tz'][0])
 
-item=Items('TZ',finit,finit,finit,verify_tz)
+item=Items('environment/timezone',finit,finit,finit,verify_env_tz)
 
-print "Timezone is matched with staging :  " + str(item.item_verify_func())
+print "Environment/Timezone is matched with staging :  " + str(item.item_verify_func())
 
 
 
