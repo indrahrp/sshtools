@@ -70,7 +70,7 @@ print "itemlist " + str(itemlist['ixgbe'][1])
         
 def get_stage_ixgbefunc():
     
-    print " checking stage ixgbe.conf"
+    print "checking stage ixgbe.conf"
     command= 'cat /var/tmp/stgdir/ixgbe.conf|sort|grep -v ^# | cksum'
     #command="cat " +  stgdir + "ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'|sed 's/default_mtu *=//'| sed 's/ *//'"
     return connection.run_Cmd(command)
@@ -90,12 +90,12 @@ print "ixgbe.conf is the same as staging : " + str (item.getstagingvalue() == it
 
 
 def get_stage_system():
-    print " check stage system"
+    print "check stage /etc/system"
     command="cat " +  stgdir + "system|grep -v ^*|sort|grep -v ^$|cksum"
     return connection.run_Cmd(command)
 
 def get_exist_system():
-    print " check existing system"
+    print "check existing /etcsystem"
     command="cat /etc/system|grep -v ^*|sort|grep -v ^$|cksum"
     return connection.run_Cmd(command)
 
@@ -105,13 +105,13 @@ print "existing /etc/system is the same as staging : " +  str (item.getstagingva
 
 
 def get_stage_ndd():
-    print " check stage S68ndd "
+    print "check stage /etc/rc2.d/S68ndd "
     command="cat " +  stgdir + "S68ndd|sort|grep -v '^#'|grep -v '^$'|cksum"
     return connection.run_Cmd(command)
 
 def get_exist_ndd():
-    print " check existing S68ndd"
-    command="cat /etc/rc2.d/S68ndd |sort|grep -v '^*'|grep -v '^$'|cksum"
+    print "check existing /etc/rc2.d/S68ndd"
+    command="cat /etc/rc2.d/S68ndd |sort|grep -v '^#'|grep -v '^$'|cksum"
     return connection.run_Cmd(command)
 
 
@@ -126,10 +126,8 @@ def get_prod_mtu():
     print " getting previous prod mtu"
     command='cat /var/tmp/pkgbck/netstatii'
     fentry=connection.run_Cmd(command)
-    #fentry=ReadFromFile(fname)
-    #print "fentry  "+ fentry
     mtulist=find_mtu(fentry,'bunkerx1','tdn.pln.ilx.com')
-    print "mtulist " + str(mtulist)
+    #print "mtulist " + str(mtulist)
     return mtulist
 
 def get_exist_mtu():
@@ -137,10 +135,8 @@ def get_exist_mtu():
     command="netstat -i | grep -i " + sshServer
     time.sleep(3)
     entry=connection.run_Cmd(command)
-    #print "entry " + entry
-    #return entry
     mtulist=find_mtu(entry,'bunkerx1','tdn.pln.ilx.com')
-    print "mtulist " + str(mtulist)
+    #print "mtulist " + str(mtulist)
     return mtulist
 
 def verify_mtu():
@@ -150,7 +146,7 @@ def verify_mtu():
     for idx,value in mtuexisting.items():
         if mtuexisting[idx][1] != mtuprod[idx][1]:
             intnotmatch.append(idx)
-            print " network mtu is not matched" + idx 
+            #print " network mtu is not matched" + idx 
     return intnotmatch
 
 def find_mtu(str1,svrname,domain):
@@ -160,7 +156,7 @@ def find_mtu(str1,svrname,domain):
      ''',re.IGNORECASE | re.VERBOSE)
     
     result=Regex.findall(str1)
-    print "result " + str(result)
+    #print "result " + str(result)
     if result:
         for res in result:
             print "ip found " + res[0] + " " + res[1]  + " " + res[2]
