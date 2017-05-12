@@ -104,9 +104,9 @@ print "existing /etc/system is the same as staging : " +  str (item.getstagingva
 def get_prod_mtu():
     print " getting previous prod mtu"
     command='cat /var/tmp/pkgbck/netstatii'
-    fname=connection.run_Cmd(command)
-    fentry=ReadFromFile(fname)
-    print "fentry  "+ fentry
+    fentry=connection.run_Cmd(command)
+    #fentry=ReadFromFile(fname)
+    #print "fentry  "+ fentry
     mtulist=find_mtu(fentry,'bunkerx1','tdn.pln.ilx.com')
     print "mtulist " + str(mtulist)
     return mtulist
