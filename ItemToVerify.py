@@ -104,6 +104,24 @@ item=Items('system',get_stage_system,finit,get_exist_system,finit)
 print "existing /etc/system is the same as staging : " +  str (item.getstagingvalue() == item.getexistvalue())
 
 
+def get_stage_ndd():
+    print " check stage system"
+    command="cat " +  stgdir + "S68ndd|grep -v ^#|sort|grep -v ^$|cksum"
+    return connection.run_Cmd(command)
+
+def get_exist_ndd():
+    print " check existing system"
+    command="cat /etc/rc2.d/S68ndd |grep -v ^*|sort|grep -v ^$|cksum"
+    return connection.run_Cmd(command)
+
+
+item=Items('S68ndd',get_stage_ndd,finit,get_exist_ndd,finit)
+print "existing /etc/rc2.d/S68ndd is the same as staging : " +  str (item.getstagingvalue() == item.getexistvalue())
+
+
+
+
+
 def get_prod_mtu():
     print " getting previous prod mtu"
     command='cat /var/tmp/pkgbck/netstatii'
