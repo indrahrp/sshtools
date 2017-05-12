@@ -122,8 +122,8 @@ class Ssh:
         #        print line.strip('\n')
         #    return stderr
         
-        for line in stderr: 
-            print line.strip('\n')  
+        #for line in stderr: 
+        #    print line.strip('\n')  
         
         
         #for line in stdout: 
