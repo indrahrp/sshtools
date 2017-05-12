@@ -52,8 +52,8 @@ sshUsername='root'
 sshPassword='changeme'
 localstgdir='/var/tmp/stgdir/'
 bckdir='/var/tmp/pkgbck'
-
-
+connection = Ssh(sshServer, sshUsername, sshPassword)
+    
 itemlist={
     'ixgbe':['sol1','na','local','']
     }
@@ -65,41 +65,24 @@ print "itemlist " + str(itemlist['ixgbe'][1])
         
 def get_stage_ixgbefunc():
     
-    if str(itemlist['ixgbe'][0]) == sshServer:
-        print " check local directory"
-        command="cat " +  localstgdir + "ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
-    else:
-        command="cat /kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
-        
-    connection = Ssh(sshServer, sshUsername, sshPassword)
-    #connection.openShell()
-    time.sleep(3)
-        #return connection.sendShell(command)
+    print " check stage directory"
+    command="cat " +  localstgdir + "ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
     return connection.run_Cmd(command)
 
 
 def get_exist_ixgbefunc():
     
-    
     command="cat /kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'"
-        
-    connection = Ssh(sshServer, sshUsername, sshPassword)
-    #connection.openShell()
-    time.sleep(3)
-        #return connection.sendShell(command)
     return connection.run_Cmd(command)
      
 item=Items('ixgbe',get_stage_ixgbefunc,finit,get_exist_ixgbefunc,finit)
 print "item is " +  str(item)
-print "item is the same : " + str (item.getstagingvalue() == item.getexistvalue)
+#print "item is the same : " + str (item.getstagingvalue() == item.getexistvalue)
 ###print "ixgbe value is " + item.getstagingvalue().strip()
 print "ixgbe staging value is " + item.getstagingvalue()
 print "ixgbe existing value is " + item.getexistvalue()
 
 
-def get_ht_setting():
-    
-    pass
 
 def get_stage_system():
     print " check local directory"
