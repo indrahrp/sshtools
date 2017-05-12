@@ -74,11 +74,11 @@ def verify_ntp():
     command="xntpdc -c peers"
     connection = Ssh(sshServer, sshUsername, sshPassword)
     time.sleep(3)
-    output=connection.run_Cmd(command)
+    output,errs=connection.run_Cmd(command)
     print "ntp output" + output
     #return entry
     #return output ==  None
-    if 'Connection refused' in output:
+    if 'Connection refused' in errs:
         return False
     else:   
         return True

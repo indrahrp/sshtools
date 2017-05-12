@@ -130,11 +130,32 @@ class Ssh:
         print "stdout " +  output  
         return output
 
+
+    def run_Cmd_stderr(self,cmd):
+        print "run cmd " + cmd
+        stdin,stdout,stderr=self.client.exec_command(cmd)
+        output = stdout.read()
+        errs= stderr.read()
+        #for out  in  output:
+        #    print out   
+        #if stderr:
+        #    for line in stderr:
+        #        print line.strip('\n')
+        #    return stderr
+        
+        #for line in stderr: 
+        #    print line.strip('\n')  
+        
+        
+        #for line in stdout: 
+        print "stderr " + errs
+        print "stdout " +  output  
+        return output,errs
+
        
 # SCPCLient takes a paramiko transport as its only argument
     def scpget(self,remotepath,localpath='',recursive=True):
         scpact = SCPClient(self.client.get_transport())
-        
         scpact.get(remotepath,localpath)
         #scpact.get('testf')
         #else:
