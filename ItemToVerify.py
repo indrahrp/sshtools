@@ -165,6 +165,11 @@ print "List of interface which mtu are not matched with previous : " + str(item.
 def verify_lang():
     command="svccfg -s svc:/system/environment:init listprop environment/LANG|awk '{print $3}'"
     entry=connection.run_Cmd(command)
+    
+
+item=Items('lang',finit,finit,finit,verify_lang)
+
+print "Lang is matched with Staging : " + str(item.item_verify_func())
 
 def verify_tz():
     command="svccfg -s svc:/system/timezone:default listprop timezone/localtime|awk '{print $3}'"
@@ -173,6 +178,14 @@ def verify_tz():
     command1="svccfg -s system/environment:init listprop environment/TZ| awk '{print $3}'"
     entry1=connection.run_Cmd(command1)
     print "entry1 " + entry1
+    
+
+item=Items('TZ',finit,finit,finit,verify_tz)
+
+print "Timezone is matched with staging :  " + str(item.item_verify_func())
+
+
+
     
     
     
