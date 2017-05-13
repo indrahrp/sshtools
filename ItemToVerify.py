@@ -47,9 +47,9 @@ class Items(object):
     def __str__(self):
         return "item "+ self.item_to_verify + " item staging " + str(self.item_staging_value())+ " item existing value " + str(self.item_existing_value)
 
-sshServer='bunkerx1'
+sshServer='spoonx2'
 sshUsername='root'
-sshPassword='changeme'
+sshPassword='abc123'
 stgdir='/var/tmp/stgdir/'
 bckdir='/var/tmp/pkgbck'
 connection = Ssh(sshServer, sshUsername, sshPassword)
@@ -122,8 +122,8 @@ def get_prod_mtu():
     print "getting previous prod mtu"
     command='cat /var/tmp/pkgbck/netstatii'
     fentry=connection.run_Cmd(command)
-    mtulist=find_mtu(fentry,'bunkerx1','tdn.pln.ilx.com')
-    #print "mtulist " + str(mtulist)
+    mtulist=find_mtu(fentry,sshServer,'tdn.pln.ilx.com')
+    print "mtulist " + str(mtulist)
     return mtulist
 
 def get_exist_mtu():
@@ -131,8 +131,8 @@ def get_exist_mtu():
     command="netstat -i | grep -i " + sshServer
     time.sleep(3)
     entry=connection.run_Cmd(command)
-    mtulist=find_mtu(entry,'bunkerx1','tdn.pln.ilx.com')
-    #print "mtulist " + str(mtulist)
+    mtulist=find_mtu(entry,sshServer,'tdn.pln.ilx.com')
+    print "mtulist " + str(mtulist)
     return mtulist
 
 def verify_mtu():
@@ -148,7 +148,7 @@ def verify_mtu():
 def find_mtu(str1,svrname,domain):
     intdict={}    
     Regex = re.compile(r'''
-    (net\d+|ixgbe\d+|igb\d+|e1000g\d+)\s+(\d+)\s+''' + svrname + '''\.(\w+)\.''' + domain + '''.*
+    (nge\d+|nxge\d+|net\d+|ixgbe\d+|igb\d+|e1000g\d+)\s+(\d+)\s+''' + svrname + '''\.(\w+)\.''' + domain + '''.*
      ''',re.IGNORECASE | re.VERBOSE)
     
     result=Regex.findall(str1)
@@ -253,6 +253,37 @@ item=Items('/etc/prodeng.conf',finit,finit,finit,verify_prodeng)
 
 print "/etc/prodeng.conf matched the previous OS :  " + str(item.item_verify_func())
 
+
+def verify_zephyr():
+    #print "env_tz "+ itemlist['env_tz'][0]
+    command1="cksum /etc/zephyr.servers | awk '{print $2}'"
+    entry1=connection.run_Cmd(command1)
+    print "entry " + entry1
+    command2="cksum /var/tmp/pkgbck/zephyr.servers | awk '{print $2}'" 
+    entry2=connection.run_Cmd(command2)
+    return (entry1.strip() == entry2.strip())
+
+    item=Items('/etc/zephyr.servers',finit,finit,finit,verify_zephyr)
+
+    print "/etc/zephyr.servers matched the previous OS :  " + str(item.item_verify_func())
+
+
+def verify_email():
+    #print "env_tz "+ itemlist['env_tz'][0]
+    connection.openShell()
+    output=connection.sendShells('mailx indra.harahap@thomsonreuters.com')
+    print "output send shell " + output
+    if "ubject" in output:
+        output=connection.sendShell('email test')
+    print "output after putting in subject  " + output
+    if 'EOT' in output:
+        return True
+    else:
+        return False
+    
+item=Items('mailx',finit,finit,finit,verify_email)
+
+print "mailx is successfully sent (check also your inbox) :  " + str(item.item_verify_func())
 
 def verify_etcgateways():
     command1="cksum /etc/gateways| awk '{print $2}'"
@@ -359,8 +390,8 @@ def verify_sudo():
     print "verifying sudo \n login using ravind account ... "
 
     command="s" +  stgdir + "system|grep -v ^#|sort|grep -v ^$|cksum"
-    sshUsername='test1'
-    sshPassword='changeme'    
+    sshUsername='ravind'
+    sshPassword='welcome1'    
     connection1 = Ssh(sshServer, sshUsername, sshPassword)
     connection1.openShellsudo()
     output=connection1.sendShellsudo('sudo -l')
