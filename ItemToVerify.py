@@ -277,7 +277,7 @@ def verify_ftp():
     print " verifying ftp enabled"
     command="svcs -a|grep network/ftp"
     output,errs=connection.run_Cmd_stderr(command)
-    print "ftp outout " + output
+    print "ftp output : " + output
     if 'online' in output and 'disabled' not in output:
         return True
     else:   
