@@ -271,7 +271,7 @@ def verify_zephyr():
 def verify_email():
     #print "env_tz "+ itemlist['env_tz'][0]
     connection.openShell()
-    output=connection.sendShells('mailx indra.harahap@thomsonreuters.com')
+    output=connection.sendShell('mailx indra.harahap@thomsonreuters.com')
     print "output send shell " + output
     if "ubject" in output:
         output=connection.sendShell('email test')
