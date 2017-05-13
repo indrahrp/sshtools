@@ -63,10 +63,6 @@ itemlist={
     'lang':['C','na','na',]
     }
 
-#def gethostinfo('hostname'):
-#    for host in itemlist:
-        
-print "itemlist " + str(itemlist['ixgbe'][1])
         
 def get_stage_ixgbefunc():
     
