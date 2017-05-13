@@ -110,7 +110,7 @@ class Ssh:
     
     
     def run_Cmd(self,cmd):
-        print "run cmd " + cmd
+        print "run command :  " + cmd
         stdin,stdout,stderr=self.client.exec_command(cmd)
         #time.sleep(1)
         output = stdout.read()
@@ -127,13 +127,13 @@ class Ssh:
         
         
         #for line in stdout: 
-        print "stderr " + errs
-        print "stdout " +  output  
+        print "stderr : \n " + errs
+        print "stdout : \n" +  output  
         return output
 
 
     def run_Cmd_stderr(self,cmd):
-        print "run cmd " + cmd
+        print "run command : " + cmd
         stdin,stdout,stderr=self.client.exec_command(cmd)
         output = stdout.read()
         errs= stderr.read()
@@ -149,8 +149,8 @@ class Ssh:
         
         
         #for line in stdout: 
-        print "stderr " + errs
-        print "stdout " +  output  
+        print "stderr : \n" + errs
+        print "stdout : \n" +  output  
         return output,errs
 
        

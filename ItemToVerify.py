@@ -123,7 +123,7 @@ print "existing /etc/rc2.d/S68ndd is the same as staging : " +  str (item.getsta
 
 
 def get_prod_mtu():
-    print " getting previous prod mtu"
+    print "getting previous prod mtu"
     command='cat /var/tmp/pkgbck/netstatii'
     fentry=connection.run_Cmd(command)
     mtulist=find_mtu(fentry,'bunkerx1','tdn.pln.ilx.com')
@@ -131,7 +131,7 @@ def get_prod_mtu():
     return mtulist
 
 def get_exist_mtu():
-    print " getting current server mtu"
+    print "getting current server mtu"
     command="netstat -i | grep -i " + sshServer
     time.sleep(3)
     entry=connection.run_Cmd(command)
@@ -200,7 +200,7 @@ print "Timezone/localtime  is matched with staging :  " + str(item.item_verify_f
 
 
 def verify_env_tz():
-    print "env_tz "+ itemlist['env_tz'][0]
+    #print "env_tz "+ itemlist['env_tz'][0]
     command1="svccfg -s system/environment:init listprop environment/TZ| awk '{print $3}'"
     entry=connection.run_Cmd(command1)
     print "entry " + entry
@@ -209,6 +209,20 @@ def verify_env_tz():
 item=Items('environment/timezone',finit,finit,finit,verify_env_tz)
 
 print "Environment/Timezone is matched with staging :  " + str(item.item_verify_func())
+
+def verify_bps():
+    print "veryfying bps.sh "
+    command="(rm /var/tmp/bps.log;/bps.sh)"
+    output,errs=connection.run_Cmd_stderr(command)
+    command="cat /var/tmp/bps.log"
+    entry=connection.run_Cmd(command)
+    return ('Operation SUCCESS' in entry.strip())
+
+item=Items('verify_bps',finit,finit,finit,verify_bps)
+
+print "bps.sh is working :  " + str(item.item_verify_func())
+
+
 
 
 
