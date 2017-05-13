@@ -264,18 +264,18 @@ def find_ht(biosfile):
 def verify_ht():
     print " getting HT setting"
     command="biosconfig -get_bios_settings > /var/tmp/biosconfig.txt"
-    output,errs=connection.run_Cmd_stderr(command)
+    output,errs=connection.run_Cmd_stderr1(command)
     #print "bisoconfig  output" + output
     if 'is not supported' in errs:
         command="ubiosconfig export all > /var/tmp/biosconfig.txt"
-        output,errs=connection.run_Cmd_stderr(command)
+        output,errs=connection.run_Cmd_stderr1(command)
         #print "ubisoconfig  output" + output
         if 'is not supported' in errs:
             print "biosconfig and ubiosconfig is not supported"
             return "Unable to Determine"
     
     command="cat /var/tmp/biosconfig.txt"
-    output,errs=connection.run_Cmd_stderr(command)
+    output,errs=connection.run_Cmd_stderr1(command)
     return find_ht(output)
     
 item=Items('htsetting',finit,finit,finit,verify_ht)
