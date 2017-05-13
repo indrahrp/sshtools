@@ -266,26 +266,45 @@ def verify_zephyr():
     item=Items('/etc/zephyr.servers',finit,finit,finit,verify_zephyr)
 
     print "/etc/zephyr.servers matched the previous OS :  " + str(item.item_verify_func())
-
-
-def verify_email():
-    #print "env_tz "+ itemlist['env_tz'][0]
-    connection.openShellsudo()
-    output=connection.sendShellsudo('mailx indra.harahap@thomsonreuters.com')
-    print "output send shell " + output
-    if "ubject" in output:
-        output=connection.sendShellsudo('email test')
-    print "output after putting in subject  " + output
-    if "test" in output:
-        output=connection.sendShellsudo('.')
-    if 'EOT' in output:
-        return True
-    else:
-        return False
     
-item=Items('mailx',finit,finit,finit,verify_email)
 
-print "mailx is successfully sent (check also your inbox) :  " + str(item.item_verify_func())
+def verify_pkgs():
+    #print "env_tz "+ itemlist['env_tz'][0]
+    command1="/usr/pkg/sbin/pkg_info | awk '{print $1}'| sort > /tmp/pkgexist.txt "
+    entry1=connection.run_Cmd(command1)
+    print "entry " + entry1
+    command2="cat /var/tmp/stgdir/pkginfo_stage | awk '{print $1}'|sort > /tmp/pkgstg.txt" 
+    entry2=connection.run_Cmd(command2)
+    command3="diff /tmp/pkgexist.txt /tmp/pkgstg.txt"
+    #return (entry1.strip() == entry2.strip())
+    entry3=connection.run_Cmd(command3)
+    return "check above output"
+
+    item=Items('pkg_info',finit,finit,finit,verify_pkgs)
+
+    print "pkg_info difference between  staging and existing  :  " + str(item.item_verify_func())
+
+
+
+
+#def verify_email():
+#    #print "env_tz "+ itemlist['env_tz'][0]
+#    connection.openShellsudo()
+#    output=connection.sendShellsudo('mailx indra.harahap@thomsonreuters.com')
+#    print "output send shell " + output
+#   if "ubject" in output:
+#        output=connection.sendShellsudo('email test')
+#    print "output after putting in subject  " + output
+#    if "test" in output:
+#        output=connection.sendShellsudo('.')
+#    if 'EOT' in output:
+#        return True
+#    else:
+#        return False
+    
+#item=Items('mailx',finit,finit,finit,verify_email)
+
+#print "mailx is successfully sent (check also your inbox) :  " + str(item.item_verify_func())
 
 def verify_etcgateways():
     command1="cksum /etc/gateways| awk '{print $2}'"
