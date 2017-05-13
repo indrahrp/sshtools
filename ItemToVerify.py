@@ -231,8 +231,14 @@ def verify_profile():
     print "entry " + entry1
     command2="cksum /var/tmp/pkgbck/profile | awk '{print $2}'" 
     entry2=connection.run_Cmd(command2)
+    command3="(cd /etc/profile.d && ls | cksum | awk '{print $2}')"
+    entry3=connection.run_Cmd(command3)
+    print "entry " + entry3
+    command4="(cd /var/tmp/pkgbck/profile.d && ls|cksum awk '{print $2}')" 
+    entry4=connection.run_Cmd(command4)
+    print "entry " + entry4
     
-    return (entry1.strip() == entry2.strip())
+    return (entry1.strip() == entry2.strip() and entry3.strip() == entry4.strip())
 
 item=Items('/etc/profile',finit,finit,finit,verify_profile)
 
