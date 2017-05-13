@@ -263,9 +263,9 @@ def verify_zephyr():
     entry2=connection.run_Cmd(command2)
     return (entry1.strip() == entry2.strip())
 
-    item=Items('/etc/zephyr.servers',finit,finit,finit,verify_zephyr)
+item=Items('/etc/zephyr.servers',finit,finit,finit,verify_zephyr)
 
-    print "/etc/zephyr.servers matched the previous OS :  " + str(item.item_verify_func())
+print "/etc/zephyr.servers matched the previous OS :  " + str(item.item_verify_func())
     
 
 def verify_pkgs():
@@ -280,9 +280,9 @@ def verify_pkgs():
     entry3=connection.run_Cmd(command3)
     return "check above output"
 
-    item=Items('pkg_info',finit,finit,finit,verify_pkgs)
+item=Items('pkg_info',finit,finit,finit,verify_pkgs)
 
-    print "pkg_info difference between  staging and existing  :  " + str(item.item_verify_func())
+print "pkg_info difference between  staging and existing  :  " + str(item.item_verify_func())
 
 
 
