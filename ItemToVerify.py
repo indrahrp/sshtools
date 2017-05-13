@@ -257,6 +257,20 @@ item=Items('/etc/prodeng.conf',finit,finit,finit,verify_prodeng)
 
 print "/etc/prodeng.conf matched the previous OS :  " + str(item.item_verify_func())
 
+
+def verify_etcgateways():
+    command1="cksum /etc/gateways| awk '{print $2}'"
+    entry1=connection.run_Cmd(command1)
+    print "entry " + entry1
+    command2="cksum /var/tmp/pkgbck/gateways| awk '{print $2}'"
+    entry2=connection.run_Cmd(command2)
+    
+    return (entry1.strip() == entry2.strip())
+
+item=Items('/etc/gateways',finit,finit,finit,verify_etcgateways)
+
+print "/etc/gateways matched the previous OS :  " + str(item.item_verify_func())
+
 def verify_dns():
     
     print " verifying DNS"
