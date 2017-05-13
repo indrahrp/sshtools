@@ -234,9 +234,9 @@ def verify_profile():
     
     return (entry1.strip() == entry2.strip())
 
-item=Items('profiled',finit,finit,finit,verify_profile)
+item=Items('/etc/profiles',finit,finit,finit,verify_profile)
 
-print "profile and profile.d matched the previous OS :  " + str(item.item_verify_func())
+print "/etc/profiles matched the previous OS :  " + str(item.item_verify_func())
 
 def verify_prodeng():
     command1="cksum /etc/prodeng.conf | awk '{print $2}'"
@@ -247,9 +247,9 @@ def verify_prodeng():
     
     return (entry1.strip() == entry2.strip())
 
-item=Items('prodeng.conf',finit,finit,finit,verify_prodeng)
+item=Items('/etc/prodeng.conf',finit,finit,finit,verify_prodeng)
 
-print "profile and profile.d matched the previous OS :  " + str(item.item_verify_func())
+print "/etc/prodeng.conf matched the previous OS :  " + str(item.item_verify_func())
 
 def verify_dns():
     
