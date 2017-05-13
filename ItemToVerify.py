@@ -223,6 +223,83 @@ item=Items('verify_bps',finit,finit,finit,verify_bps)
 print "bps.sh is working :  " + str(item.item_verify_func())
 
 
+def verify_ntp():
+    
+    print " verifying ntp"
+    command="xntpdc -c peers"
+    connection = Ssh(sshServer, sshUsername, sshPassword)
+    time.sleep(3)
+    output,errs=connection.run_Cmd_stderr(command)
+    print "ntp output" + output
+    if 'Connection refused' in errs:
+        return False
+    else:   
+        return True
+
+item=Items('ntp',finit,finit,finit,verify_ntp)
+print "ntp  is  working : " + str(item.get_verify())
+
+def find_ht(biosfile):
+    
+    intdict={}    
+
+    Regex = re.compile(r'''
+    .*(Intel_R__HT_Technology).*\n
+    .*HELP_STRING.*\n
+    .*DEFAULT_OPTION.*\n
+    .*SELECTED_OPTION>\s+(\d+).*/SELECTED_OPTION>
+    ''',re.IGNORECASE | re.VERBOSE )
+    
+    result=Regex.findall(biosfile)
+    print "result " + str(result)
+    if result:
+        for res in result:
+            print "HT found: " + res[0] + " " + res[1]  
+            if '0001' in res[1]:
+                return True
+               
+
+def verify_ht():
+    print " getting HT setting"
+    command="biosconfig -get_bios_settings > /var/tmp/biosconfig.txt"
+    output,errs=connection.run_Cmd_stderr(command)
+    print "bisoconfig  output" + output
+    if 'is not supported' in errs:
+        command="ubiosconfig export all > /var/tmp/biosconfig.txt"
+        output,errs=connection.run_Cmd_stderr(command)
+        print "ubisoconfig  output" + output
+        if 'is not supported' in errs:
+            print "biosconfig and ubiosconfig is not supported"
+            return "Unable to Determine"
+        
+    fname='/var/tmp/biosconfig.txt'
+    fentry=ReadFromFile(fname)
+    print "fentry  "+ fentry
+    return find_ht(fentry)
+    
+item=Items('htsetting',finit,finit,finit,verify_ht)
+print "hyperthread   is  disabled : " + str(item.get_verify())
+
+
+def verify_sudo():
+    print "verifying sudo \n login using ravind account ... "
+
+    command="s" +  stgdir + "system|grep -v ^#|sort|grep -v ^$|cksum"
+    sshUsername='test1'
+    sshPassword='changeme'    
+    connection1 = Ssh(sshServer, sshUsername, sshPassword)
+    connection1.openShellsudo()
+    output=connection1.sendShellsudo('sudo -l')
+    print "output send shell " + output
+    if "assword" in output:
+        output=connection1.sendShellsudo(sshPassword)
+    print "output after sending password " + output
+    if 'may run the following commands' in output:
+        return True
+
+item=Items('sudo',finit,finit,finit,verify_sudo)
+print "sudo is working : " + str(item.get_verify())
+
 
 
 
