@@ -273,7 +273,7 @@ def verify_pkgs():
     command1="/usr/pkg/sbin/pkg_info | awk '{print $1}'| sort > /tmp/pkgexist.txt "
     entry1=connection.run_Cmd(command1)
     print "entry " + entry1
-    command2="cat /var/tmp/stgdir/pkginfo_stage | awk '{print $1}'|sort > /tmp/pkgstg.txt" 
+    command2="cat /var/tmp/stgdir/pkginfo_stage.txt | awk '{print $1}'|sort > /tmp/pkgstg.txt" 
     entry2=connection.run_Cmd(command2)
     command3="diff /tmp/pkgexist.txt /tmp/pkgstg.txt"
     #return (entry1.strip() == entry2.strip())
