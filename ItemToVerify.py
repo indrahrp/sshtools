@@ -229,7 +229,7 @@ def verify_profile():
     command1="cksum /etc/profile | awk '{print $2}'"
     entry1=connection.run_Cmd(command1)
     print "entry " + entry1
-    command2="cksum /var/tmp/pkgbck/profile" 
+    command2="cksum /var/tmp/pkgbck/profile | awk '{print $2}'" 
     entry2=connection.run_Cmd(command2)
     
     return (entry1.strip() == entry2.strip())
