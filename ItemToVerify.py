@@ -272,6 +272,20 @@ def verify_dns():
 item=Items('DNS',finit,finit,finit,verify_dns)
 print "DNS cache is  working : " + str(item.get_verify())
 
+def verify_ftp():
+    
+    print " verifying ftp enabled"
+    command="svcs -a|grep network/ftp"
+    output,errs=connection.run_Cmd_stderr(command)
+    print "ftp outout " + output
+    if 'online' in output and 'disabled' not in output:
+        return True
+    else:   
+        return False
+
+
+item=Items('FTP',finit,finit,finit,verify_dns)
+print "FTP service   is  enabled: " + str(item.get_verify())
 
 
 def verify_ntp():
