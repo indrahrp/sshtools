@@ -263,19 +263,18 @@ def verify_ht():
     print " getting HT setting"
     command="biosconfig -get_bios_settings > /var/tmp/biosconfig.txt"
     output,errs=connection.run_Cmd_stderr(command)
-    print "bisoconfig  output" + output
+    #print "bisoconfig  output" + output
     if 'is not supported' in errs:
         command="ubiosconfig export all > /var/tmp/biosconfig.txt"
         output,errs=connection.run_Cmd_stderr(command)
-        print "ubisoconfig  output" + output
+        #print "ubisoconfig  output" + output
         if 'is not supported' in errs:
             print "biosconfig and ubiosconfig is not supported"
             return "Unable to Determine"
-        
-    fname='/var/tmp/biosconfig.txt'
-    fentry=ReadFromFile(fname)
-    print "fentry  "+ fentry
-    return find_ht(fentry)
+    
+    command="cat /var/tmp/biosconfig.txt"
+    output,errs=connection.run_Cmd_stderr(command)
+    return find_ht(output)
     
 item=Items('htsetting',finit,finit,finit,verify_ht)
 print "hyperthread   is  disabled : " + str(item.get_verify())
