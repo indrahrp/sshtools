@@ -257,6 +257,8 @@ def find_ht(biosfile):
             print "HT found: " + res[0] + " " + res[1]  
             if '0001' in res[1]:
                 return True
+            else:
+                return False
                
 
 def verify_ht():
