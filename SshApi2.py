@@ -82,7 +82,7 @@ class Ssh:
         
     
         alldata= ''
-        while not alldata.endswith(':~# ') and not alldata.endswith('$ ') and not 'assword' in alldata and not alldata.endswith('} ') and not alldata.endswith('Subject: ') and not alldata.endswith('EOT '):
+        while not alldata.endswith(':~# ') and not alldata.endswith('$ ') and not 'assword' in alldata and not alldata.endswith('} ') and not alldata.endswith('Subject: ') and not alldata.endswith('EOT ') and not alldata.endswith('test '):
         #while not alldata.endswith('$'):
             time.sleep(1)
             if self.shell.recv_ready():

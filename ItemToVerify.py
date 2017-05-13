@@ -270,12 +270,14 @@ def verify_zephyr():
 
 def verify_email():
     #print "env_tz "+ itemlist['env_tz'][0]
-    connection.openShell()
-    output=connection.sendShell('mailx indra.harahap@thomsonreuters.com')
+    connection.openShellsudo()
+    output=connection.sendShellsudo('mailx indra.harahap@thomsonreuters.com')
     print "output send shell " + output
     if "ubject" in output:
-        output=connection.sendShell('email test')
+        output=connection.sendShellsudo('email test')
     print "output after putting in subject  " + output
+    if "test" in output:
+        output=connection.sendShellsudo('.')
     if 'EOT' in output:
         return True
     else:
