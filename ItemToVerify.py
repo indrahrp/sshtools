@@ -226,17 +226,17 @@ print "bps.sh is working :  " + str(item.item_verify_func())
 
 def verify_profile():
     #print "env_tz "+ itemlist['env_tz'][0]
-    command1="cksum /etc/profiles | awk '{print $2}'"
+    command1="cksum /etc/profile | awk '{print $2}'"
     entry1=connection.run_Cmd(command1)
     print "entry " + entry1
-    command2="cksum /var/tmp/pkgbck/profiles" 
+    command2="cksum /var/tmp/pkgbck/profile" 
     entry2=connection.run_Cmd(command2)
     
     return (entry1.strip() == entry2.strip())
 
-item=Items('/etc/profiles',finit,finit,finit,verify_profile)
+item=Items('/etc/profile',finit,finit,finit,verify_profile)
 
-print "/etc/profiles matched the previous OS :  " + str(item.item_verify_func())
+print "/etc/profile matched the previous OS :  " + str(item.item_verify_func())
 
 def verify_prodeng():
     command1="cksum /etc/prodeng.conf | awk '{print $2}'"
