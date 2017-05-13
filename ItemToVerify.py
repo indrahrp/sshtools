@@ -234,7 +234,7 @@ def verify_profile():
     command3="(cd /etc/profile.d && ls | cksum | awk '{print $2}')"
     entry3=connection.run_Cmd(command3)
     print "entry " + entry3
-    command4="(cd /var/tmp/pkgbck/profile.d && ls|cksum awk '{print $2}')" 
+    command4="(cd /var/tmp/pkgbck/profile.d && ls|cksum |awk '{print $2}')" 
     entry4=connection.run_Cmd(command4)
     print "entry " + entry4
     
@@ -242,7 +242,7 @@ def verify_profile():
 
 item=Items('/etc/profile',finit,finit,finit,verify_profile)
 
-print "/etc/profile matched the previous OS :  " + str(item.item_verify_func())
+print "/etc/profile and /etc/profile.d/* matched the previous OS :  " + str(item.item_verify_func())
 
 def verify_prodeng():
     command1="cksum /etc/prodeng.conf | awk '{print $2}'"
