@@ -223,12 +223,55 @@ item=Items('verify_bps',finit,finit,finit,verify_bps)
 print "bps.sh is working :  " + str(item.item_verify_func())
 
 
+
+def verify_profile():
+    #print "env_tz "+ itemlist['env_tz'][0]
+    command1="cksum /etc/profiles | awk '{print $2}'"
+    entry1=connection.run_Cmd(command1)
+    print "entry " + entry1
+    command2="cksum /var/tmp/pkgbck/profiles" 
+    entry2=connection.run_Cmd(command2)
+    
+    return (entry1.strip() == entry2.strip())
+
+item=Items('profiled',finit,finit,finit,verify_profile)
+
+print "profile and profile.d matched the previous OS :  " + str(item.item_verify_func())
+
+def verify_prodeng():
+    command1="cksum /etc/prodeng.conf | awk '{print $2}'"
+    entry1=connection.run_Cmd(command1)
+    print "entry " + entry1
+    command2="cksum /var/tmp/pkgbck/prodeng.conf| awk '{print $2}'"
+    entry2=connection.run_Cmd(command2)
+    
+    return (entry1.strip() == entry2.strip())
+
+item=Items('prodeng.conf',finit,finit,finit,verify_prodeng)
+
+print "profile and profile.d matched the previous OS :  " + str(item.item_verify_func())
+
+def verify_dns():
+    
+    print " verifying DNS"
+    command="nslookup birdiex1.gtdl.tdn.pln.ilx.com"
+    output,errs=connection.run_Cmd_stderr(command)
+    print "dns output" + output
+    if '127.0.0.1' in output and '10.186.7.5' in output:
+        return True
+    else:   
+        return False
+
+
+item=Items('DNS',finit,finit,finit,verify_dns)
+print "DNS cache is  working : " + str(item.get_verify())
+
+
+
 def verify_ntp():
     
     print " verifying ntp"
     command="xntpdc -c peers"
-    connection = Ssh(sshServer, sshUsername, sshPassword)
-    time.sleep(3)
     output,errs=connection.run_Cmd_stderr(command)
     print "ntp output" + output
     if 'Connection refused' in errs:
