@@ -440,7 +440,7 @@ def verify_sysadmin():
     if '/etc/inet/services -> /etc/sysadmin/services' in output:
             print "soft link /etc/inet/services -> /etc/sysadmin/services  is created"
             
-item=Items('/etc/sysadmin',finit,finit,finit,verify_sudo)
+item=Items('/etc/sysadmin',finit,finit,finit,verify_sysadmin)
 print "/etc/sysadmin softlink is correct : " + str(item.get_verify())
 
 
