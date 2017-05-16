@@ -280,9 +280,9 @@ def verify_pkgs():
     entry3=connection.run_Cmd(command3)
     return "check above output"
 
-item=Items('pkg_info',finit,finit,finit,verify_pkgs)
+#item=Items('pkg_info',finit,finit,finit,verify_pkgs)
 
-print "pkg_info difference between  staging and existing  :  " + str(item.item_verify_func())
+#print "pkg_info difference between  staging and existing  :  " + str(item.item_verify_func())
 
 
 
@@ -432,13 +432,13 @@ def verify_sysadmin():
     Flag=True
     output=connection.run_Cmd(command)
     if '/etc/inet/hosts -> /etc/sysadmin/hosts' not  in output:
-        print "soft link /etc/inet/hosts -> /etc/sysadmin/hosts is created"
+        print "soft link /etc/inet/hosts -> /etc/sysadmin/hosts is not created"
         Flag=False
     
     command="ls -l /etc/inet/services"
     output=connection.run_Cmd(command)
     if '/etc/inet/services -> /etc/sysadmin/services'  not in output:
-        print "soft link /etc/inet/services -> /etc/sysadmin/services  is created"
+        print "soft link /etc/inet/services -> /etc/sysadmin/services  is  not created"
         Flag=False  
     command="cat /etc/hosts"
     output=connection.run_Cmd(command)
