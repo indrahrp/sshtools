@@ -287,24 +287,24 @@ print "pkg_info difference between  staging and existing  :  " + str(item.item_v
 
 
 
-#def verify_email():
-#    #print "env_tz "+ itemlist['env_tz'][0]
-#    connection.openShellsudo()
-#    output=connection.sendShellsudo('mailx indra.harahap@thomsonreuters.com')
-#    print "output send shell " + output
-#   if "ubject" in output:
-#        output=connection.sendShellsudo('email test')
-#    print "output after putting in subject  " + output
-#    if "test" in output:
-#        output=connection.sendShellsudo('.')
-#    if 'EOT' in output:
-#        return True
-#    else:
-#        return False
+def verify_email():
+    #print "env_tz "+ itemlist['env_tz'][0]
+    connection.openShell()
+    output=connection.cmdtoShell()('mailx indra.harahap@thomsonreuters.com')
+    print "output send shell " + output
+    if "ubject" in output:
+        output=connection.cmdtoShell('email test')
+        print "output after putting in subject  " + output
+    if "test" in output:
+        output=connection.cmtoShell('.')
+    if 'EOT' in output:
+        return True
+    else:
+        return False
     
-#item=Items('mailx',finit,finit,finit,verify_email)
+item=Items('mailx',finit,finit,finit,verify_email)
 
-#print "mailx is successfully sent (check also your inbox) :  " + str(item.item_verify_func())
+print "mailx is successfully sent (check also your inbox) :  " + str(item.item_verify_func())
 
 def verify_etcgateways():
     command1="cksum /etc/gateways| awk '{print $2}'"
@@ -413,7 +413,7 @@ def verify_sudo():
     sshUsername='test1'
     sshPassword='changeme'    
     connection1 = Ssh(sshServer, sshUsername, sshPassword)
-    connection1.openShellsudo()
+    connection1.openShell()
     output=connection1.cmdtoShell('sudo -l')
     print "output send cmdtoshell " + output
     if "assword" in output:
