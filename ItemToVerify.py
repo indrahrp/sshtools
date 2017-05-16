@@ -410,8 +410,8 @@ print "hyperthread   is  disabled : " + str(item.get_verify())
 def verify_sudo():
     print "verifying sudo \n login using ravind account ... "
 
-    sshUsername='ravind'
-    sshPassword='welcome1'    
+    sshUsername='test1'
+    sshPassword='changeme'    
     connection1 = Ssh(sshServer, sshUsername, sshPassword)
     connection1.openShellsudo()
     output=connection1.cmdtoshell('sudo -l')
