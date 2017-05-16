@@ -414,7 +414,7 @@ def verify_sudo():
     sshPassword='changeme'    
     connection1 = Ssh(sshServer, sshUsername, sshPassword)
     connection1.openShellsudo()
-    output=connection1.cmdtoshell('sudo -l')
+    output=connection1.cmdtoShell('sudo -l')
     print "output send cmdtoshell " + output
     if "assword" in output:
         output=connection1.cmdtoshell(sshPassword)
