@@ -417,7 +417,7 @@ def verify_sudo():
     output=connection1.cmdtoShell('sudo -l')
     print "output send cmdtoshell " + output
     if "assword" in output:
-        output=connection1.cmdtoshell(sshPassword)
+        output=connection1.cmdtoShell(sshPassword)
     print "output after sending password " + output
     if 'may run the following commands' in output:
         return True
