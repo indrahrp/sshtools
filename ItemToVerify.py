@@ -428,8 +428,20 @@ print "sudo is working : " + str(item.get_verify())
 
 def verify_sysadmin():
     print "verifying /etc/sysadmin/host and services soft links :"
-    command="ls -l /etc/inet/hosts"
     Flag=True
+    command="ls -l /etc/hosts"
+    output=connection.run_Cmd(command)
+    if '/etc/hosts -> ./inet/hosts' not  in output:
+        print "soft link /etc/hosts -> /etc/inet/hosts is not created"
+        Flag=False
+        
+    command="ls -l /etc/services"
+    output=connection.run_Cmd(command)
+    if '/etc/services -> ./inet/services' not  in output:
+        print "soft link /etc/services -> /etc/inet/services is not created"
+        Flag=False
+  
+    command="ls -l /etc/inet/hosts"
     output=connection.run_Cmd(command)
     if '/etc/inet/hosts -> /etc/sysadmin/hosts' not  in output:
         print "soft link /etc/inet/hosts -> /etc/sysadmin/hosts is not created"
