@@ -442,12 +442,12 @@ def verify_sysadmin():
         Flag=False  
     command="cat /etc/hosts"
     output=connection.run_Cmd(command)
-    if 'can not open' not in output:
+    if 'can not open'  in output:
         print "cat /etc/hosts can not open , soft link is messed up"
         Flag=False
     command="cat /etc/services"
     output=connection.run_Cmd(command)
-    if 'can not open'  not in output:
+    if 'can not open'   in output:
         print "cat /etc/services  can not open , soft link is messed up"
         Flag=False
     return Flag
