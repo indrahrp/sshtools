@@ -290,7 +290,7 @@ print "pkg_info difference between  staging and existing  :  " + str(item.item_v
 def verify_email():
     #print "env_tz "+ itemlist['env_tz'][0]
     connection.openShell()
-    output=connection.cmdtoShell()('mailx indra.harahap@thomsonreuters.com')
+    output=connection.cmdtoShell('mailx indra.harahap@thomsonreuters.com')
     print "output send shell " + output
     if "ubject" in output:
         output=connection.cmdtoShell('email test')
