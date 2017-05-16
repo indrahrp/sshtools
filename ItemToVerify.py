@@ -47,9 +47,9 @@ class Items(object):
     def __str__(self):
         return "item "+ self.item_to_verify + " item staging " + str(self.item_staging_value())+ " item existing value " + str(self.item_existing_value)
 
-sshServer='plantx2'
+sshServer='bunkerx1'
 sshUsername='root'
-sshPassword='abc123'
+sshPassword='changeme'
 stgdir='/var/tmp/stgdir/'
 bckdir='/var/tmp/pkgbck'
 connection = Ssh(sshServer, sshUsername, sshPassword)
