@@ -297,6 +297,7 @@ def verify_email():
         print "output after putting in subject  " + output
     if "test" in output:
         output=connection.cmdtoShell('.')
+        print "output after putting 'period' " + output
     if 'EOT' in output:
         return True
     else:
