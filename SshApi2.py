@@ -78,9 +78,9 @@ class Ssh:
             #strdata.replace('\r', '')
             #print unicode(strdata)
             
-    def cmdtoshell(self,cmd):
+    def cmdtoShell(self,cmd):
         if(self.shell):
-            self.send.send(cmd + '\n')
+            self.shell.send(cmd + '\n')
             time.sleep(2)
             output = self.shell.recv(5000)
             print "\n\n====Session  Output of command  " + cmd + "=====  \n\n" + output + "\n\n"
