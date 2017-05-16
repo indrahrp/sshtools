@@ -77,6 +77,17 @@ class Ssh:
             #strdata = str(alldata)
             #strdata.replace('\r', '')
             #print unicode(strdata)
+            
+    def cmdtoshell(self,cmd):
+        if(self.shell):
+            self.send.send(cmd + '\n')
+            time.sleep(2)
+            output = self.shell.recv(5000)
+            print "\n\n====Session  Output of command  " + cmd + "=====  \n\n" + output + "\n\n"
+            return output
+        else:
+            print("Shell not opened.")
+    
                 
     def __retrieveRespsudo(self):   
         

@@ -47,9 +47,9 @@ class Items(object):
     def __str__(self):
         return "item "+ self.item_to_verify + " item staging " + str(self.item_staging_value())+ " item existing value " + str(self.item_existing_value)
 
-sshServer='bunkerx1'
+sshServer='plantx2'
 sshUsername='root'
-sshPassword='changeme'
+sshPassword='abc123'
 stgdir='/var/tmp/stgdir/'
 bckdir='/var/tmp/pkgbck'
 connection = Ssh(sshServer, sshUsername, sshPassword)
@@ -58,8 +58,8 @@ connection = Ssh(sshServer, sshUsername, sshPassword)
     
 itemlist={
     'ixgbe':['na','na','na'],
-    'env_tz':['GMT','na','na'],
-    'tz_localtime':['GMT','na','na'],
+    'env_tz':['EST5EDT','na','na'],
+    'tz_localtime':['EST5EDT','na','na'],
     'lang':['C','na','na',]
     }
 
@@ -410,15 +410,14 @@ print "hyperthread   is  disabled : " + str(item.get_verify())
 def verify_sudo():
     print "verifying sudo \n login using ravind account ... "
 
-    command="s" +  stgdir + "system|grep -v ^#|sort|grep -v ^$|cksum"
     sshUsername='ravind'
     sshPassword='welcome1'    
     connection1 = Ssh(sshServer, sshUsername, sshPassword)
     connection1.openShellsudo()
-    output=connection1.sendShellsudo('sudo -l')
-    print "output send shell " + output
+    output=connection1.cmdtoshell('sudo -l')
+    print "output send cmdtoshell " + output
     if "assword" in output:
-        output=connection1.sendShellsudo(sshPassword)
+        output=connection1.cmdtoshell(sshPassword)
     print "output after sending password " + output
     if 'may run the following commands' in output:
         return True
