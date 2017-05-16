@@ -68,34 +68,22 @@ def ReadFromFile(Filename):
     result=readfile.read()
     return result
 
-def verify_ntp():
-    
-    print " verifying ntp"
-    command="xntpdc -c peers"
-    connection = Ssh(sshServer, sshUsername, sshPassword)
-    time.sleep(3)
-    output,errs=connection.run_Cmd_stderr(command)
-    print "ntp output" + output
-    #return entry
-    #return output ==  None
-    if 'Connection refused' in errs:
-        return False
-    else:   
-        return True
-
-item=Items('ntp',finit,finit,finit,verify_ntp)
-print "item is " +  str(item)
-print "ntp  is  working : " + str(item.get_verify())
 
 def find_ht(biosfile):
     
     intdict={}    
 
+    #Regex = re.compile(r'''
+    #.*(Intel_R__HT_Technology).*\n
+    #.*HELP_STRING.*\n
+    #.*DEFAULT_OPTION.*\n
+    #.*SELECTED_OPTION>\s+(\d+).*/SELECTED_OPTION>
+    #''',re.IGNORECASE | re.VERBOSE )
+
     Regex = re.compile(r'''
-    .*(Intel_R__HT_Technology).*\n
-    .*HELP_STRING.*\n
-    .*DEFAULT_OPTION.*\n
-    .*SELECTED_OPTION>\s+(\d+).*/SELECTED_OPTION>
+    \d+,\d+a\d+,d+\s+\n    
+    < (.*\s+\n){0,9}
+    ---    
     ''',re.IGNORECASE | re.VERBOSE )
     
     result=Regex.findall(biosfile)
@@ -110,13 +98,14 @@ def find_ht(biosfile):
     
     
 
-def verify_ht():
+def matching_pkgs():
     print " getting HT setting"
     command="biosconfig -get_bios_settings > /var/tmp/biosconfig.txt"
     connection = Ssh(sshServer, sshUsername, sshPassword)
-    time.sleep(1)
+    #time.sleep(1)
     output,errs=connection.run_Cmd_stderr(command)
     print "bisoconfig  output" + output
+    
     if 'is not supported' in errs:
         command="ubiosconfig export all > /var/tmp/biosconfig.txt"
         output,errs=connection.run_Cmd_stderr(command)
@@ -127,39 +116,24 @@ def verify_ht():
         
     fname='/var/tmp/biosconfig.txt'
     fentry=ReadFromFile(fname)
+    fentry='''
+121,125c132,136
+< tcptraceroute-1.4nb5
+< tf-zap-1.2
+< tf-zephyr-2.0.4.0.43
+< tiff-4.0.3nb6
+< tnftp-20141104
+---
+'''
     print "fentry  "+ fentry
     return find_ht(fentry)
     #htset=find_ht(fentry,'bunkerx1','tdn.pln.ilx.com')
     #print "htset  " + str(htset)
     #return htset
 
-item=Items('htsetting',finit,finit,finit,verify_ht)
-print "item is " +  str(item)
+item=Items('htsetting',finit,finit,finit,matching_pkgs)
+#print "item is " +  str(item)
 print "hyperthread   is  disabled : " + str(item.get_verify())
-
-
-def verify_sudo():
-    print "verifying sudo \n login using ravind account ... "
-
-    command="s" +  localstgdir + "system|grep -v ^#|sort|grep -v ^$|cksum"
-    sshUsername='test1'
-    sshPassword='changeme'    
-    connection = Ssh(sshServer, sshUsername, sshPassword)
-    #connection.openShell()
-    time.sleep(3)
-        #return connection.sendShell(command)
-    connection.openShellsudo()
-    output=connection.sendShellsudo('sudo -l')
-    print "output send shell " + output
-    if "assword" in output:
-        output=connection.sendShellsudo(sshPassword)
-    print "output after sending password " + output
-    if 'may run the following commands' in output:
-        return True
-
-item=Items('sudo',finit,finit,finit,verify_sudo)
-print "item is " +  str(item)
-print "sudo is working : " + str(item.get_verify())
 
 
 
