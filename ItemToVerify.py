@@ -438,7 +438,12 @@ def verify_sysadmin():
     command="ls -l /etc/inet/services"
     output=connection.run_Cmd(command)
     if '/etc/inet/services -> /etc/sysadmin/services' in output:
-            print "soft link /etc/inet/services -> /etc/sysadmin/services  is created"
+        print "soft link /etc/inet/services -> /etc/sysadmin/services  is created"
+            
+    command="cat /etc/hosts"
+    output=connection.run_Cmd(command)
+    if 'can not open' in output:
+        print "cat /etc/hosts can not open , soft link is messed up"
             
 item=Items('/etc/sysadmin',finit,finit,finit,verify_sysadmin)
 print "/etc/sysadmin softlink is correct : " + str(item.get_verify())
