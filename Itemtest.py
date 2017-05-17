@@ -117,7 +117,7 @@ def matching_pkgs():
     fname='/var/tmp/biosconfig.txt'
     #fentry=ReadFromFile(fname)
     fentry='''
-121,125c132,136
+121,125a132,136
 < tcptraceroute-1.4nb5
 < tf-zap-1.2
 < tf-zephyr-2.0.4.0.43
