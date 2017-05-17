@@ -79,7 +79,7 @@ def find_ht(biosfile):
     #.*DEFAULT_OPTION.*\n
     #.*SELECTED_OPTION>\s+(\d+).*/SELECTED_OPTION>
     #''',re.IGNORECASE | re.VERBOSE )
-
+    print "bios file " + biosfile
     Regex = re.compile(r'''
     \d+,\d+a\d+,d+\s+\n    
     < (.*\s+\n){0,9}
@@ -104,7 +104,7 @@ def matching_pkgs():
     connection = Ssh(sshServer, sshUsername, sshPassword)
     #time.sleep(1)
     output,errs=connection.run_Cmd_stderr(command)
-    print "bisoconfig  output" + output
+    #print "bisoconfig  output" + output
     
     if 'is not supported' in errs:
         command="ubiosconfig export all > /var/tmp/biosconfig.txt"
