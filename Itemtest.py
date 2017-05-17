@@ -81,7 +81,7 @@ def find_ht(biosfile):
     #''',re.IGNORECASE | re.VERBOSE )
     print "bios file " + biosfile
     Regex = re.compile(r'''
-    (\d+)    
+    (\d+,)    
     ''',re.IGNORECASE | re.VERBOSE )
     
     result=Regex.findall(biosfile)
@@ -91,10 +91,6 @@ def find_ht(biosfile):
             print "HT found: " + res[0] + " " + res[1]  
             if '0001' in res[1]:
                 return True
-               
-    
-    
-    
 
 def matching_pkgs():
     print " getting HT setting"
