@@ -115,7 +115,7 @@ def matching_pkgs():
             return "Unable to Determine"
         
     fname='/var/tmp/biosconfig.txt'
-    fentry=ReadFromFile(fname)
+    #fentry=ReadFromFile(fname)
     fentry='''
 121,125c132,136
 < tcptraceroute-1.4nb5
