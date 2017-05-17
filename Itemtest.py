@@ -81,7 +81,7 @@ def find_ht(biosfile):
     #''',re.IGNORECASE | re.VERBOSE )
     print "bios file " + biosfile
     Regex = re.compile(r'''
-    (\d+,\d+)a(\d+,\d+).*
+    (\d+,\d+)a(\d+,\d+)\s+
     ''',re.IGNORECASE | re.VERBOSE )
     
     result=Regex.findall(biosfile)
