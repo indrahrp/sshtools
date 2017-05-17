@@ -81,8 +81,8 @@ def find_ht(biosfile):
     #''',re.IGNORECASE | re.VERBOSE )
     print "bios file " + biosfile
     Regex = re.compile(r'''
-    \d+,\d+a\d+,d+\s+\n    
-    < (.*\s+\n){0,9}
+    (\d+,\d+a\d+,d+\s+\n)    
+    (< .*\s+\n){0,9}
     ---    
     ''',re.IGNORECASE | re.VERBOSE )
     
