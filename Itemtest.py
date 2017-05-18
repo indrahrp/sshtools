@@ -69,65 +69,55 @@ def ReadFromFile(Filename):
     return result
 
 
-def find_ht(biosfile):
+def find_pkgtoadd(diffe):
     
     intdict={}    
 
-    #Regex = re.compile(r'''
-    #.*(Intel_R__HT_Technology).*\n
-    #.*HELP_STRING.*\n
-    #.*DEFAULT_OPTION.*\n
-    #.*SELECTED_OPTION>\s+(\d+).*/SELECTED_OPTION>
-    #''',re.IGNORECASE | re.VERBOSE )
-    print "bios file " + biosfile
     Regex = re.compile(r'''
-    ((\d+,\d+a\d+,\d+)\s+)
-     ''',re.IGNORECASE | re.VERBOSE )
+    (\d+a\s+)
+    ((.*\s+)*)
+    .  
+     ''',re.IGNORECASE | re.VERBOSE)
     
-    result=Regex.findall(biosfile)
+    result=Regex.findall(diffe)
     print "result " + str(result)
+    pkgtoadd=[] 
     if result:
         for res in result:
-            print "HT found: " + res[0] + " " + res[1]  
-            if '0001' in res[1]:
-                return True
+            print "pkg to add found: " + res[0] + " " + res[1]  
+            listofpkg=res[1].split('\n') 
+            print "listof pkgs " + str(listofpkg)
+            for pkg in listofpkg:
+		if pkg:
+            		pkgtoadd.append('/usr/pkg/sbin/pkg_add ' + pkg) 
+    return pkgtoadd    
 
 def matching_pkgs():
-    print " getting HT setting"
-    command="biosconfig -get_bios_settings > /var/tmp/biosconfig.txt"
+    print " getting pkg difference ..."
+    command="/usr/pkg/sbin/pkg_info| awk '{print $1}' | sort > /tmp/pkgexisting.txt"
     connection = Ssh(sshServer, sshUsername, sshPassword)
-    #time.sleep(1)
     output,errs=connection.run_Cmd_stderr(command)
-    #print "bisoconfig  output" + output
-    
-    if 'is not supported' in errs:
-        command="ubiosconfig export all > /var/tmp/biosconfig.txt"
-        output,errs=connection.run_Cmd_stderr(command)
-        print "ubisoconfig  output" + output
-        if 'is not supported' in errs:
-            print "biosconfig and ubiosconfig is not supported"
-            return "Unable to Determine"
         
-    fname='/var/tmp/biosconfig.txt'
-    #fentry=ReadFromFile(fname)
-    fentry='''
-121,125a132,136
-< tcptraceroute-1.4nb5
-< tf-zap-1.2
-< tf-zephyr-2.0.4.0.43
-< tiff-4.0.3nb6
-< tnftp-20141104
----
-'''
-    print "fentry  "+ fentry
-    return find_ht(fentry)
-    #htset=find_ht(fentry,'bunkerx1','tdn.pln.ilx.com')
-    #print "htset  " + str(htset)
-    #return htset
+    command1="cat /var/tmp/stgdir/pkginfo_stage.txt|awk '{print $1}' | sort > /tmp/pkgstaging.txt"
+    output1,errs1=connection.run_Cmd_stderr(command1)
 
-item=Items('htsetting',finit,finit,finit,matching_pkgs)
+    command2="diff -e /tmp/pkgexisting.txt /tmp/pkgstaging.txt > /tmp/diffe"
+    output2,errs2=connection.run_Cmd_stderr(command2)
+    
+    command3="cat /tmp/diffe"
+    output3,errs3=connection.run_Cmd_stderr(command3)
+      
+    pkgtoadd=find_pkgtoadd(output3)
+    print "pkgtoadd list " + str(pkgtoadd) 
+
+    print "run pkg_add command ..."
+    for command in pkgtoadd:
+   	commandtosend="(cd /packages/solaris-11.3.10-i386;" + command + ")"
+        output,errs=connection.run_Cmd_stderr(commandtosend)
+
+item=Items('matching_pkgs',finit,finit,finit,matching_pkgs)
 #print "item is " +  str(item)
-print "hyperthread   is  disabled : " + str(item.get_verify())
+print "pkg add is executing: " + str(item.get_verify())
 
 
 
