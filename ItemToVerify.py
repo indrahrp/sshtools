@@ -431,13 +431,16 @@ def verify_sysadmin():
     Flag=True
     command="ls -l /etc/hosts"
     output=connection.run_Cmd(command)
-    if '/etc/hosts -> /etc//inet/hosts' not  in output:
+    m = re.match(r"(/etc/hosts -> .*/inet/hosts)",output)
+    if not m:
         print "soft link /etc/hosts -> /etc/inet/hosts is not created"
         Flag=False
         
     command="ls -l /etc/services"
     output=connection.run_Cmd(command)
-    if '/etc/services -> /etc//inet/services' not  in output:
+    m = re.match(r"(/etc/services-> .*/inet/services)",output)
+    
+    if not m:
         print "soft link /etc/services -> /etc/inet/services is not created"
         Flag=False
   
