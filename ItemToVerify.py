@@ -431,7 +431,7 @@ def verify_sysadmin():
     Flag=True
     command="ls -l /etc/hosts"
     output=connection.run_Cmd(command)
-    m = re.match(r"(/etc/host.*/inet/hosts)",output)
+    m = re.match(r"(.*/etc/host.*/inet/hosts)",output)
     
     print "m " + str(m) + " mgroup 0 " + m.group(0)
     if not m:
