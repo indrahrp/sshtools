@@ -102,14 +102,19 @@ print "existing /etc/system is the same as staging : " +  str (item.getstagingva
 
 def get_stage_ndd():
     print "check stage /etc/rc2.d/S68ndd "
-    command="cat " +  stgdir + "S68ndd|sort|grep -v '^#'|grep -v '^$'|cksum"
+    command="cat " +  stgdir + "S68ndd|egrep -vi '(^#|^$)'|sort | awk '{print $5}' |cksum"
+    #connection.run_Cmd(command)
     return connection.run_Cmd(command)
 
 def get_exist_ndd():
-    print "check existing /etc/rc2.d/S68ndd"
-    command="cat /etc/rc2.d/S68ndd |sort|grep -v '^#'|grep -v '^$'|cksum"
-    return connection.run_Cmd(command)
-
+    print "checking  existing /etc/rc2.d/S68ndd and what it is on the memory "
+    command="cat /etc/rc2.d/S68ndd |sort|grep -v '^#'|grep -v '^$'|cksum|awk '{print $2}'"
+    command1="cat /etc/rc2.d/S68ndd|egrep -vi '(^#|^$)'|sort| sed 's/-set/-get/'|sed 's/[0-9]*//g' > /tmp/s && bash /tmp/s|cksum | awk '{print $2}')"
+    if connection.run_Cmd(command).strip() != connection.run_Cmd(command1).strip():
+        return connection.run_Cmd(command).strip() 
+    else:
+        print "Existing /etc/rc2.d/S68ndd needs to be executed"
+        return 0
 
 item=Items('S68ndd',get_stage_ndd,finit,get_exist_ndd,finit)
 print "existing /etc/rc2.d/S68ndd is the same as staging : " +  str (item.getstagingvalue() == item.getexistvalue())
