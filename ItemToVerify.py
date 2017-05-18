@@ -104,7 +104,7 @@ def get_stage_ndd():
     print "check stage /etc/rc2.d/S68ndd "
     command="cat " +  stgdir + "S68ndd|egrep -vi '(^#|^$)'|sort | awk '{print $5}' |cksum|awk '{print $2}'"
     #connection.run_Cmd(command)
-    return connection.run_Cmd(command)
+    return connection.run_Cmd(command).strip()
 
 def get_exist_ndd():
     print "checking  existing /etc/rc2.d/S68ndd and what it is on the memory "
