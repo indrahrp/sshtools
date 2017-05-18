@@ -102,7 +102,7 @@ print "existing /etc/system is the same as staging : " +  str (item.getstagingva
 
 def get_stage_ndd():
     print "check stage /etc/rc2.d/S68ndd "
-    command="cat " +  stgdir + "S68ndd|egrep -vi '(^#|^$)'|sort | awk '{print $5}' |cksum"
+    command="cat " +  stgdir + "S68ndd|egrep -vi '(^#|^$)'|sort | awk '{print $5}' |cksum|awk '{print $2}'"
     #connection.run_Cmd(command)
     return connection.run_Cmd(command)
 
