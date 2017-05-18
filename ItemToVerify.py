@@ -432,6 +432,7 @@ def verify_sysadmin():
     command="ls -l /etc/hosts"
     output=connection.run_Cmd(command)
     m = re.match(r"(/etc/hosts -> .*/inet/hosts)",output)
+    print "m " + str(m) + " mgroup 0 " + m.group(0)
     if not m:
         print "soft link /etc/hosts -> /etc/inet/hosts is not created"
         Flag=False
