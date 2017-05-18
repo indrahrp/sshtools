@@ -109,7 +109,7 @@ def get_stage_ndd():
 def get_exist_ndd():
     print "checking  existing /etc/rc2.d/S68ndd and what it is on the memory "
     command="cat /etc/rc2.d/S68ndd |sort|grep -v '^#'|grep -v '^$'|cksum|awk '{print $2}'"
-    command1="cat /etc/rc2.d/S68ndd|egrep -vi '(^#|^$)'|sort| sed 's/-set/-get/'|sed 's/[0-9]*//g' > /tmp/s && bash /tmp/s|cksum | awk '{print $2}')"
+    command1="(cat /etc/rc2.d/S68ndd|egrep -vi '(^#|^$)'|sort| sed 's/-set/-get/'|sed 's/[0-9]*//g' > /tmp/s && bash /tmp/s|cksum | awk '{print $2}')"
     if connection.run_Cmd(command).strip() != connection.run_Cmd(command1).strip():
         return connection.run_Cmd(command).strip() 
     else:
