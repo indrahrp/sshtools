@@ -112,7 +112,7 @@ def verify_ht():
     
     command="cat /var/tmp/biosconfig.txt"
     output,errs=connection.run_Cmd_stderr1(command)
-    return find_ht(output,False)
+    return find_ht(output)
     
 item=Items('htsetting',finit,finit,finit,verify_ht)
 print "hyperthread   is  disabled : " + str(item.get_verify())
