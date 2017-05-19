@@ -97,12 +97,14 @@ def find_ht(biosfile,biosconfig=True):
          
 
 def verify_ht():
+    bios=True
     print " getting HT setting"
     connection = Ssh(sshServer, sshUsername, sshPassword)
     command="biosconfig -get_bios_settings > /var/tmp/biosconfig.txt"
     output,errs=connection.run_Cmd_stderr1(command)
     #print "bisoconfig  output" + output
     if 'is not supported' in errs:
+        bios=False
         command="ubiosconfig export all > /var/tmp/biosconfig.txt"
         output,errs=connection.run_Cmd_stderr1(command)
         #print "ubisoconfig  output" + output
@@ -112,7 +114,7 @@ def verify_ht():
     
     command="cat /var/tmp/biosconfig.txt"
     output,errs=connection.run_Cmd_stderr1(command)
-    return find_ht(output)
+    return find_ht(output,bios)
     
 item=Items('htsetting',finit,finit,finit,verify_ht)
 print "hyperthread   is  disabled : " + str(item.get_verify())
