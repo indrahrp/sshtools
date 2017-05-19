@@ -370,27 +370,44 @@ def verify_ntp():
 item=Items('ntp',finit,finit,finit,verify_ntp)
 print "ntp  is  working : " + str(item.get_verify())
 
-def find_ht(biosfile):
+def find_ht(biosfile,biosconfig=True):
     
     intdict={}    
-
-    Regex = re.compile(r'''
-    .*(Intel_R__HT_Technology).*\n
-    .*HELP_STRING.*\n
-    .*DEFAULT_OPTION.*\n
-    .*SELECTED_OPTION>\s+(\d+).*/SELECTED_OPTION>
-    ''',re.IGNORECASE | re.VERBOSE )
+    if biosconfig:
+        Regex = re.compile(r'''
+        .*(Intel_R__HT_Technology).*\n
+        .*HELP_STRING.*\n
+        .*DEFAULT_OPTION.*\n
+        .*SELECTED_OPTION>\s+(\d+).*/SELECTED_OPTION>
+        ''',re.IGNORECASE | re.VERBOSE )
     
-    result=Regex.findall(biosfile)
-    print "result " + str(result)
-    if result:
-        for res in result:
-            print "HT found: " + res[0] + " " + res[1]  
-            if '0001' in res[1]:
-                return True
-            else:
-                return False
-               
+        result=Regex.findall(biosfile)
+        print "result " + str(result)
+        if result:
+            for res in result:
+                print "HT found: " + res[0] + " " + res[1]  
+                if '0001' in res[1]:
+                    return True
+                else:
+                    return False
+    else:
+        Regex = re.compile(r'''
+        .*(Intel_R__HT_Technology).*\n
+        .*HELP_STRING.*\n
+        .*DEFAULT_OPTION.*\n
+        .*SELECTED_OPTION>\s+(\d+).*/SELECTED_OPTION>
+        ''',re.IGNORECASE | re.VERBOSE )
+    
+        result=Regex.findall(biosfile)
+        print "result " + str(result)
+        if result:
+            for res in result:
+                print "HT found: " + res[0] + " " + res[1]  
+                if '0001' in res[1]:
+                    return True
+                else:
+                    return False
+         
 
 def verify_ht():
     print " getting HT setting"
@@ -437,36 +454,37 @@ def verify_sysadmin():
     command="ls -l /etc/hosts"
     output=connection.run_Cmd(command)
     m = re.match(r"(.*/etc/hosts -> .*/inet/hosts)",output)
-    
-    print "m " + str(m) + " mgroup 0 " + m.group(0)
     if not m:
-        print "soft link /etc/hosts -> /etc/inet/hosts is not created"
+        print "soft link /etc/hosts -> /etc/inet/hosts is not created correctly"
         Flag=False
         
     command="ls -l /etc/services"
     output=connection.run_Cmd(command)
     m = re.match(r"(/etc/services-> .*/inet/services)",output)
-    
     if not m:
-        print "soft link /etc/services -> /etc/inet/services is not created"
+        print "soft link /etc/services -> /etc/inet/services is not created correctly"
         Flag=False
   
     command="ls -l /etc/inet/hosts"
     output=connection.run_Cmd(command)
-    if '/etc/inet/hosts -> /etc/sysadmin/hosts' not  in output:
-        print "soft link /etc/inet/hosts -> /etc/sysadmin/hosts is not created"
+    m = re.match(r"(/etc/inet/hosts -> .*/sysadmin/hosts)",output)
+    if not m:
+        print "soft link /etc/inet/hosts -> /etc/sysadmin/hosts is not created correctly"
         Flag=False
     
     command="ls -l /etc/inet/services"
     output=connection.run_Cmd(command)
-    if '/etc/inet/services -> /etc/sysadmin/services'  not in output:
+    m = re.match(r"(/etc/inet/services-> .*/sysadmin/services)",output)
+    if not m:
         print "soft link /etc/inet/services -> /etc/sysadmin/services  is  not created"
         Flag=False  
+    
     command="cat /etc/hosts"
-    output=connection.run_Cmd(command)
+    output=connection.run_Cmd(command) 
     if 'can not open'  in output:
         print "cat /etc/hosts can not open , soft link is messed up"
         Flag=False
+        
     command="cat /etc/services"
     output=connection.run_Cmd(command)
     if 'can not open'   in output:
