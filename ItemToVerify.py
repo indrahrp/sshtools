@@ -52,10 +52,7 @@ sshUsername='root'
 sshPassword='changeme'
 stgdir='/var/tmp/stgdir/'
 bckdir='/var/tmp/pkgbck'
-connection = Ssh(sshServer, sshUsername, sshPassword)
 
-
-    
 itemlist={
     #'ixgbe':['na','na','na'],
     'env_tz':['EST5EDT','na','na'],
@@ -63,6 +60,18 @@ itemlist={
     'lang':['C','na','na',]
     }
 
+
+connection = Ssh(sshServer, sshUsername, sshPassword)
+
+
+    
+
+def ReadFromFile(Filename):
+    readfile=open(Filename,'r')
+    result=readfile.read()
+    return result
+
+    
         
 def get_stage_ixgbefunc():
     
@@ -167,16 +176,8 @@ def find_mtu(str1,svrname,domain):
     return intdict
 
 
-def ReadFromFile(Filename):
-    readfile=open(Filename,'r')
-    result=readfile.read()
-    return result
-
-    
     
 item=Items('mtu',finit,get_prod_mtu,get_exist_mtu,verify_mtu)
-#print "mtu prod value is " + str(item.getprodvalue())
-#print "mtu existing value is " + str(item.getexistvalue())
 print "List of interface which mtu are not matched with previous : " + str(item.item_verify_func())
 
 
@@ -284,9 +285,9 @@ def verify_pkgs():
     entry3=connection.run_Cmd(command3)
     return "check above output"
 
-#item=Items('pkg_info',finit,finit,finit,verify_pkgs)
+item=Items('pkg_info',finit,finit,finit,verify_pkgs)
 
-#print "pkg_info difference between  staging and existing  :  " + str(item.item_verify_func())
+print "pkg_info difference between  staging and existing  :  " + str(item.item_verify_func())
 
 
 
@@ -530,6 +531,7 @@ def matching_pkgs():
     command2="diff -e /tmp/pkgexisting.txt /tmp/pkgstaging.txt > /tmp/diffe"
     output2,errs2=connection.run_Cmd_stderr(command2)
     
+    print " diff -e output ..."
     command3="cat /tmp/diffe"
     output3,errs3=connection.run_Cmd_stderr(command3)
       
