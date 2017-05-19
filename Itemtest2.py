@@ -90,7 +90,7 @@ def find_ht(biosfile,biosconfig=True):
     print "result " + str(result)
     if result:
         if biosconfig:
-            print "HT found from biosconfig : " + result(0) + " " + result(1)  
+            print "HT found from biosconfig : " + str(result[0]) + " " + str(result[1])  
             if '0001' in result[1]:
                 return True
             else:
