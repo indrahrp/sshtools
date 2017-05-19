@@ -57,7 +57,7 @@ connection = Ssh(sshServer, sshUsername, sshPassword)
 
     
 itemlist={
-    'ixgbe':['na','na','na'],
+    #'ixgbe':['na','na','na'],
     'env_tz':['EST5EDT','na','na'],
     'tz_localtime':['EST5EDT','na','na'],
     'lang':['C','na','na',]
@@ -197,7 +197,6 @@ def verify_tz_localtime():
 
 item=Items('Timezone/localtime',finit,finit,finit,verify_tz_localtime)
 print "Timezone/localtime  is matched with staging :  " + str(item.item_verify_func())
-
 
 
 def verify_env_tz():
@@ -370,6 +369,9 @@ def verify_ntp():
 item=Items('ntp',finit,finit,finit,verify_ntp)
 print "ntp  is  working : " + str(item.get_verify())
 
+
+
+
 def find_ht(biosfile,biosconfig=True):
     
     intdict={}    
@@ -381,40 +383,37 @@ def find_ht(biosfile,biosconfig=True):
         .*SELECTED_OPTION>\s+(\d+).*/SELECTED_OPTION>
         ''',re.IGNORECASE | re.VERBOSE )
     
-        result=Regex.findall(biosfile)
-        print "result " + str(result)
-        if result:
-            for res in result:
-                print "HT found: " + res[0] + " " + res[1]  
-                if '0001' in res[1]:
-                    return True
-                else:
-                    return False
     else:
         Regex = re.compile(r'''
-        .*(Intel_R__HT_Technology).*\n
-        .*HELP_STRING.*\n
-        .*DEFAULT_OPTION.*\n
-        .*SELECTED_OPTION>\s+(\d+).*/SELECTED_OPTION>
+        <Hyper-threading>(\w+)</Hyper-threading>
         ''',re.IGNORECASE | re.VERBOSE )
     
-        result=Regex.findall(biosfile)
-        print "result " + str(result)
-        if result:
-            for res in result:
-                print "HT found: " + res[0] + " " + res[1]  
-                if '0001' in res[1]:
-                    return True
-                else:
-                    return False
+    result=Regex.findall(biosfile)
+    print "result " + str(result)
+    if result:
+        if biosconfig:
+            print "HT found from biosconfig : " + str(result[0][0]) + " " + str(result[0][1])  
+            if '0001' in result[0][1]:
+                return True
+            else:
+                return False
+        else:
+            print "HT found from ubiosconfig : " + result[0]
+            if 'Disabled' in result[0]:
+                return True
+            else:
+                 return False
          
 
 def verify_ht():
+    bios=True
     print " getting HT setting"
+    connection = Ssh(sshServer, sshUsername, sshPassword)
     command="biosconfig -get_bios_settings > /var/tmp/biosconfig.txt"
     output,errs=connection.run_Cmd_stderr1(command)
     #print "bisoconfig  output" + output
     if 'is not supported' in errs:
+        bios=False
         command="ubiosconfig export all > /var/tmp/biosconfig.txt"
         output,errs=connection.run_Cmd_stderr1(command)
         #print "ubisoconfig  output" + output
@@ -424,7 +423,7 @@ def verify_ht():
     
     command="cat /var/tmp/biosconfig.txt"
     output,errs=connection.run_Cmd_stderr1(command)
-    return find_ht(output)
+    return find_ht(output,bios)
     
 item=Items('htsetting',finit,finit,finit,verify_ht)
 print "hyperthread   is  disabled : " + str(item.get_verify())
@@ -495,6 +494,56 @@ def verify_sysadmin():
 item=Items('/etc/sysadmin',finit,finit,finit,verify_sysadmin)
 print "/etc/sysadmin softlink is correct : " + str(item.get_verify())
 
+
+def find_pkgtoadd(diffe):
+    
+    intdict={}    
+
+    Regex = re.compile(r'''
+    (\d+a\s+)
+    ((.*\s+)*)
+    .  
+     ''',re.IGNORECASE | re.VERBOSE)
+    
+    result=Regex.findall(diffe)
+    print "result " + str(result)
+    pkgtoadd=[] 
+    if result:
+        for res in result:
+            print "pkg to add found: " + res[0] + " " + res[1]  
+            listofpkg=res[1].split('\n') 
+            print "listof pkgs " + str(listofpkg)
+            for pkg in listofpkg:
+                if pkg:
+                    pkgtoadd.append('/usr/pkg/sbin/pkg_add ' + pkg) 
+    return pkgtoadd    
+
+def matching_pkgs():
+    print " getting pkg difference ..."
+    command="/usr/pkg/sbin/pkg_info| awk '{print $1}' | sort > /tmp/pkgexisting.txt"
+    connection = Ssh(sshServer, sshUsername, sshPassword)
+    output,errs=connection.run_Cmd_stderr(command)
+        
+    command1="cat /var/tmp/stgdir/pkginfo_stage.txt|awk '{print $1}' | sort > /tmp/pkgstaging.txt"
+    output1,errs1=connection.run_Cmd_stderr(command1)
+
+    command2="diff -e /tmp/pkgexisting.txt /tmp/pkgstaging.txt > /tmp/diffe"
+    output2,errs2=connection.run_Cmd_stderr(command2)
+    
+    command3="cat /tmp/diffe"
+    output3,errs3=connection.run_Cmd_stderr(command3)
+      
+    pkgtoadd=find_pkgtoadd(output3)
+    print "pkgtoadd list " + str(pkgtoadd) 
+
+    print "run pkg_add command ..."
+    for command in pkgtoadd:
+         commandtosend="(cd /packages/solaris-11.3.10-i386;" + command + ")"
+         output,errs=connection.run_Cmd_stderr(commandtosend)
+
+item=Items('matching_pkgs',finit,finit,finit,matching_pkgs)
+#print "item is " +  str(item)
+print "pkg add is executing: " + str(item.get_verify())
 
 
 
