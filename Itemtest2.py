@@ -5,6 +5,7 @@ Created on Mar 7, 2017
 '''
 from SshApi2 import *
 import time,re
+from __builtin__ import True
 
 def finit():
     print "in finit"
@@ -88,12 +89,18 @@ def find_ht(biosfile,biosconfig=True):
     result=Regex.findall(biosfile)
     print "result " + str(result)
     if result:
-        for res in result:
-            print "HT found from biosconfig : " + res[0] + " " + res[1]  
-            if '0001' in res[1]:
+        if biosconfig:
+            print "HT found from biosconfig : " + result[0] + " " + result[1]  
+            if '0001' in result[1]:
                 return True
             else:
                 return False
+        else:
+            print "HT found from ubiosconfig : " + result[0]
+            if 'Disabled' in result[0]:
+                return True
+            else:
+                 return False
          
 
 def verify_ht():
