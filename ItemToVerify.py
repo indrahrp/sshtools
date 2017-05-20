@@ -76,7 +76,7 @@ def ReadFromFile(Filename):
 def get_stage_ixgbefunc():
     
     print "checking stage ixgbe.conf"
-    command= 'cat /var/tmp/stgdir/ixgbe.conf|sort|grep -v ^# | cksum'
+    command= "cat /var/tmp/stgdir/ixgbe.conf|sort|grep -v ^# | cksum| awk '{print $2}'"
     #command="cat " +  stgdir + "ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'|sed 's/default_mtu *=//'| sed 's/ *//'"
     return connection.run_Cmd(command)
 
@@ -84,7 +84,7 @@ def get_stage_ixgbefunc():
 def get_exist_ixgbefunc():
     
     print "checking existing ixgbe.conf "
-    command= 'cat /kernel/drv/ixgbe.conf|sort|grep -v ^#| cksum'
+    command= "cat /kernel/drv/ixgbe.conf|sort|grep -v ^#| cksum | awk '{print $1}'"
     
     #command="cat /kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'|sed 's/default_mtu *=//'| sed 's/ *//'"
     return connection.run_Cmd(command)
@@ -96,17 +96,23 @@ print "ixgbe.conf is the same as staging : " + str (item.getstagingvalue() == it
 
 def get_stage_system():
     print "check stage /etc/system"
-    command="cat " +  stgdir + "system|grep -v ^*|sort|grep -v ^$|cksum"
+    command="cat " +  stgdir + "system|grep -v ^*|sort|grep -v ^$|cksum|awk '{print $2}'"
     return connection.run_Cmd(command)
 
 def get_exist_system():
     print "check existing /etcsystem"
-    command="cat /etc/system|grep -v ^*|sort|grep -v ^$|cksum"
+    command="cat /etc/system|grep -v ^*|sort|grep -v ^$|cksum | awk '{print $2}'"
     return connection.run_Cmd(command)
 
-
-item=Items('system',get_stage_system,finit,get_exist_system,finit)
-print "existing /etc/system is the same as staging : " +  str (item.getstagingvalue() == item.getexistvalue())
+def verify_system():
+    if item.getexistvalue().strip() == 0:
+        print "There is no /etc/system file"
+        return False
+    if item.getexistvalue().strip() == item.getstagingvalue().strip():
+        return True
+    
+item=Items('system',get_stage_system,finit,get_exist_system,verify_system)
+print "existing /etc/system is the same as staging : " +  str (item.get_verify())
 
 
 def get_stage_ndd():
@@ -272,24 +278,6 @@ item=Items('/etc/zephyr.servers',finit,finit,finit,verify_zephyr)
 
 print "/etc/zephyr.servers matched the previous OS :  " + str(item.item_verify_func())
     
-
-def verify_pkgs():
-    #print "env_tz "+ itemlist['env_tz'][0]
-    command1="/usr/pkg/sbin/pkg_info | awk '{print $1}'| sort > /tmp/pkgexist.txt "
-    entry1=connection.run_Cmd(command1)
-    print "entry " + entry1
-    command2="cat /var/tmp/stgdir/pkginfo_stage.txt | awk '{print $1}'|sort > /tmp/pkgstg.txt" 
-    entry2=connection.run_Cmd(command2)
-    command3="diff /tmp/pkgexist.txt /tmp/pkgstg.txt"
-    #return (entry1.strip() == entry2.strip())
-    entry3=connection.run_Cmd(command3)
-    return "check above output"
-
-item=Items('pkg_info',finit,finit,finit,verify_pkgs)
-
-print "pkg_info difference between  staging and existing  :  " + str(item.item_verify_func())
-
-
 
 
 def verify_email():
@@ -547,6 +535,22 @@ item=Items('matching_pkgs',finit,finit,finit,matching_pkgs)
 #print "item is " +  str(item)
 print "pkg add is executing: " + str(item.get_verify())
 
+
+def verify_pkgs():
+    #print "env_tz "+ itemlist['env_tz'][0]
+    command1="/usr/pkg/sbin/pkg_info | awk '{print $1}'| sort > /tmp/pkgexist.txt "
+    entry1=connection.run_Cmd(command1)
+    print "entry " + entry1
+    command2="cat /var/tmp/stgdir/pkginfo_stage.txt | awk '{print $1}'|sort > /tmp/pkgstg.txt" 
+    entry2=connection.run_Cmd(command2)
+    command3="diff /tmp/pkgexist.txt /tmp/pkgstg.txt"
+    #return (entry1.strip() == entry2.strip())
+    entry3=connection.run_Cmd(command3)
+    return "check above output"
+
+item=Items('pkg_info',finit,finit,finit,verify_pkgs)
+
+print "pkg_info difference between  staging and existing  :  " + str(item.item_verify_func())
 
 
 
