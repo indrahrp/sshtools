@@ -105,8 +105,8 @@ def get_exist_system():
     return connection.run_Cmd(command)
 
 def verify_system():
-    if item.getexistvalue().strip() == 0:
-        print "There is no /etc/system file"
+    if item.getexistvalue().strip() == 0 or item.getstagingvalue.strip == 0:
+        print "There is no /etc/system file either for existing or staging"
         return False
     if item.getexistvalue().strip() == item.getstagingvalue().strip():
         return True
