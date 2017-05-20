@@ -104,15 +104,15 @@ def get_exist_system():
     command="cat /etc/system|grep -v ^*|sort|grep -v ^$|cksum | awk '{print $2}'"
     return connection.run_Cmd(command)
 
-def verify_system():
+def verify_system(item):
     if item.getexistvalue().strip() == '0' or item.getstagingvalue().strip() == '0':
-        print "There is no /etc/system file either for existing or staging"
+        print "cksum of /etc/system file is 0 check manually "
         return False
     if item.getexistvalue().strip() == item.getstagingvalue().strip():
         return True
     
 item=Items('system',get_stage_system,finit,get_exist_system,verify_system)
-print "existing /etc/system is the same as staging : " +  str (item.get_verify())
+print "existing /etc/system is the same as staging : " +  str (item.get_verify(item))
 
 
 def get_stage_ndd():
