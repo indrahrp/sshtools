@@ -332,6 +332,21 @@ def verify_dns():
 item=Items('DNS',finit,finit,finit,verify_dns)
 print "DNS cache is  working : " + str(item.get_verify())
 
+def verify_var_tmp():
+    
+    print " verifying permission /var/tmp"
+    command="ls -ltrd /var/tmp/"
+    output,errs=connection.run_Cmd_stderr(command)
+    print "ls -ltrd /var/tmp/ " + output
+    if 'drwxrwxrwt' in output:
+        return True
+    else:   
+        return False
+
+
+item=Items('var_tmp',finit,finit,finit,verify_var_tmp)
+print "/var/tmp/ permission is correct: " + str(item.get_verify())
+
 def verify_ftp():
     
     print " verifying ftp enabled"
