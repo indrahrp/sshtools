@@ -8,6 +8,7 @@ import threading, paramiko,time
  
 class Ssh:
     shell = None
+    shell1 = None
     client = None
     transport = None
  
@@ -93,7 +94,7 @@ class Ssh:
         
     
         alldata= ''
-        while not alldata.endswith(':~# ') and not alldata.endswith('$ ') and not 'assword' in alldata and not alldata.endswith('} ') and not alldata.endswith('Subject: ') and not alldata.endswith('EOT ') and not alldata.endswith('test '):
+        while not alldata.endswith(':~# ') and not alldata.endswith('% ') and not alldata.endswith('$ ') and not 'assword' in alldata and not alldata.endswith('} ') and not alldata.endswith('Subject: ') and not alldata.endswith('EOT ') and not alldata.endswith('test ') and not 'DISPLAY' in alldata:
         #while not alldata.endswith('$'):
             time.sleep(1)
             if self.shell.recv_ready():
