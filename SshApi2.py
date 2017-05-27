@@ -95,7 +95,7 @@ class Ssh:
     
         alldata= ''
         #while not alldata.endswith(':~# ') and not alldata.endswith('% ') and not alldata.endswith('$ ') and not 'assword' in alldata and not alldata.endswith('} ') and not alldata.endswith('Subject: ') and not alldata.endswith('EOT ') and not alldata.endswith('test ') and not 'DISPLAY' in alldata:
-        while not alldata.endswith(':~# ') and not alldata.endswith('% ') and not alldata.endswith('$ ') and not 'assword' in alldata and notalldata.endswith('} ') and not alldata.endswith('Subject: ') and not alldata.endswith('EOT ') and not alldata.endswith('test ') and not 'DISPLAY' in alldata:
+        while not alldata.endswith(':~# ') and not alldata.endswith('% ') and not alldata.endswith('$ ') and not 'assword' in alldata and not alldata.endswith('} ') and not alldata.endswith('Subject: ') and not alldata.endswith('EOT ') and not alldata.endswith('test ') and not 'DISPLAY' in alldata:
         
         #while not alldata.endswith('$'):
             time.sleep(1)

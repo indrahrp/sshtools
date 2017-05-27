@@ -84,7 +84,7 @@ def get_stage_ixgbefunc():
 def get_exist_ixgbefunc():
     
     print "checking existing ixgbe.conf "
-    command= "cat /kernel/drv/ixgbe.conf|sort|grep -v ^#| cksum | awk '{print $1}'"
+    command= "cat /kernel/drv/ixgbe.conf|sort|grep -v ^#| cksum | awk '{print $2}'"
     
     #command="cat /kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'|sed 's/default_mtu *=//'| sed 's/ *//'"
     return connection.run_Cmd(command)
@@ -215,7 +215,7 @@ def verify_env_tz():
     command3="cat /etc/TIMEZONE |grep TZ|awk -F= '{print $2}'"
     entry3=connection.run_Cmd(command3)
     print "entry " + entry1
-    return (entry1.strip() == itemlist['env_tz'][0] and entry2.strip() == itemlist['lang'][0] and entry3.strip() == itemlist[env_tz][0] )
+    return (entry1.strip() == itemlist['env_tz'][0] and entry2.strip() == itemlist['lang'][0] and entry3.strip() == itemlist['env_tz'][0] )
 
 item=Items('environment/timezone',finit,finit,finit,verify_env_tz)
 
