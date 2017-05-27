@@ -209,9 +209,13 @@ print "Timezone/localtime  is matched with staging :  " + str(item.item_verify_f
 def verify_env_tz():
     #print "env_tz "+ itemlist['env_tz'][0]
     command1="svccfg -s system/environment:init listprop environment/TZ| awk '{print $3}'"
-    entry=connection.run_Cmd(command1)
+    entry1=connection.run_Cmd(command1)
+    command2="cat /etc/TIMEZONE |grep LANG|awk -F= '{print $2}'"
+    entry2=connection.run_Cmd(command2)
+    command3="cat /etc/TIMEZONE |grep TZ|awk -F= '{print $2}'"
+    entry3=connection.run_Cmd(command3)
     print "entry " + entry
-    return (entry.strip() == itemlist['env_tz'][0])
+    return (entry1.strip() == itemlist['env_tz'][0] and entry2.strip() == itemlist['lang'][0] and entry3.strip() == itemlist[env_tz][0] )
 
 item=Items('environment/timezone',finit,finit,finit,verify_env_tz)
 
