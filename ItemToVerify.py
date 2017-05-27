@@ -214,7 +214,7 @@ def verify_env_tz():
     entry2=connection.run_Cmd(command2)
     command3="cat /etc/TIMEZONE |grep TZ|awk -F= '{print $2}'"
     entry3=connection.run_Cmd(command3)
-    print "entry " + entry
+    print "entry " + entry1
     return (entry1.strip() == itemlist['env_tz'][0] and entry2.strip() == itemlist['lang'][0] and entry3.strip() == itemlist[env_tz][0] )
 
 item=Items('environment/timezone',finit,finit,finit,verify_env_tz)
