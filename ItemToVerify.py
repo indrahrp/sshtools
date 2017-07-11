@@ -4,7 +4,7 @@ Created on Mar 7, 2017
 @author: uc205955
 '''
 from SshApi2 import *
-import time,re
+import time,re,os
 
 def finit():
     print "in finit"
@@ -47,18 +47,25 @@ class Items(object):
     def __str__(self):
         return "item "+ self.item_to_verify + " item staging " + str(self.item_staging_value())+ " item existing value " + str(self.item_existing_value)
 
-sshServer='bunkerx1'
+
+sshServer='192.168.56.20'
 sshUsername='root'
-sshPassword='changeme'
+
+
+sshPassword=os.environ['SECRET']
+print "pwd is "+ sshPassword
 stgdir='/var/tmp/stgdir/'
 bckdir='/var/tmp/pkgbck'
 
 itemlist={
     #'ixgbe':['na','na','na'],
-    'env_tz':['EST5EDT','na','na'],
-    'tz_localtime':['EST5EDT','na','na'],
+    'env_tz':['GMT','na','na'],
+    'tz_localtime':['GMT','na','na'],
     'lang':['C','na','na',]
     }
+
+
+
 
 
 connection = Ssh(sshServer, sshUsername, sshPassword)
@@ -112,7 +119,7 @@ def verify_system():
         return True
     
 item=Items('system',get_stage_system,finit,get_exist_system,verify_system)
-print "existing /etc/system is the same as staging : " +  str (item.get_verify)
+print "existing /etc/system is the same as staging : " +  str (item.get_verify())
 
 
 def get_stage_ndd():
@@ -320,7 +327,8 @@ print "/etc/gateways matched the previous OS :  " + str(item.item_verify_func())
 def verify_dns():
     
     print " verifying DNS"
-    command="nslookup birdiex1.gtdl.tdn.pln.ilx.com"
+    #command="nslookup birdiex1.gtdl.tdn.pln.ilx.com"
+    command="nslookup birdiez1"
     output,errs=connection.run_Cmd_stderr(command)
     print "dns output" + output
     if '127.0.0.1' in output and '10.186.7.5' in output:
@@ -440,8 +448,8 @@ print "hyperthread   is  disabled : " + str(item.get_verify())
 def verify_sudo():
     print "verifying sudo \n login using ravind account ... "
     
-    sshUsername='ravind'
-    sshPassword='welcome1'
+    sshUsername='indrah'
+    sshPassword='h0gKRmqU'
     connection1 = Ssh(sshServer, sshUsername, sshPassword)
     connection1.openShellsudo()
     #output=connection1.cmdtoShell('\n\n')
@@ -470,21 +478,21 @@ def verify_sysadmin():
         
     command="ls -l /etc/services"
     output=connection.run_Cmd(command)
-    m = re.match(r"(/etc/services-> .*/inet/services)",output)
+    m = re.match(r"(.*/etc/services -> .*/inet/services)",output)
     if not m:
         print "soft link /etc/services -> /etc/inet/services is not created correctly"
         Flag=False
   
     command="ls -l /etc/inet/hosts"
     output=connection.run_Cmd(command)
-    m = re.match(r"(/etc/inet/hosts -> .*/sysadmin/hosts)",output)
+    m = re.match(r"(.*/etc/inet/hosts -> .*/sysadmin/hosts)",output)
     if not m:
         print "soft link /etc/inet/hosts -> /etc/sysadmin/hosts is not created correctly"
         Flag=False
     
     command="ls -l /etc/inet/services"
     output=connection.run_Cmd(command)
-    m = re.match(r"(/etc/inet/services-> .*/sysadmin/services)",output)
+    m = re.match(r"(.*/etc/inet/services -> .*/sysadmin/services)",output)
     if not m:
         print "soft link /etc/inet/services -> /etc/sysadmin/services  is  not created"
         Flag=False  
@@ -550,12 +558,12 @@ def matching_pkgs():
 
     print "run pkg_add command ..."
     for command in pkgtoadd:
-         commandtosend="(cd /packages/solaris-11.3.10-i386;" + command + ")"
+         commandtosend="(cd /packages/solaris-11.3.10-i86pc/;" + command + ")"
          output,errs=connection.run_Cmd_stderr(commandtosend)
 
-item=Items('matching_pkgs',finit,finit,finit,matching_pkgs)
+#item=Items('matching_pkgs',finit,finit,finit,matching_pkgs)
 #print "item is " +  str(item)
-print "pkg add is executing: " + str(item.get_verify())
+#print "pkg add is executing: " + str(item.get_verify())
 
 
 def verify_pkgs():
