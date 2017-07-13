@@ -1,0 +1,45 @@
+{
+    "hostinfo":{
+    "host":"192.168.56.20",
+    "server_env":"hzl_stage",
+	"platform":"X86",
+	"zonetype":"global",
+	"stgdir":"/var/tmp/stgdir",
+	"bckdir":"/var/tmp/pkgbck",
+	"user":"root"
+    },
+    
+    "env":{
+    "env_tz":"GMT",
+    "tz_localtime":"GMT",
+    "lang":"C"
+    },
+
+    
+    "other":{
+        "hzl_stage":{
+            "server_dnscheck":"sol1", 
+            "user_sudocheck":"ravind",
+            "user_pwd":"welcome1"
+            },
+	    "hzl_prod":{
+	  	   "server_dnscheck":"birdiez1",
+	 	   "user_sudocheck":"indrah",
+	 	   "user_pwd":"changeme"
+			},
+		  "pln_prod": {
+            "server_dnscheck": "birdiez1", 
+            "user_pwd": "changeme", 
+            "user_sudocheck": "indrah"
+        }, 
+          "pln_stage": {
+            "server_dnscheck": "sol1", 
+            "user_pwd": "welcome1", 
+            "user_sudocheck": "ravind"
+        },	
+		"platform":{
+		   "X86":"/packages/solaris-11.3.10-i86pc",
+		   "Sparc":"/packages/solaris-11.3.10-sparc"
+	        }	
+	        }
+}

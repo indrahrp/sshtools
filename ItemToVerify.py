@@ -1,11 +1,14 @@
 #!/usr/bin/env python
+
 '''
 Created on Mar 7, 2017
 
 @author: uc205955
 '''
 from SshApi2 import *
-import time,re,os
+import time,re,os,json
+
+
 
 def finit():
     print "in finit"
@@ -49,21 +52,20 @@ class Items(object):
         return "item "+ self.item_to_verify + " item staging " + str(self.item_staging_value())+ " item existing value " + str(self.item_existing_value)
 
 
-sshServer='192.168.56.20'
-sshUsername='root'
 
+
+with open('config.json') as json_data_file:
+    data = json.load(json_data_file)
+
+print json.dumps(data, indent=4, sort_keys=True)
+print "hostinfo host " + data["hostinfo"]["platform"]
+
+sshServer=data["hostinfo"]["host"]
+sshUsername=data["hostinfo"]["user"]
 
 sshPassword=os.environ['SECRET']
 print "pwd is "+ sshPassword
-stgdir='/var/tmp/stgdir/'
-bckdir='/var/tmp/pkgbck'
 
-itemlist={
-    #'ixgbe':['na','na','na'],
-    'env_tz':['GMT','na','na'],
-    'tz_localtime':['GMT','na','na'],
-    'lang':['C','na','na',]
-    }
 
 
 
@@ -125,7 +127,7 @@ print "existing /etc/system is the same as staging : " +  str (item.get_verify()
 
 def get_stage_ndd():
     print "check stage /etc/rc2.d/S68ndd "
-    command="cat " +  stgdir + "S68ndd|egrep -vi '(^#|^$)'|sort | awk '{print $5}' |cksum|awk '{print $2}'"
+    command="cat " +  data["hostinfo"]["stgdir"] + "S68ndd|egrep -vi '(^#|^$)'|sort | awk '{print $5}' |cksum|awk '{print $2}'"
     #connection.run_Cmd(command)
     return connection.run_Cmd(command).strip()
 
@@ -198,7 +200,7 @@ print "List of interface which mtu are not matched with previous : " + str(item.
 def verify_lang():
     command="svccfg -s svc:/system/environment:init listprop environment/LANG|awk '{print $3}'"
     entry=connection.run_Cmd(command)
-    return (entry.strip() == itemlist['lang'][0])
+    return (entry.strip() == data["env"]["lang"])
     
 
 item=Items('lang',finit,finit,finit,verify_lang)
@@ -208,14 +210,14 @@ def verify_tz_localtime():
     command="svccfg -s svc:/system/timezone:default listprop timezone/localtime|awk '{print $3}'"
     entry=connection.run_Cmd(command)
     print "entry " + entry
-    return (entry.strip() == itemlist['tz_localtime'][0])
+    return (entry.strip() == data["env"]["tz_localtime"])
 
 item=Items('Timezone/localtime',finit,finit,finit,verify_tz_localtime)
 print "Timezone/localtime  is matched with staging :  " + str(item.item_verify_func())
 
 
 def verify_env_tz():
-    #print "env_tz "+ itemlist['env_tz'][0]
+    #print "env_tz "+ data["env"]["env_tz"]
     command1="svccfg -s system/environment:init listprop environment/TZ| awk '{print $3}'"
     entry1=connection.run_Cmd(command1)
     command2="cat /etc/TIMEZONE |grep LANG|awk -F= '{print $2}'"
@@ -223,7 +225,7 @@ def verify_env_tz():
     command3="cat /etc/TIMEZONE |grep TZ|awk -F= '{print $2}'"
     entry3=connection.run_Cmd(command3)
     print "entry " + entry1
-    return (entry1.strip() == itemlist['env_tz'][0] and entry2.strip() == itemlist['lang'][0] and entry3.strip() == itemlist['env_tz'][0] )
+    return (entry1.strip() == data["env"]["env_tz"] and entry2.strip() == data["env"]["lang"] and entry3.strip() == data["env"]["env_tz"] )
 
 item=Items('environment/timezone',finit,finit,finit,verify_env_tz)
 
@@ -329,7 +331,7 @@ def verify_dns():
     
     print " verifying DNS"
     #command="nslookup birdiex1.gtdl.tdn.pln.ilx.com"
-    command="nslookup birdiez1"
+    command="nslookup " + data["other"][data["hostinfo"]["server_env"]]["server_dnscheck"]
     output,errs=connection.run_Cmd_stderr(command)
     print "dns output" + output
     if '127.0.0.1' in output and '10.186.7.5' in output:
@@ -447,10 +449,10 @@ print "hyperthread   is  disabled : " + str(item.get_verify())
 
 
 def verify_sudo():
-    print "verifying sudo \n login using ravind account ... "
+    print "verifying sudo \n login using user  " +  data["other"][data["hostinfo"]["server_env"]]["user_sudocheck"]
     
-    sshUsername='indrah'
-    sshPassword='h0gKRmqU'
+    sshUsername= data["other"][data["hostinfo"]["server_env"]]["user_sudocheck"]
+    sshPassword= data["other"][data["hostinfo"]["server_env"]]["user_pwd"]
     connection1 = Ssh(sshServer, sshUsername, sshPassword)
     connection1.openShellsudo()
     #output=connection1.cmdtoShell('\n\n')
@@ -558,13 +560,16 @@ def matching_pkgs():
     print "pkgtoadd list " + str(pkgtoadd) 
 
     print "run pkg_add command ..."
+    pkgdir=data["other"]["platform"][data["hostinfo"]["platform"]]
+    print "pkgdir " + pkgdir
     for command in pkgtoadd:
-         commandtosend="(cd /packages/solaris-11.3.10-i86pc/;" + command + ")"
-         output,errs=connection.run_Cmd_stderr(commandtosend)
+         commandtosend="(cd " + pkgdir + ";" + command + ")"
+         print "command to send :" + commandtosend 
+         #output,errs=connection.run_Cmd_stderr(commandtosend)
 
-#item=Items('matching_pkgs',finit,finit,finit,matching_pkgs)
+item=Items('matching_pkgs',finit,finit,finit,matching_pkgs)
 #print "item is " +  str(item)
-#print "pkg add is executing: " + str(item.get_verify())
+print "pkg add is executing: " + str(item.get_verify())
 
 
 def verify_pkgs():
@@ -585,8 +590,55 @@ print "pkg_info difference between  staging and existing  :  " + str(item.item_v
 
 
 
+def verify_multiscaling():
     
+    print " verifying multi cast scaling configuration "
+    command="pkg list entire"
+    output,errs=connection.run_Cmd_stderr(command)
+    if '0.5.11-0.175.3.20' in output:
+    	 command="grep -i " + sshServer+ " /etc/hosts |egrep -i (arbi|fundist)"
+    	 output,errs=connection.run_Cmd_stderr(command)	
+    	 if 'arbi' in output or 'fundist' in output:
+    	 	command="ipadm show-prop -p _recv_multicast_scaling ip|grep -v PROTO|awk '{print $4}'"
+    		output,errs=connection.run_Cmd_stderr(command)
+    		if 'cannot get property' in output:
+    			print "multicast scaling is not supported"
+    			return True
+    		else:
+    			if output.strip()=="1":
+    				print "multiscaling has been configured"
+    				return True
+    			else:
+    				print "Multiscaling property is required to be configured, please set it correctly"
+    				return False
+    	 else:
+    		print "It does not have arbi or fundist network"
+    		return True
+    else:
+    	print "pre SRU 20 multiscaling is not required"
+    	return True
+
+item=Items('multiscaling',finit,finit,finit,verify_multiscaling)
+print "multicscaling  is  configured correctly: " + str(item.get_verify())
+
+def verify_poweradm():
     
+    print " verifying poweradm configuration "
+    #root@sol2:~# poweradm show
+    #Power management is disabled with the Solaris instance as the authority
+    
+    command="poweradm show"
+    output,errs=connection.run_Cmd_stderr(command)
+    print "poweradm show output : " + output
+    if 'disabled with the Solaris instance as the authority' in output:
+        return True
+    else:   
+        return False
+        
+item=Items('poweradm',finit,finit,finit,verify_poweradm)
+print "poweradm   is  configured correctly: " + str(item.get_verify())
     
 
-    
+def Verify_uncorescale():
+	# <Uncore_Frequency_Scaling>Disabled</Uncore_Frequency<Uncore_Frequency_Scaling>Enabled</Uncore_Frequency
+	pass 	
