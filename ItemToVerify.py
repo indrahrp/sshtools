@@ -88,8 +88,13 @@ def get_stage_ixgbefunc():
     print "checking stage ixgbe.conf"
     command= "cat /var/tmp/stgdir/ixgbe.conf|sort|grep -v ^# | cksum| awk '{print $2}'"
     #command="cat " +  stgdir + "ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'|sed 's/default_mtu *=//'| sed 's/ *//'"
-    return connection.run_Cmd(command)
-
+    
+    output=connection.run_Cmd(command)
+    if output=='0':
+		print "file staging does not exist"
+		return '1'
+    else:
+		return output
 
 def get_exist_ixgbefunc():
     
@@ -97,8 +102,13 @@ def get_exist_ixgbefunc():
     command= "cat /kernel/drv/ixgbe.conf|sort|grep -v ^#| cksum | awk '{print $2}'"
     
     #command="cat /kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'|sed 's/default_mtu *=//'| sed 's/ *//'"
-    return connection.run_Cmd(command)
-     
+    output=connection.run_Cmd(command)
+    if output=='0':
+    	print 'file on existing system does not exist'
+    	return '2'
+    else:
+    	return output
+    	
 item=Items('ixgbe',get_stage_ixgbefunc,finit,get_exist_ixgbefunc,finit)
 print "ixgbe.conf is the same as staging : " + str (item.getstagingvalue() == item.getexistvalue())
 
