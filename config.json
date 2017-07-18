@@ -27,7 +27,7 @@
 	 	   "user_pwd":"changeme"
 			},
 		  	"pln_prod": {
-            "server_dnscheck": "birdiez1", 
+            "server_dnscheck": "birdiex1", 
             "user_pwd": "changeme", 
             "user_sudocheck": "indrah"
         	}, 

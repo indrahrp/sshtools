@@ -564,9 +564,9 @@ def matching_pkgs():
          print "command to send :" + commandtosend 
          #output,errs=connection.run_Cmd_stderr(commandtosend)
 
-item=Items('matching_pkgs',finit,finit,finit,matching_pkgs)
+#item=Items('matching_pkgs',finit,finit,finit,matching_pkgs)
 #print "item is " +  str(item)
-print "pkg add is executing: " + str(item.get_verify())
+#print "pkg add is executing: " + str(item.get_verify())
 
 
 def verify_pkgs():
