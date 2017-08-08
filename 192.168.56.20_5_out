@@ -1,0 +1,121 @@
+======= Executing Item: Verify BIOS =======
+ getting BIOS setting
+run command : biosconfig -get_bios_settings > /var/tmp/biosconfig.txt
+stderr : 
+is not supported
+
+run command : ubiosconfig export all > /var/tmp/biosconfig.txt
+stderr : 
+
+run command : cat /var/tmp/biosconfig.txt
+stderr : 
+
+searching entry Turbo_mode : 
+turbo_mode :disabled
+
+
+searching entry Uncore_Frequency_Scaling : 
+Uncore Frequency : disabled
+
+
+searching Energy Performance 
+Energy Performance :performance
+
+
+searching hyperThreading : 
+exception ... StopIteration
+searching hyperThreading_ALL  : 
+hyperThreading_ALL: disabled
+
+
+
+
+Verifying OK => : None 
+
+
+finish
+======= Executing Item: Verify Sudo =======
+verifying sudo 
+ login using user  ravind
+('Connecting to server on ip', '192.168.56.20.')
+connection is done
+shell invoked
+inLast login: Tue Aug  8 16:12:30 2017 from 192.168.56.1
+-bash-4.1$ 
+
+
+====Session  Output of command  sudo -l=====  
+
+sudo -l
+Password: 
+
+
+output send cmdtoshell sudo -l
+Password: 
+
+
+====Session  Output of command  welcome1=====  
+
+
+User ravind may run the following commands on sol2:
+    (ALL) ALL
+-bash-4.1$ 
+
+
+output after sending password 
+User ravind may run the following commands on sol2:
+    (ALL) ALL
+-bash-4.1$ 
+
+
+Verifying OK => : True 
+
+
+finish
+======= Executing Item: Verify Psrinfo =======
+checking  existing sd.conf
+run command : psrinfo |wc -l
+stderr : 
+
+stdout : 
+       1
+
+checking stage sd.conf 
+run command : cat /var/tmp/pkgbck/psrinfo|wc -l
+stderr : 
+
+stdout : 
+       1
+
+
+
+Verifying OK => : True 
+
+
+finish
+======= Executing Item: Verify DNS cache =======
+ verifying DNS for environment test_env and server_dnsip 198.105.244.114
+environment test_env
+run command : nslookup 198.105.244.114
+stderr : 
+
+stdout : 
+Server:		10.0.2.3
+Address:	10.0.2.3#53
+
+** server can't find 114.244.105.198.in-addr.arpa: NXDOMAIN
+
+
+environment test_env
+dns outputServer:		10.0.2.3
+Address:	10.0.2.3#53
+
+** server can't find 114.244.105.198.in-addr.arpa: NXDOMAIN
+
+
+
+
+Verifying OK => : False 
+
+
+finish

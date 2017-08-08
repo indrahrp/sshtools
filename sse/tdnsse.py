@@ -5,14 +5,14 @@ Created on Mar 7, 2017
 
 @author: uc205955
 '''
-from SshApi3 import *
-import time,re,os,json,xml.etree.ElementTree,sys
+from SshApi2 import *
+import time,re,os,json,xml.etree.ElementTree
 from scp import SCPClient
 from paramiko import SSHClient,client
+
     
 
-
-def finit(self):
+def finit():
     print "in finit"
     return "nothing"
 
@@ -22,61 +22,57 @@ class Items(object):
     '''
 
 
-    def __init__(self, name):
+    def __init__(self, item_to_verify,getstagefunc=finit,getprodfunc=finit,getexistfunc=finit,verifyfunc=finit):
         '''
         Constructor
         '''
-        self.name=name
-    def check_staging(self):
+        self.item_to_verify=item_to_verify
+        self.item_staging_value=getstagefunc
+        self.item_prod_value=getprodfunc
+        self.item_existing_value=getexistfunc
+        self.item_verify_func=verifyfunc
+        #self.getstagefunc=getstagefunc
+        #self.getprodfunc=getprodfunc
+        
+    def isthesame(self):
         pass
     
-    def check_prod(self):
-        pass
+    def getstagingvalue(self):
+        return self.item_staging_value()
+        #pass
     
-    def check_existing(self):
-        pass
-    
-    def verify(self):
-        pass
+    def getprodvalue(self):
+        return self.item_prod_value()
+ 
+    def getexistvalue(self):
+        return self.item_existing_value()
+ 
+    def get_verify(self):
+        return self.item_verify_func()
     
     def __str__(self):
-        return "Item: " + self.name
-
-
+        return "item "+ self.item_to_verify + " item staging " + str(self.item_staging_value())+ " item existing value " + str(self.item_existing_value)
 
 
 with open('config.json') as json_data_file:
-    datalib = json.load(json_data_file)
+    data = json.load(json_data_file)
 
-print json.dumps(datalib, indent=4, sort_keys=True)
+print json.dumps(data, indent=4, sort_keys=True)
+print "hostinfo host " + data["hostinfo"]["platform"]
 
-sshServer=None
-sshUsername=None
-sshPassword=None
-stgdir=None
-bckdir=None#connection = Ssh(sshServer, sshUsername, sshPassword)
-connection=None
-zone=None
-env_lang=None
-env_tz_localtime=None
-env_tz=None
-server_env=None
-platform=None
-server_dnsip=None
-pkgdirplatf=None
-sudouser=None
-sudouserpwd=None
-#datalib["other"][server_env]["user_sudocheck"]
-    
-#sshUsername= datalib["other"][server_env]["user_sudocheck"]
-#sshPassword= datalib["other"][server_env]["user_pwd"]
-#pkgdir=datalib["other"]["platform"][platform]
-#server_dnsip=data["other"][server_env]["server_dnsip"]
+sshServer=data["hostinfo"]["host"]
+sshUsername=data["hostinfo"]["user"]
 
+sshPassword=os.environ['SECRET']
+print "pwd is "+ sshPassword
 
-
+stgdir=data["hostinfo"]["stgdir"]
+zone=data["hostinfo"]["zonetype"]
 
 #connection = Ssh(sshServer, sshUsername, sshPassword)
+connection = ''
+
+
 
 
     
@@ -86,9 +82,10 @@ def ReadFromFile(Filename):
     result=readfile.read()
     return result
 
-    
+
+
         
-def get_stage_ixgbefunc(self):
+def get_stage_ixgbefunc():
     
     print "checking stage ixgbe.conf"
     command= "cat /var/tmp/stgdir/ixgbe.conf|sort|grep -v ^# | cksum| awk '{print $2}'"
@@ -101,7 +98,7 @@ def get_stage_ixgbefunc(self):
     else:
         return output
 
-def get_exist_ixgbefunc(self):
+def get_exist_ixgbefunc():
     
     print "checking existing ixgbe.conf "
     command= "cat /kernel/drv/ixgbe.conf|sort|grep -v ^#| cksum | awk '{print $2}'"
@@ -109,28 +106,24 @@ def get_exist_ixgbefunc(self):
     #command="cat /kernel/drv/ixgbe.conf|grep -i mtu|grep -iv ^#|grep 'default_mtu'|sed 's/default_mtu *=//'| sed 's/ *//'"
     output,error=connection.run_Cmd_stderr(command)
     if output.strip()=='0' and ' cannot open' in error:
-        print 'file ixgbe.conf on existing system does not exist'
+        print 'file ixgbe.conf on existing system does not efxist'
         return False
     else:
         return output
     
 def verify_ixgbe(self):
-    
-    if zone == 'local':
-        print "ixgbe.conf is not  in local zones"
+  
+    if self.getexistvalue() == self.getstagingvalue():
         return True
-    else:    
-        if self.check_existing() == self.check_staging():
-            return True
-        else:
-            return False
+    else:
+        return False
     
 #item=Items('ixgbe',get_stage_ixgbefunc,finit,get_exist_ixgbefunc,verify_ixgbe)
-#print "ixgbe.conf is the same as staging : " + str (item.get_verify()) 
+#print "ixgbe.conf is the same as staging : " + str (item.get_verify())
 
 
 
-def get_stage_system(self):
+def get_stage_system():
     print "check stage /etc/system"
     command="cat /var/tmp/stgdir/system|grep -v ^*|sort|grep -v ^$|cksum|awk '{print $2}'"
     output,error=connection.run_Cmd_stderr(command)
@@ -140,7 +133,7 @@ def get_stage_system(self):
     else:
         return output.strip()
 
-def get_exist_system(self):
+def get_exist_system():
     print "check existing /etc/system"
     command="cat /etc/system|grep -v ^*|sort|grep -v ^$|cksum | awk '{print $2}'"
     output,error=connection.run_Cmd_stderr(command)
@@ -151,7 +144,7 @@ def get_exist_system(self):
         return output.strip()
 def verify_system(self):
   
-    if self.check_existing() == self.check_staging():
+    if self.getexistvalue() == self.getstagingvalue():
         return True
     else:
         return False
@@ -159,7 +152,8 @@ def verify_system(self):
 #item=Items('system',get_stage_system,finit,get_exist_system,verify_system)
 #print "existing /etc/system is the same as staging : " +  str (item.get_verify())
 
-def get_stage_sd(self):
+
+def get_stage_sd():
     print "checking stage sd.conf "
     command="cat /var/tmp/stgdir/sd.conf|grep -v ^#|sort|grep -v ^$|cksum|awk '{print $2}'"
     output,error=connection.run_Cmd_stderr(command)
@@ -169,7 +163,7 @@ def get_stage_sd(self):
     else:
         return output.strip()
 
-def get_exist_sd(self):
+def get_exist_sd():
     print "checking  existing sd.conf"
     command="cat /kernel/drv/sd.conf|grep -v ^#|sort|grep -v ^$|cksum | awk '{print $2}'"
     output,error=connection.run_Cmd_stderr(command)
@@ -179,10 +173,8 @@ def get_exist_sd(self):
     else:
         return output.strip()
 def verify_sd(self):
-    if zone == 'local':
-        print "sd.conf is not in local zone"
-        return True
-    if self.check_existing() == self.check_staging():
+  
+    if item.getexistvalue() == item.getstagingvalue():
         return True
     else:
         return False
@@ -192,8 +184,7 @@ def verify_sd(self):
 
 
 
-
-def get_stage_ndd(self):
+def get_stage_ndd():
     print "checking stage /etc/rc2.d/S68ndd "
     command="cat " +  stgdir + "S68ndd|egrep -vi '(^#|^$)'|sort | awk '{print $5}' |cksum|awk '{print $2}'"
     #connection.run_Cmd(command)
@@ -204,7 +195,7 @@ def get_stage_ndd(self):
     else:
         return output.strip()
     
-def get_exist_ndd(self):
+def get_exist_ndd():
     print "checking  existing /etc/rc2.d/S68ndd and what it is on the memory "
     command="cat /etc/rc2.d/S68ndd |sort|grep -v '^#'|grep -v '^$'|awk '{print $5}'|cksum|awk '{print $2}'"
     output,error=connection.run_Cmd_stderr(command)
@@ -218,20 +209,15 @@ def get_exist_ndd(self):
     else:
         print "Existing /etc/rc2.d/S68ndd needs to be executed"
         return 0
-    
-    
-def verify_ndd(self):
-  
-    if self.check_existing() == self.check_staging():
-        return True
-    else:
-        return False
 
 #item=Items('S68ndd',get_stage_ndd,finit,get_exist_ndd,finit)
 #print "existing /etc/rc2.d/S68ndd is the same as staging : " +  str (item.getstagingvalue() == item.getexistvalue())
 
 
-def get_prod_mtu(self):
+
+
+
+def get_prod_mtu():
     print "getting previous prod mtu"
     command='cat /var/tmp/pkgbck/netstatii'
     fentry=connection.run_Cmd(command)
@@ -239,7 +225,7 @@ def get_prod_mtu(self):
     print "mtulist " + str(mtulist)
     return mtulist
 
-def get_exist_mtu(self):
+def get_exist_mtu():
     print "getting current server mtu"
     command="netstat -i | grep -i " + sshServer
     time.sleep(3)
@@ -248,9 +234,9 @@ def get_exist_mtu(self):
     print "mtulist " + str(mtulist)
     return mtulist
 
-def verify_mtu(self):
-    mtuprod=self.check_prod()
-    mtuexisting=self.check_existing()
+def verify_mtu():
+    mtuprod=item.getprodvalue()
+    mtuexisting=item.getexistvalue()
     intnotmatch=[]
     for idx,value in mtuexisting.items():
         if mtuexisting[idx][1] != mtuprod[idx][1]:
@@ -276,28 +262,31 @@ def find_mtu(str1,svrname,domain):
 
 
     
+#item=Items('mtu',finit,get_prod_mtu,get_exist_mtu,verify_mtu)
+#print "List of interface which mtu are not matched with previous : " + str(item.item_verify_func())
 
-def verify_lang(self):
+
+def verify_lang():
     command="svccfg -s svc:/system/environment:init listprop environment/LANG|awk '{print $3}'"
     entry=connection.run_Cmd(command)
-    return (entry.strip() == env_lang)
+    return (entry.strip() == data["env"]["lang"])
     
 
 #item=Items('lang',finit,finit,finit,verify_lang)
 #print "Lang is matched with Staging : " + str(item.item_verify_func())
 
-def verify_tz_localtime(self):
+def verify_tz_localtime():
     command="svccfg -s svc:/system/timezone:default listprop timezone/localtime|awk '{print $3}'"
     entry=connection.run_Cmd(command)
     print "entry " + entry
-    return (entry.strip() == env_tz_localtime)
+    return (entry.strip() == data["env"]["tz_localtime"])
 
 #item=Items('Timezone/localtime',finit,finit,finit,verify_tz_localtime)
 #print "Timezone/localtime  is matched with staging :  " + str(item.item_verify_func())
 
 
-def verify_env_tz(self):
-    #print "env_tz "+ datalib["env"]["env_tz"]
+def verify_env_tz():
+    #print "env_tz "+ data["env"]["env_tz"]
     command1="svccfg -s system/environment:init listprop environment/TZ| awk '{print $3}'"
     entry1=connection.run_Cmd(command1)
     command2="cat /etc/TIMEZONE |grep LANG|awk -F= '{print $2}'"
@@ -305,13 +294,13 @@ def verify_env_tz(self):
     command3="cat /etc/TIMEZONE |grep TZ|awk -F= '{print $2}'"
     entry3=connection.run_Cmd(command3)
     print "entry " + entry1
-    return (entry1.strip() == env_tz and entry2.strip() == env_lang and entry3.strip() == env_tz )
+    return (entry1.strip() == data["env"]["env_tz"] and entry2.strip() == data["env"]["lang"] and entry3.strip() == data["env"]["env_tz"] )
 
 #item=Items('environment/timezone',finit,finit,finit,verify_env_tz)
 
 #print "Environment/Timezone is matched with staging :  " + str(item.item_verify_func())
 
-def verify_bps(self):
+def verify_bps():
     print "veryfying bps.sh "
     command="(rm /var/tmp/bps.log;/bps.sh)"
     output,errs=connection.run_Cmd_stderr(command)
@@ -325,10 +314,8 @@ def verify_bps(self):
 
 
 
-def verify_profile(self):
+def verify_profile():
     #print "env_tz "+ itemlist['env_tz'][0]
-    print "ssh server " + sshServer
-    raw_input("enter ")
     command1="cksum /etc/profile | awk '{print $2}'"
     entry1=connection.run_Cmd(command1)
     print "entry " + entry1
@@ -347,7 +334,7 @@ def verify_profile(self):
 
 #print "/etc/profile and /etc/profile.d/* matched the previous OS :  " + str(item.item_verify_func())
 
-def verify_prodeng(self):
+def verify_prodeng():
     command1="cksum /etc/prodeng.conf | awk '{print $2}'"
     entry1=connection.run_Cmd(command1)
     print "entry " + entry1
@@ -361,7 +348,7 @@ def verify_prodeng(self):
 #print "/etc/prodeng.conf matched the previous OS :  " + str(item.item_verify_func())
 
 
-def verify_zephyr(self):
+def verify_zephyr():
     #print "env_tz "+ itemlist['env_tz'][0]
     command1="cksum /etc/zephyr.servers | awk '{print $2}'"
     entry1=connection.run_Cmd(command1)
@@ -376,7 +363,7 @@ def verify_zephyr(self):
     
 
 
-def verify_email(self):
+def verify_email():
     #print "env_tz "+ itemlist['env_tz'][0]
     connection.openShell()
     output=connection.cmdtoShell('mailx indra.harahap@thomsonreuters.com')
@@ -396,7 +383,7 @@ def verify_email(self):
 
 #print "mailx is successfully sent (check also your inbox) :  " + str(item.item_verify_func())
 
-def verify_etcgateways(self):
+def verify_etcgateways():
     command1="cksum /etc/gateways| awk '{print $2}'"
     entry1=connection.run_Cmd(command1)
     print "entry " + entry1
@@ -409,23 +396,14 @@ def verify_etcgateways(self):
 
 #print "/etc/gateways matched the previous OS :  " + str(item.item_verify_func())
 
-def verify_dns(self):
-    #server_dnsip=datalib["other"][server_env]["server_dnsip"]
+def verify_dns():
     
-    
-    print " verifying DNS for environment "+ server_env + " and server_dnsip " + server_dnsip
-    
+    print " verifying DNS"
     #command="nslookup birdiex1.gtdl.tdn.pln.ilx.com"
-    print "environment " + server_env
-    #command="nslookup " + datalib["other"][server_env]["server_dnscheck"]
-    command="nslookup " + server_dnsip
+    command="nslookup " + data["other"][data["hostinfo"]["server_env"]]["server_dnscheck"]
     output,errs=connection.run_Cmd_stderr(command)
-    print "environment " + server_env
-    print "dns output" + output 
-    
-    if '127.0.0.1' in output and server_dnsip in output:
-    #if '198.105.244.114' in output and server_dnsip in output:
-    
+    print "dns output" + output
+    if '127.0.0.1' in output and '10.186.7.5' in output:
         return True
     else:   
         return False
@@ -434,7 +412,7 @@ def verify_dns(self):
 #item=Items('DNS',finit,finit,finit,verify_dns)
 #print "DNS cache is  working : " + str(item.get_verify())
 
-def verify_var_tmp(self):
+def verify_var_tmp():
     
     print " verifying permission /var/tmp"
     command="ls -ltrd /var/tmp/"
@@ -449,7 +427,7 @@ def verify_var_tmp(self):
 #item=Items('var_tmp',finit,finit,finit,verify_var_tmp)
 #print "/var/tmp/ permission is correct: " + str(item.get_verify())
 
-def verify_ftp(self):
+def verify_ftp():
     
     print " verifying ftp enabled"
     command="svcs -a|grep network/ftp"
@@ -465,7 +443,7 @@ def verify_ftp(self):
 #print "FTP service   is  enabled: " + str(item.get_verify())
 
 
-def verify_ntp(self):
+def verify_ntp():
     
     print " verifying ntp"
     command="xntpdc -c peers"
@@ -476,7 +454,7 @@ def verify_ntp(self):
     elif  zone=='global' and 'remote' in output:
         return True
     else:
-        return False
+    	return False
        
 
 #item=Items('ntp',finit,finit,finit,verify_ntp)
@@ -486,7 +464,7 @@ def verify_ntp(self):
 
 
 
-def verify_sysadmin(self):
+def verify_sysadmin():
     print "verifying /etc/sysadmin/host and services soft links :"
     Flag=True
     command="ls -l /etc/hosts"
@@ -517,13 +495,13 @@ def verify_sysadmin(self):
         print "soft link /etc/inet/services -> /etc/sysadmin/services  is  not created"
         Flag=False  
     
-    command="cat /etc/hosts|head -2"
+    command="cat /etc/hosts"
     output=connection.run_Cmd(command) 
     if 'can not open'  in output:
         print "cat /etc/hosts can not open , soft link is messed up"
         Flag=False
         
-    command="cat /etc/services|head -2"
+    command="cat /etc/services"
     output=connection.run_Cmd(command)
     if 'can not open'   in output:
         print "cat /etc/services  can not open , soft link is messed up"
@@ -557,7 +535,7 @@ def find_pkgtoadd(diffe):
                     pkgtoadd.append('/usr/pkg/sbin/pkg_add ' + pkg) 
     return pkgtoadd    
 
-def matching_pkgs(self):
+def matching_pkgs():
     print " getting pkg difference ..."
     command="/usr/pkg/sbin/pkg_info| awk '{print $1}' | sort > /tmp/pkgexisting.txt"
     connection = Ssh(sshServer, sshUsername, sshPassword)
@@ -577,8 +555,7 @@ def matching_pkgs(self):
     print "pkgtoadd list " + str(pkgtoadd) 
 
     print "run pkg_add command ..."
-    #pkgdir=datalib["other"]["platform"][platform]
-    pkgdir=pkgdirplatf
+    pkgdir=data["other"]["platform"][data["hostinfo"]["platform"]]
     print "pkgdir " + pkgdir
     for command in pkgtoadd:
          commandtosend="(cd " + pkgdir + ";" + command + ")"
@@ -590,7 +567,7 @@ def matching_pkgs(self):
 #print "pkg add is executing: " + str(item.get_verify())
 
 
-def verify_pkgs(self):
+def verify_pkgs():
     #print "env_tz "+ itemlist['env_tz'][0]
     command1="/usr/pkg/sbin/pkg_info | awk '{print $1}'| sort > /tmp/pkgexist.txt "
     entry1=connection.run_Cmd(command1)
@@ -608,45 +585,40 @@ def verify_pkgs(self):
 
 
 
-def verify_multiscaling(self):
+def verify_multiscaling():
     
     print " verifying multi cast scaling configuration "
     command="pkg list entire"
     output,errs=connection.run_Cmd_stderr(command)
     if '0.5.11-0.175.3.20' in output:
-         command="grep -i " + sshServer+ " /etc/hosts |egrep -i '(arbi|fundist)'"
-         output,errs=connection.run_Cmd_stderr(command)    
-         if 'arbi' in output or 'fundist' in output:
-            command="ipadm show-prop -p _recv_multicast_scaling ip|grep -v PROTO|awk '{print $4}'"
-            output,errs=connection.run_Cmd_stderr(command)
-            if 'cannot get property' in output:
-                print "multicast scaling is not supported"
-                return True
-            else:
-                if output.strip()=="1":
-                    print "multiscaling has been configured"
-                    return True
-                else:
-                    print "Multiscaling property is required to be configured, please set it correctly"
-                    return False
-         else:
-            print "It does not have arbi or fundist network"
-            return True
+    	 command="grep -i " + sshServer+ " /etc/hosts |egrep -i (arbi|fundist)"
+    	 output,errs=connection.run_Cmd_stderr(command)	
+    	 if 'arbi' in output or 'fundist' in output:
+    	 	command="ipadm show-prop -p _recv_multicast_scaling ip|grep -v PROTO|awk '{print $4}'"
+    		output,errs=connection.run_Cmd_stderr(command)
+    		if 'cannot get property' in output:
+    			print "multicast scaling is not supported"
+    			return True
+    		else:
+    			if output.strip()=="1":
+    				print "multiscaling has been configured"
+    				return True
+    			else:
+    				print "Multiscaling property is required to be configured, please set it correctly"
+    				return False
+    	 else:
+    		print "It does not have arbi or fundist network"
+    		return True
     else:
-        print "pre SRU 20 multiscaling is not required"
-        return True
+    	print "pre SRU 20 multiscaling is not required"
+    	return True
 
 #item=Items('multiscaling',finit,finit,finit,verify_multiscaling)
 #print "multicscaling  is  configured correctly: " + str(item.get_verify())
 
-def verify_poweradm(self):
+def verify_poweradm():
     
     print " verifying poweradm configuration "
-    
-    
-    if zone == 'local':
-        print "poweradm show is not required in local zone"
-        return True
     #root@sol2:~# poweradm show
     #Power management is disabled with the Solaris instance as the authority
     
@@ -663,19 +635,9 @@ def verify_poweradm(self):
     
 
 
-
-
-
-
-
-
-
-
-
-
 def find_bios(biosfile,biosconfig=True):
     
-    e = xml.etree.ElementTree.fromstring(biosfile.lower()) 
+    e = xml.etree.ElementTree.fromstring(biosfile) 
     if biosconfig:
         #e = xml.etree.ElementTree.fromstring(biosfile)
         hyperthread_iter=e.iter('Intel_R__HT_Technology').next()
@@ -687,58 +649,41 @@ def find_bios(biosfile,biosconfig=True):
         else:
             return False
     else:
-        try:
-            print "searching entry Turbo_mode : "
-            turbo_mode=e.iter(('Turbo_Mode').lower()).next()
-            print "turbo_mode :" + turbo_mode.text + "\n\n"
-            
-            print "searching entry Uncore_Frequency_Scaling : "
-            UncoreFreq=e.iter(('Uncore_Frequency_Scaling').lower()).next()
-            print "Uncore Frequency : " + UncoreFreq.text + "\n\n"
+        turbo_mode=e.iter('Turbo_Mode').next()
+        print "turbo_mode :" + turbo_mode.text
+        
+        UncoreFreq=e.iter('Uncore_Frequency_Scaling').next()
+        print "Uncore Frequency : " + UncoreFreq.text
 
-            print "searching Energy Performance "
-            EnergyPerf=e.iter(('Energy_Performance').lower()).next()
-            print "Energy Performance :" + EnergyPerf.text + "\n\n"
+        EnergyPerf=e.iter('Energy_Performance').next()
+        print "Energy Performance " + EnergyPerf.text
 
-            print "searching hyperThreading : "
-            hyperThread=e.iter(('Hyper-threading').lower()).next()
-            print "hyperThreading : " + hyperThread.text + "\n\n"
-            if (turbo_mode.text.strip() == 'Enabled' and UncoreFreq.text.strip() == 'Enabled' and EnergyPerf.text.strip() == 'Performance' and hyperThread.text.strip() == 'Enabled'):
-                return True
-            else:
-                return False
-        except StopIteration:
-            print "exception ... StopIteration"
-            #if not hyperThread:
-            print "searching hyperThreading_ALL  : "
-            hyperThread=e.iter(('Hyper-threading_ALL').lower()).next()
-            print "hyperThreading_ALL: " + hyperThread.text + "\n\n"
-                
-            
+        hyperThread=e.iter('Hyper-threading').next()
+        print "hyperThreading : " + hyperThread.text
+        if (turbo_mode.text.strip() == 'Enabled' and UncoreFreq.text.strip() == 'Enabled' and EnergyPerf.text.strip() == 'Performance' and hyperThread.text.strip() == 'Enabled'):
+            return True
+        else:
+            return False
+  
     
    
          
 
-def verify_bios(self):
-    
-    if zone == 'local':
-        print "Verifying NTP not required on Local zone "
-        return True
-    else:
-        bios=True
-        print " getting BIOS setting"
-        #connection = Ssh(sshServer, sshUsername, sshPassword)
-        command="biosconfig -get_bios_settings > /var/tmp/biosconfig.txt"
-        output,errs=connection.run_Cmd_stderr1(command)
+def verify_bios():
+    bios=True
+    print " getting BIOS setting"
+    connection = Ssh(sshServer, sshUsername, sshPassword)
+    command="biosconfig -get_bios_settings > /var/tmp/biosconfig.txt"
+    output,errs=connection.run_Cmd_stderr1(command)
     #print "bisoconfig  output" + output
-        if 'is not supported' in errs:
-            bios=False
-            command="ubiosconfig export all > /var/tmp/biosconfig.txt"
-            output,errs=connection.run_Cmd_stderr1(command)
+    if 'is not supported' in errs:
+        bios=False
+        command="ubiosconfig export all > /var/tmp/biosconfig.txt"
+        output,errs=connection.run_Cmd_stderr1(command)
         #print "ubisoconfig  output" + output
-            if 'is not supported' in errs:
-                print "biosconfig and ubiosconfig is not supported"
-                return "Unable to Determine"
+        if 'is not supported' in errs:
+            print "biosconfig and ubiosconfig is not supported"
+            return "Unable to Determine"
     
     command="cat /var/tmp/biosconfig.txt"
     output,errs=connection.run_Cmd_stderr1(command)
@@ -747,17 +692,12 @@ def verify_bios(self):
 #item=Items('bios_setting',finit,finit,finit,verify_bios)
 #print "bios_setting is correct: " + str(item.get_verify())
 
-def verify_sudo(self):
-    #print "verifying sudo \n login using user  " +  datalib["other"][server_env]["user_sudocheck"]
-    print "verifying sudo \n login using user  " + sudouser
+def verify_sudo():
+    print "verifying sudo \n login using user  " +  data["other"][data["hostinfo"]["server_env"]]["user_sudocheck"]
     
-    sshUsername= sudouser
-    #sshUsername= datalib["other"][server_env]["user_sudocheck"]
-    
-    sshPassword= sudouserpwd
-    #sshPassword= datalib["other"][server_env]["user_pwd"]
+    sshUsername= data["other"][data["hostinfo"]["server_env"]]["user_sudocheck"]
+    sshPassword= data["other"][data["hostinfo"]["server_env"]]["user_pwd"]
     connection1 = Ssh(sshServer, sshUsername, sshPassword)
-    connection1.openConn()
     connection1.openShellsudo()
     #output=connection1.cmdtoShell('\n\n')
     output=connection1.cmdtoShell('sudo -l')
@@ -832,56 +772,4 @@ def install_monet():
     # return output.strip()
 
 #install_monet()
-
-
-def get_fname(dirnm,svrname):
-    #dirnm=os.path.dirname(sys.argv[0])    
-    print dirnm
-    lst=os.listdir(dirnm)
-    print lst 
-    if_fname=lambda fname: fname if fname.startswith(svrname) else None 
-    flist=list(map(if_fname,lst))
-    flname=lambda fname: fname.split('_')[1]
-    fno=[ flname(fname)  for fname in flist if fname is not None]
-
-    print fno
-    fnbr=[ int(fn) for fn in fno]
-
-    if not fnbr or fnbr==0:
-        flog=svrname + '_0_out'
-    else:   
-        flog=svrname + '_' + str(max(fnbr) + 1) + '_out'
-
-    print flog
-    fwr=open(flog,'w+')
-    return fwr
-
-def get_prod_psrinfo(self):
-    print "checking previous production psrinfo"
-    command="cat /var/tmp/pkgbck/psrinfo|wc -l"
-    output,error=connection.run_Cmd_stderr(command)
-    if output.strip()=='0' and ' cannot open' in error:
-        print 'file psrinfo on production does not exist'
-        return False
-    else:
-        return output.strip()
-
-def get_exist_psrinfo(self):
-    print "checking  existing sd.conf"
-    command="psrinfo |wc -l"
-    output,error=connection.run_Cmd_stderr(command)
-    if output.strip()=='0' and ' cannot open' in error:
-        print 'psrinfo  on existing system does not exist'
-        return False
-    else:
-        return output.strip()
     
-def verify_psrinfo(self):
-  
-    if self.check_existing() == self.check_prod():
-        return True
-    else:
-        return False
-    
-        #fwr.write('test')
-        
