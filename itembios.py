@@ -136,7 +136,7 @@ def get_stage_system(self):
     output,error=connection.run_Cmd_stderr(command)
     if output.strip()=='0' and ' cannot open' in error:
         print 'file /etc/system on staging does not exist'
-        return False
+        return -1
     else:
         return output.strip()
 
@@ -146,11 +146,11 @@ def get_exist_system(self):
     output,error=connection.run_Cmd_stderr(command)
     if output.strip()=='0' and ' cannot open' in error:
         print 'file /etc/system on existing system does not exist'
-        return False
+        return -2
     else:
         return output.strip()
 def verify_system(self):
-  
+     
     if self.check_existing() == self.check_staging():
         return True
     else:
@@ -328,7 +328,7 @@ def verify_bps(self):
 def verify_profile(self):
     #print "env_tz "+ itemlist['env_tz'][0]
     print "ssh server " + sshServer
-    raw_input("enter ")
+    # raw_input("enter ")
     command1="cksum /etc/profile | awk '{print $2}'"
     entry1=connection.run_Cmd(command1)
     print "entry " + entry1
@@ -356,25 +356,20 @@ def verify_prodeng(self):
     
     return (entry1.strip() == entry2.strip())
 
-#item=Items('/etc/prodeng.conf',finit,finit,finit,verify_prodeng)
-
-#print "/etc/prodeng.conf matched the previous OS :  " + str(item.item_verify_func())
-
-
 def verify_zephyr(self):
-    #print "env_tz "+ itemlist['env_tz'][0]
     command1="cksum /etc/zephyr.servers | awk '{print $2}'"
-    entry1=connection.run_Cmd(command1)
-    print "entry " + entry1
+    entry1,error=connection.run_Cmd_stderr(command1)
+    if 'No such file' in error:
+        print 'file /etc/zephyr does not exist'
+        entry1='-1'
+        
     command2="cksum /var/tmp/pkgbck/zephyr.servers | awk '{print $2}'" 
-    entry2=connection.run_Cmd(command2)
+    entry2,error=connection.run_Cmd_stderr(command2)
+    if 'No such file' in error:
+        print 'file /var/tmp/pkgbck/zephyr on backup does not exist'
+        entry2='-2'
+   
     return (entry1.strip() == entry2.strip())
-
-#item=Items('/etc/zephyr.servers',finit,finit,finit,verify_zephyr)
-
-#print "/etc/zephyr.servers matched the previous OS :  " + str(item.item_verify_func())
-    
-
 
 def verify_email(self):
     #print "env_tz "+ itemlist['env_tz'][0]
@@ -392,10 +387,6 @@ def verify_email(self):
     else:
         return False
     
-#item=Items('mailx',finit,finit,finit,verify_email)
-
-#print "mailx is successfully sent (check also your inbox) :  " + str(item.item_verify_func())
-
 def verify_etcgateways(self):
     command1="cksum /etc/gateways| awk '{print $2}'"
     entry1=connection.run_Cmd(command1)
@@ -405,19 +396,10 @@ def verify_etcgateways(self):
     
     return (entry1.strip() == entry2.strip())
 
-#item=Items('/etc/gateways',finit,finit,finit,verify_etcgateways)
-
-#print "/etc/gateways matched the previous OS :  " + str(item.item_verify_func())
-
 def verify_dns(self):
-    #server_dnsip=datalib["other"][server_env]["server_dnsip"]
-    
-    
+
     print " verifying DNS for environment "+ server_env + " and server_dnsip " + server_dnsip
-    
-    #command="nslookup birdiex1.gtdl.tdn.pln.ilx.com"
     print "environment " + server_env
-    #command="nslookup " + datalib["other"][server_env]["server_dnscheck"]
     command="nslookup " + server_dnsip
     output,errs=connection.run_Cmd_stderr(command)
     print "environment " + server_env
@@ -430,10 +412,6 @@ def verify_dns(self):
     else:   
         return False
 
-
-#item=Items('DNS',finit,finit,finit,verify_dns)
-#print "DNS cache is  working : " + str(item.get_verify())
-
 def verify_var_tmp(self):
     
     print " verifying permission /var/tmp"
@@ -445,10 +423,6 @@ def verify_var_tmp(self):
     else:   
         return False
 
-
-#item=Items('var_tmp',finit,finit,finit,verify_var_tmp)
-#print "/var/tmp/ permission is correct: " + str(item.get_verify())
-
 def verify_ftp(self):
     
     print " verifying ftp enabled"
@@ -459,11 +433,6 @@ def verify_ftp(self):
         return True
     else:   
         return False
-
-
-#item=Items('FTP',finit,finit,finit,verify_ftp)
-#print "FTP service   is  enabled: " + str(item.get_verify())
-
 
 def verify_ntp(self):
     
@@ -838,7 +807,7 @@ def get_fname(dirnm,svrname):
     #dirnm=os.path.dirname(sys.argv[0])    
     print dirnm
     lst=os.listdir(dirnm)
-    print lst 
+    #print lst 
     if_fname=lambda fname: fname if fname.startswith(svrname) else None 
     flist=list(map(if_fname,lst))
     flname=lambda fname: fname.split('_')[1]
