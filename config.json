@@ -1,4 +1,6 @@
 {
+    "megacli":"/opt/MegaRAID/CLI/MegaCli",
+    
     "other":{
         	"hzl_stage":{
             "server_dnscheck":"birdieq1",

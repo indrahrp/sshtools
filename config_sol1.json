@@ -20,133 +20,133 @@
             "check_prod":"finit",
             "check_existing":"get_exist_ixgbefunc",
             "verify":"verify_ixgbe",
-            "check_flag":"Y"
+            "check_flag":"N"
             },
 	    	"Verify /etc/system":{   
 	  	    "check_staging":"get_stage_system", 
             "check_prod":"finit",
             "check_existing":"get_exist_system",
             "verify":"verify_system",
-            "check_flag":"Y"
+            "check_flag":"N"
             },
 		  	"Verify /etc/rc2.d/S68ndd": {
 		  	"check_staging":"get_stage_ndd", 
             "check_prod":"finit",
             "check_existing":"get_exist_ndd",
             "verify":"verify_ndd",
-            "check_flag":"Y"
+            "check_flag":"N"
             }, 
           	"Verify /kernel/drv/sd.conf": {
           	"check_staging":"get_stage_sd", 
             "check_prod":"finit",
             "check_existing":"get_exist_sd",
             "verify":"verify_sd",
-            "check_flag":"Y"
+            "check_flag":"N"
             },
             "Verify MTU": {
           	"check_staging":"finit", 
             "check_prod":"get_prod_mtu",
             "check_existing":"get_exist_mtu",
             "verify":"verify_mtu",
-            "check_flag":"Y"
+            "check_flag":"N"
 	    	},
 	    	"Verify Language": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_lang",
-            "check_flag":"Y"
+            "check_flag":"N"
             },
             "Verify Timezone Localtime": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_tz_localtime",
-            "check_flag":"Y"
+            "check_flag":"N"
             },		
            "Verify Bps": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_bps",
-            "check_flag":"Y"            
+            "check_flag":"N"            
            },
             "Verify BIOS": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_bios",
-            "check_flag":"Y"
+            "check_flag":"N"
             },
             "Verify /etc/profile": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_profile",
-            "check_flag":"Y"
+            "check_flag":"N"
             },
             "Verify /etc/prod.eng": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_prodeng",
-            "check_flag":"Y"
+            "check_flag":"N"
             },
             "Verify /etc/zephyr": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_zephyr",
-            "check_flag":"Y"
+            "check_flag":"N"
             },
             "Verify email is working": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_email",
-            "check_flag":"Y"
+            "check_flag":"N"
             },
             "Verify /etc/gateways": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_etcgateways",
-            "check_flag":"Y"
+            "check_flag":"N"
             },
             "Verify DNS cache": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_dns",
-            "check_flag":"Y"
+            "check_flag":"N"
             },
             "Verify /var/tmp permission": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_var_tmp",
-            "check_flag":"Y"
+            "check_flag":"N"
             },
             "Verify FTP service is online": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_ftp",
-            "check_flag":"Y"            
+            "check_flag":"N"            
            },
             "Verify /etc/sysadmin Softlink": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_sysadmin",
-            "check_flag":"Y"            
+            "check_flag":"N"            
            },
            "Verify /usr/pkgs in Sync with Staging": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_pkgs",
-            "check_flag":"Y"            
+            "check_flag":"N"            
            },
            "Install Missing /usr/pkg": {
           	"check_staging":"finit", 
@@ -160,14 +160,14 @@
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_poweradm",
-            "check_flag":"Y"            
+            "check_flag":"N"            
            },
            "Verify IP Multicast Scaling": {
           	"check_staging":"finit", 
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_multiscaling",
-            "check_flag":"Y"            
+            "check_flag":"N"            
            },
             "Verify Sudo": {
           	"check_staging":"finit", 
@@ -181,6 +181,20 @@
             "check_prod":"get_prod_psrinfo",
             "check_existing":"get_exist_psrinfo",
             "verify":"verify_psrinfo",
+            "check_flag":"N"            
+           },
+           "Verify LSI-WriteBack": {
+          	"check_staging":"finit", 
+            "check_prod":"finit",
+            "check_existing":"finit",
+            "verify":"verify_writeback",
+            "check_flag":"N"            
+           },
+            "Verify Java-Policy": {
+          	"check_staging":"finit", 
+            "check_prod":"finit",
+            "check_existing":"finit",
+            "verify":"verify_javapolicy",
             "check_flag":"Y"            
            },
             "Verify NTP": {
@@ -188,7 +202,7 @@
             "check_prod":"finit",
             "check_existing":"finit",
             "verify":"verify_ntp",
-            "check_flag":"Y"            
+            "check_flag":"N"            
            },
             "Install Procmon": {
           	"check_staging":"finit", 

@@ -9,6 +9,7 @@ from SshApi3 import *
 import time,re,os,json,xml.etree.ElementTree,sys
 from scp import SCPClient
 from paramiko import SSHClient,client
+#from check_install import item
     
 
 
@@ -66,7 +67,11 @@ server_dnsip=None
 pkgdirplatf=None
 sudouser=None
 sudouserpwd=None
-#datalib["other"][server_env]["user_sudocheck"]
+
+
+
+
+megacli=datalib["megacli"]
     
 #sshUsername= datalib["other"][server_env]["user_sudocheck"]
 #sshPassword= datalib["other"][server_env]["user_pwd"]
@@ -851,6 +856,59 @@ def verify_psrinfo(self):
         return True
     else:
         return False
+
+def verify_javapolicy(self):
+    flag={}
+    flagtot=True
+    print "checking  java.policy"
+    print "finding java.policy under /usr directory "
+    command="find /usr/ -name 'java.policy'"
+    output,error=connection.run_Cmd_stderr(command)
+    if 'java.policy' in output:
+        files=output.split('\n')
+        jpol_files=[file for file in files if file ]
+        print "found java.policy in " + str(jpol_files)
+        
+        for jpol in jpol_files:    
+            command="cat " + jpol + "|grep -i 1527"
+            output,error=connection.run_Cmd_stderr(command)
+            # if 'cannot open' in error:
+            #   print 'error opening ' + jpol
+               
+                
+            if 'listen' in output.strip():
+                flag[jpol]=True
+                
+            else:
+                flag[jpol]=False
+    for flkey,item in flag.items():
+        flagtot=flagtot & item
+        
+    #print "flagto " + str(flagtot)
+    return flagtot
+
+
+def verify_pwd_root_isnotabc(self):
+    print "checking root password is not abc .. "
+    
+    
+def verify_root_from_boxer(self):
+    print "checking root login from boxer .."
+    
+def verify_writeback(self):
+    print "checking raid write back cache setting .."
+    command=megacli + " -LdPdInfo -aAll | grep -i 'Current Cache Policy'|wc -l "
+    output,error=connection.run_Cmd_stderr(command)
+    if  int(output.rstrip()) > 0:
+        command=megacli + " -LdPdInfo -aAll |grep -i 'Current Cache Policy'|grep -iv 'WriteBack'|wc -l"
+        output,error=connection.run_Cmd_stderr(command)
+        if int(output.rstrip()) == 0: 
+            return True
+        else:
+            return False
+    else:
+        return False
+    
     
         #fwr.write('test')
         
